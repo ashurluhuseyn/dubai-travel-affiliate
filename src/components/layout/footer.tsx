@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Mail, MapPin, Share2 } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
+import { Logo } from "@/components/shared/logo";
 import { Separator } from "@/components/ui/separator";
-import { footerLinks } from "@/lib/data/home";
+import { footerSections } from "@/data";
 import { siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -12,16 +13,10 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-luxury-charcoal">
       <Container className="py-section">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
-            <Link
-              href="/"
-              className="font-heading text-2xl text-foreground md:text-3xl"
-            >
-              {siteConfig.name.split(" ")[0]}
-              <span className="text-luxury-gold"> Luxe</span>
-            </Link>
-            <p className="mt-4 max-w-md text-muted-foreground">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div>
+            <Logo />
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               {siteConfig.description}
             </p>
             <div className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
@@ -39,37 +34,23 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="label-luxury mb-4">Explore</h3>
-            <ul className="space-y-3">
-              {footerLinks.explore.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-luxury hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="label-luxury mb-4">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-luxury hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h3 className="label-luxury mb-4">{section.title}</h3>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-luxury hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <Separator className="my-10 bg-border" />
@@ -80,7 +61,7 @@ export function Footer() {
           </p>
           <a
             href="#"
-            aria-label="Social media"
+            aria-label="Share"
             className="text-muted-foreground transition-luxury hover:text-luxury-gold"
           >
             <Share2 className="size-5" />

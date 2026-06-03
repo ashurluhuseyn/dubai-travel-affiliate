@@ -1,23 +1,29 @@
-import { BlogPreview } from "@/components/home/blog-preview";
-import { FeaturedDestinations } from "@/components/home/featured-destinations";
+import { AiTripPlanner } from "@/components/home/ai-trip-planner";
+import { CategoryExplorer } from "@/components/home/category-explorer";
+import { CtaSection } from "@/components/home/cta-section";
 import { HeroSection } from "@/components/home/hero-section";
-import { LuxuryHotels } from "@/components/home/luxury-hotels";
-import { NightlifeSection } from "@/components/home/nightlife-section";
-import { ToursSection } from "@/components/home/tours-section";
+import { HiddenGems } from "@/components/home/hidden-gems";
+import { LatestGuides } from "@/components/home/latest-guides";
+import { LuxuryLifestyle } from "@/components/home/luxury-lifestyle";
+import { TravelerStories } from "@/components/home/traveler-stories";
+import { TrendingExperiences } from "@/components/home/trending-experiences";
 import { Footer } from "@/components/layout/footer";
-import { Navbar } from "@/components/layout/navbar";
+import { Header } from "@/components/layout/header";
 
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <Header />
       <main>
         <HeroSection />
-        <FeaturedDestinations />
-        <LuxuryHotels />
-        <ToursSection />
-        <NightlifeSection />
-        <BlogPreview />
+        <TrendingExperiences />
+        <CategoryExplorer />
+        <AiTripPlanner />
+        <HiddenGems />
+        <LuxuryLifestyle />
+        <TravelerStories />
+        <LatestGuides />
+        <CtaSection />
       </main>
       <Footer />
     </>

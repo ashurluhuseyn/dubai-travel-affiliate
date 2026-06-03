@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Container } from "@/components/shared/container";
+import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,11 +14,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks } from "@/lib/data/home";
-import { siteConfig } from "@/lib/site";
+import { navLinks } from "@/data";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -29,22 +29,16 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-luxury",
-        scrolled
-          ? "border-b border-border/80 bg-luxury-black/80 py-3 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent py-5"
-      )}
-    >
-      <Container className="flex items-center justify-between gap-4">
-        <Link
-          href="/"
-          className="font-heading text-xl tracking-wide text-foreground transition-luxury hover:text-luxury-gold md:text-2xl"
-        >
-          {siteConfig.name.split(" ")[0]}
-          <span className="text-luxury-gold"> Luxe</span>
-        </Link>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
+      <Container
+        className={cn(
+          "flex items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-luxury sm:px-6",
+          scrolled
+            ? "border border-border/70 bg-luxury-black/70 shadow-lg shadow-black/20 backdrop-blur-xl"
+            : "border border-transparent bg-transparent"
+        )}
+      >
+        <Logo />
 
         <nav
           className="hidden items-center gap-8 lg:flex"
@@ -65,9 +59,12 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="hidden sm:inline-flex transition-luxury"
+            className="hidden rounded-full transition-luxury sm:inline-flex"
           >
-            <Link href="#hotels">Plan your stay</Link>
+            <Link href="#planner">
+              <Sparkles className="size-4" />
+              Plan with AI
+            </Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -75,7 +72,7 @@ export function Navbar() {
               <Button
                 variant="outline"
                 size="icon"
-                className="lg:hidden border-border/80 bg-luxury-charcoal/50 backdrop-blur-sm"
+                className="rounded-full border-border/70 bg-luxury-charcoal/50 backdrop-blur-sm lg:hidden"
                 aria-label="Open menu"
               >
                 <Menu className="size-5" />
@@ -83,14 +80,17 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-border bg-luxury-charcoal w-full sm:max-w-sm"
+              className="w-full border-border bg-luxury-charcoal sm:max-w-sm"
             >
               <SheetHeader>
-                <SheetTitle className="font-heading text-left text-foreground">
-                  Menu
+                <SheetTitle className="text-left">
+                  <Logo />
                 </SheetTitle>
               </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-4" aria-label="Mobile navigation">
+              <nav
+                className="mt-8 flex flex-col gap-4 px-4"
+                aria-label="Mobile navigation"
+              >
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -101,9 +101,10 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Button asChild className="mt-4 w-full">
-                  <Link href="#hotels" onClick={() => setOpen(false)}>
-                    Plan your stay
+                <Button asChild className="mt-4 w-full rounded-full">
+                  <Link href="#planner" onClick={() => setOpen(false)}>
+                    <Sparkles className="size-4" />
+                    Plan with AI
                   </Link>
                 </Button>
               </nav>
