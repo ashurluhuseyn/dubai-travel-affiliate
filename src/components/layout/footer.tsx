@@ -4,11 +4,12 @@ import { Mail, MapPin, Share2 } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/shared/logo";
 import { Separator } from "@/components/ui/separator";
-import { footerSections } from "@/data";
+import { getFooterSections } from "@/data";
 import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const footerSections = getFooterSections();
 
   return (
     <footer className="border-t border-border bg-luxury-charcoal">

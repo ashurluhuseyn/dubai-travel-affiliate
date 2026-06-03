@@ -1,4 +1,12 @@
-import type { LucideIcon } from "lucide-react";
+export type IconKey =
+  | "building"
+  | "dining"
+  | "cruise"
+  | "adventure"
+  | "shopping"
+  | "nightlife"
+  | "photo"
+  | "beach";
 
 export type NavLink = {
   href: string;
@@ -32,7 +40,7 @@ export type Category = {
   id: string;
   label: string;
   count: string;
-  icon: LucideIcon;
+  icon: IconKey;
   href: string;
 };
 
