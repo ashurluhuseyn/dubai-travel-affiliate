@@ -1,14 +1,3 @@
-import {
-  Building2,
-  Camera,
-  Compass,
-  Moon,
-  Sailboat,
-  Ship,
-  ShoppingBag,
-  UtensilsCrossed,
-} from "lucide-react";
-
 import type { Category } from "./types";
 
 export const categories: Category[] = [
@@ -16,56 +5,56 @@ export const categories: Category[] = [
     id: "landmarks",
     label: "Landmarks",
     count: "48 places",
-    icon: Building2,
+    icon: "building",
     href: "#",
   },
   {
     id: "dining",
     label: "Fine Dining",
     count: "120 venues",
-    icon: UtensilsCrossed,
+    icon: "dining",
     href: "#",
   },
   {
     id: "cruises",
     label: "Cruises",
     count: "32 charters",
-    icon: Ship,
+    icon: "cruise",
     href: "#",
   },
   {
     id: "adventure",
     label: "Adventure",
     count: "64 tours",
-    icon: Compass,
+    icon: "adventure",
     href: "#",
   },
   {
     id: "shopping",
     label: "Shopping",
     count: "85 spots",
-    icon: ShoppingBag,
+    icon: "shopping",
     href: "#",
   },
   {
     id: "nightlife",
     label: "Nightlife",
     count: "40 lounges",
-    icon: Moon,
+    icon: "nightlife",
     href: "#",
   },
   {
     id: "photography",
     label: "Photo Spots",
     count: "57 locations",
-    icon: Camera,
+    icon: "photo",
     href: "#",
   },
   {
     id: "beaches",
     label: "Beach Clubs",
     count: "28 clubs",
-    icon: Sailboat,
+    icon: "beach",
     href: "#",
   },
 ];

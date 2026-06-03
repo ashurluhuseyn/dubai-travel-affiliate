@@ -4,9 +4,11 @@ import { ArrowRight, Search } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
-import { heroStats } from "@/data";
+import { getHeroStats } from "@/data";
 
 export function HeroSection() {
+  const heroStats = getHeroStats();
+
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-32">
       <Image

@@ -14,12 +14,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks } from "@/data";
+import { getNavLinks } from "@/data";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navLinks = getNavLinks();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
