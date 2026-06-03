@@ -105,3 +105,83 @@ export type Guide = {
   date: string;
   href: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Experience detail page                                                    */
+/* -------------------------------------------------------------------------- */
+
+/** Quick-fact pills shown under the experience title. */
+export type ExperienceMetaIconKey = "duration" | "group" | "pickup" | "ticket";
+
+export type ExperienceMeta = {
+  icon: ExperienceMetaIconKey;
+  label: string;
+};
+
+/** Icons for the "What's Included" grid. */
+export type IncludedIconKey =
+  | "pickup"
+  | "dinner"
+  | "shows"
+  | "camel"
+  | "drinks";
+
+export type IncludedItem = {
+  id: string;
+  icon: IncludedIconKey;
+  label: string;
+};
+
+export type ItineraryStop = {
+  time: string;
+  title: string;
+  description?: string;
+};
+
+export type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+export type FaqSection = {
+  id: string;
+  title: string;
+  /** Plain text; newlines are rendered as separate paragraphs. */
+  content: string;
+};
+
+/** Compact card used in the "You Might Also Like" carousel. */
+export type RelatedExperience = {
+  id: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  price: string;
+  rating: number;
+  href: string;
+};
+
+export type ExperienceDetail = {
+  slug: string;
+  title: string;
+  category: string;
+  /** Optional overlay badge on the hero image, e.g. "Bestseller". */
+  badge?: string;
+  rating: number;
+  reviews: number;
+  description: string;
+  meta: ExperienceMeta[];
+  /** Display string, e.g. "$79". */
+  price: string;
+  /** Unit the price applies to, e.g. "person". */
+  priceUnit: string;
+  gallery: GalleryImage[];
+  /** Count of additional photos not shown as thumbnails (the "+12" tile). */
+  galleryExtraCount?: number;
+  highlights: string[];
+  included: IncludedItem[];
+  itinerary: ItineraryStop[];
+  importantInfo: string[];
+  faqSections: FaqSection[];
+  related: RelatedExperience[];
+};

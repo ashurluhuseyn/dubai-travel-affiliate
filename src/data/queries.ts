@@ -1,5 +1,6 @@
 import { chatPreview, itinerary, plannerChips } from "./ai-planner";
 import { categories } from "./categories";
+import { experienceDetails } from "./experience-detail";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
 import { hiddenGems } from "./hidden-gems";
@@ -11,6 +12,7 @@ import type {
   Category,
   ChatMessage,
   Experience,
+  ExperienceDetail,
   FooterSection,
   Guide,
   HeroStat,
@@ -76,4 +78,14 @@ export function getTestimonials(): Testimonial[] {
 
 export function getLatestGuides(): Guide[] {
   return latestGuides;
+}
+
+/** All experience detail slugs — used for static route generation. */
+export function getExperienceSlugs(): string[] {
+  return Object.keys(experienceDetails);
+}
+
+/** Returns the experience detail for a slug, or `null` if it does not exist. */
+export function getExperienceDetail(slug: string): ExperienceDetail | null {
+  return experienceDetails[slug] ?? null;
 }
