@@ -9,3 +9,4 @@ export * from "./lifestyle";
 export * from "./testimonials";
 export * from "./guides";
 export * from "./queries";
+export * from "./destinations";
