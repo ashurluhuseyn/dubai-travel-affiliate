@@ -10,3 +10,4 @@ export * from "./testimonials";
 export * from "./guides";
 export * from "./experience-detail";
 export * from "./queries";
+export * from "./destinations";
