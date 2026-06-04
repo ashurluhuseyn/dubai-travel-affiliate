@@ -1,5 +1,11 @@
 import { chatPreview, itinerary, plannerChips } from "./ai-planner";
 import {
+  blogCategories,
+  blogPosts,
+  featuredPost,
+  popularPosts,
+} from "./blog";
+import {
   categories,
   categoryShowcase,
   categoryTrustItems,
@@ -15,6 +21,8 @@ import { footerSections, navLinks } from "./navigation";
 import { heroStats } from "./stats";
 import { testimonials } from "./testimonials";
 import type {
+  BlogCategory,
+  BlogPost,
   Category,
   CategoryShowcase,
   ChatMessage,
@@ -29,6 +37,7 @@ import type {
   LifestyleItem,
   NavLink,
   PopularExperience,
+  PopularPost,
   Testimonial,
   TrustItem,
 } from "./types";
@@ -104,6 +113,22 @@ export function getTestimonials(): Testimonial[] {
 
 export function getLatestGuides(): Guide[] {
   return latestGuides;
+}
+
+export function getFeaturedPost(): BlogPost {
+  return featuredPost;
+}
+
+export function getBlogPosts(): BlogPost[] {
+  return blogPosts;
+}
+
+export function getBlogCategories(): BlogCategory[] {
+  return blogCategories;
+}
+
+export function getPopularPosts(): PopularPost[] {
+  return popularPosts;
 }
 
 /** All experience detail slugs — used for static route generation. */

@@ -248,3 +248,48 @@ export type TrustItem = {
   icon: TrustItemIconKey;
   label: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Blog page                                                                 */
+/* -------------------------------------------------------------------------- */
+
+export type BlogAuthor = {
+  name: string;
+  /** Initials shown in the gold avatar chip. */
+  initials: string;
+};
+
+/**
+ * A blog article. Extends {@link Guide} so it can be rendered with the shared
+ * `GuideCard`, adding an optional author for the editorial/featured layout.
+ */
+export type BlogPost = Guide & {
+  author?: BlogAuthor;
+};
+
+export type BlogCategoryIconKey =
+  | "guides"
+  | "itineraries"
+  | "hidden-gems"
+  | "luxury"
+  | "food"
+  | "nightlife"
+  | "culture"
+  | "shopping";
+
+export type BlogCategory = {
+  id: string;
+  label: string;
+  count: number;
+  icon: BlogCategoryIconKey;
+  href: string;
+};
+
+export type PopularPost = {
+  id: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  date: string;
+  href: string;
+};
