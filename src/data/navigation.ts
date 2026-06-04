@@ -25,7 +25,7 @@ export const footerSections: FooterSection[] = [
     title: "Company",
     links: [
       { href: "/blog", label: "Blog" },
-      { href: "#", label: "About Us" },
+      { href: "/about", label: "About Us" },
       { href: "#", label: "FAQ" },
       { href: "/contact", label: "Contact Us" },
       { href: "#", label: "Privacy Policy" },

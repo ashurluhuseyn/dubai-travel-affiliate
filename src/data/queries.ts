@@ -1,6 +1,12 @@
 import { chatPreview, itinerary, plannerChips } from "./ai-planner";
 import { contactFaqs, contactMethods } from "./contact";
 import {
+  aboutStats,
+  aboutTrustItems,
+  aboutValues,
+  whyChooseItems,
+} from "./about";
+import {
   blogCategories,
   blogPosts,
   featuredPost,
@@ -37,10 +43,14 @@ import { testimonials } from "./testimonials";
 import type {
   BlogCategory,
   BlogPost,
+  AboutStat,
+  AboutTrustItem,
+  AboutValue,
   Category,
   CategoryShowcase,
   ChatMessage,
   ContactMethod,
+  WhyChooseItem,
   Experience,
   ExperienceDetail,
   FaqSection,
@@ -170,6 +180,22 @@ export function getContactMethods(): ContactMethod[] {
 
 export function getContactFaqs(): FaqSection[] {
   return contactFaqs;
+}
+
+export function getAboutTrustItems(): AboutTrustItem[] {
+  return aboutTrustItems;
+}
+
+export function getAboutValues(): AboutValue[] {
+  return aboutValues;
+}
+
+export function getAboutStats(): AboutStat[] {
+  return aboutStats;
+}
+
+export function getWhyChooseItems(): WhyChooseItem[] {
+  return whyChooseItems;
 }
 
 export function getLifestyleItems(): LifestyleItem[] {

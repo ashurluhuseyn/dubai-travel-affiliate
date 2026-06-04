@@ -411,3 +411,60 @@ export type ContactMethod = {
   actionLabel: string;
   href: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  About page                                                                */
+/* -------------------------------------------------------------------------- */
+
+export type AboutImage = {
+  src: string;
+  alt: string;
+};
+
+export type AboutTrustIconKey = "handpicked" | "experts" | "quality";
+
+export type AboutTrustItem = {
+  id: string;
+  icon: AboutTrustIconKey;
+  label: string;
+};
+
+export type AboutValueIconKey =
+  | "customer"
+  | "authenticity"
+  | "excellence"
+  | "sustainability";
+
+export type AboutValue = {
+  id: string;
+  icon: AboutValueIconKey;
+  title: string;
+  description: string;
+};
+
+export type AboutStatIconKey =
+  | "travelers"
+  | "experiences"
+  | "partners"
+  | "support";
+
+export type AboutStat = {
+  id: string;
+  icon: AboutStatIconKey;
+  value: string;
+  label: string;
+};
+
+export type WhyChooseIconKey =
+  | "expertise"
+  | "selection"
+  | "secure"
+  | "price"
+  | "concierge";
+
+export type WhyChooseItem = {
+  id: string;
+  icon: WhyChooseIconKey;
+  title: string;
+  description: string;
+};
