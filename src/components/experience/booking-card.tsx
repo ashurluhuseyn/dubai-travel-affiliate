@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { BadgeCheck, Calendar, ChevronDown, RotateCcw } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { AffiliateButton } from "@/components/shared/affiliate-button";
 
 type BookingCardProps = {
   price: string;
   priceUnit: string;
+  affiliateUrl: string;
 };
 
 const guestOptions = [
@@ -21,7 +22,7 @@ const guestOptions = [
 const fieldClasses =
   "flex h-11 w-full items-center gap-2 rounded-lg border border-border/70 bg-luxury-black/40 px-3 text-sm text-foreground transition-luxury focus-within:border-luxury-gold-muted/60";
 
-export function BookingCard({ price, priceUnit }: BookingCardProps) {
+export function BookingCard({ price, priceUnit, affiliateUrl }: BookingCardProps) {
   const [guests, setGuests] = useState(guestOptions[1]);
 
   return (
@@ -82,9 +83,13 @@ export function BookingCard({ price, priceUnit }: BookingCardProps) {
           </div>
         </div>
 
-        <Button size="lg" className="w-full rounded-full transition-luxury">
+        <AffiliateButton
+          href={affiliateUrl}
+          size="lg"
+          className="w-full rounded-full transition-luxury"
+        >
           Check Availability
-        </Button>
+        </AffiliateButton>
       </div>
 
       <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">

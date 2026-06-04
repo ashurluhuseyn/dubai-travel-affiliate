@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type {
   FeaturedHiddenGem,
   HiddenGem,
@@ -309,6 +311,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     price: "$79",
     rating: 4.8,
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("desert-safari"),
   },
   {
     id: "old-dubai-walking-tour",
@@ -318,6 +321,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     price: "$30",
     rating: 4.7,
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("old-dubai-walking-tour"),
   },
   {
     id: "creek-dinner-cruise",
@@ -327,6 +331,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     price: "$75",
     rating: 4.8,
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("creek-dinner-cruise"),
   },
   {
     id: "luxury-yacht-tour",
@@ -336,5 +341,6 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     price: "$110",
     rating: 4.9,
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("luxury-yacht-tour"),
   },
 ];

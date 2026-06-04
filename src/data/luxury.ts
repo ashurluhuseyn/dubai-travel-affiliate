@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type {
   LuxuryCollection,
   LuxuryExperience,
@@ -43,6 +45,7 @@ export const signatureCollections: LuxuryCollection[] = [
     badge: "Yacht Charters",
     price: "From $499",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("private-yacht"),
   },
   {
     id: "desert-retreats",
@@ -54,6 +57,7 @@ export const signatureCollections: LuxuryCollection[] = [
     badge: "Desert Luxury",
     price: "From $350",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("desert-retreats"),
   },
   {
     id: "michelin-dining",
@@ -65,6 +69,7 @@ export const signatureCollections: LuxuryCollection[] = [
     badge: "Fine Dining",
     price: "From $250",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("michelin-dining"),
   },
   {
     id: "vip-tours",
@@ -76,6 +81,7 @@ export const signatureCollections: LuxuryCollection[] = [
     badge: "VIP Experiences",
     price: "From $400",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("vip-tours"),
   },
 ];
 
@@ -105,6 +111,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     badge: "Popular",
     price: "From $599",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("helicopter-tour"),
   },
   {
     id: "underwater-dining",
@@ -115,6 +122,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     badge: "Best Seller",
     price: "From $450",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("underwater-dining"),
   },
   {
     id: "sky-lounge",
@@ -125,6 +133,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     badge: "Luxury",
     price: "From $320",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("sky-lounge"),
   },
   {
     id: "hot-air-balloon",
@@ -135,6 +144,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     badge: "Exclusive",
     price: "From $380",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("hot-air-balloon"),
   },
   {
     id: "private-jet",
@@ -145,6 +155,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     badge: "Premium",
     price: "From $4,999",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("private-jet"),
   },
 ];
 

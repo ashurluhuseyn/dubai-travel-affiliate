@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { AffiliateLink } from "@/components/shared/affiliate-button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { LuxuryCollection } from "@/data";
@@ -17,7 +17,10 @@ export function LuxuryCollectionCard({
 }: LuxuryCollectionCardProps) {
   return (
     <Card className="group gap-0 overflow-hidden border-border/60 bg-card py-0 transition-luxury hover:-translate-y-1 hover:border-luxury-gold-muted/50 hover:shadow-xl hover:shadow-luxury-gold/10">
-      <Link href={collection.href} className="flex h-full flex-col">
+      <AffiliateLink
+        href={collection.affiliateUrl}
+        className="flex h-full flex-col"
+      >
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={collection.image}
@@ -58,7 +61,7 @@ export function LuxuryCollectionCard({
             </span>
           </div>
         </CardContent>
-      </Link>
+      </AffiliateLink>
     </Card>
   );
 }

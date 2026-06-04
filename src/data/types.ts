@@ -33,7 +33,10 @@ export type Experience = {
   rating: number;
   reviews: number;
   price: string;
+  /** Internal detail or listing route. */
   href: string;
+  /** External partner booking URL. */
+  affiliateUrl: string;
 };
 
 export type Category = {
@@ -159,10 +162,13 @@ export type RelatedExperience = {
   price: string;
   rating: number;
   href: string;
+  affiliateUrl: string;
 };
 
 export type ExperienceDetail = {
   slug: string;
+  /** External partner booking URL for this experience. */
+  affiliateUrl: string;
   title: string;
   category: string;
   /** Optional overlay badge on the hero image, e.g. "Bestseller". */
@@ -228,6 +234,7 @@ export type FeaturedCategory = {
   benefits: FeaturedBenefit[];
   ctaLabel: string;
   href: string;
+  affiliateUrl: string;
 };
 
 export type PopularExperience = {
@@ -240,6 +247,7 @@ export type PopularExperience = {
   reviewLabel: string;
   price: string;
   href: string;
+  affiliateUrl: string;
 };
 
 export type TrustItemIconKey = "itinerary" | "price" | "support" | "trusted";
@@ -384,6 +392,7 @@ export type LuxuryCollection = {
   /** Display price, e.g. "From $499". */
   price: string;
   href: string;
+  affiliateUrl: string;
 };
 
 export type LuxuryExperience = {
@@ -395,6 +404,7 @@ export type LuxuryExperience = {
   badge: string;
   price: string;
   href: string;
+  affiliateUrl: string;
 };
 
 /* -------------------------------------------------------------------------- */

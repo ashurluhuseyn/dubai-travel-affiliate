@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 import { FavoriteButton } from "@/components/experience/favorite-button";
+import { AffiliateLink } from "@/components/shared/affiliate-button";
 import type { RelatedExperience } from "@/data";
 
 type RelatedExperiencesProps = {
@@ -83,12 +83,12 @@ export function RelatedExperiences({
                 />
               </div>
               <div className="flex flex-col gap-2 p-4">
-                <Link
-                  href={experience.href}
+                <AffiliateLink
+                  href={experience.affiliateUrl}
                   className="font-heading text-base leading-snug text-foreground transition-luxury hover:text-luxury-gold"
                 >
                   {experience.title}
-                </Link>
+                </AffiliateLink>
                 <div className="mt-1 flex items-center justify-between">
                   <span className="text-sm">
                     <span className="text-muted-foreground">From </span>

@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type { ExperienceDetail } from "./types";
 
 /**
@@ -9,6 +11,7 @@ import type { ExperienceDetail } from "./types";
 export const experienceDetails: Record<string, ExperienceDetail> = {
   "desert-safari-dune-bashing": {
     slug: "desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
     title: "Desert Safari & Dune Bashing",
     category: "Adventure",
     badge: "Bestseller",
@@ -108,6 +111,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         price: "$129",
         rating: 4.7,
         href: "/experiences/premium-desert-camp",
+        affiliateUrl: buildAffiliateUrl("premium-desert-camp"),
       },
       {
         id: "buggy-adventure",
@@ -118,6 +122,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         price: "$169",
         rating: 4.8,
         href: "/experiences/buggy-adventure",
+        affiliateUrl: buildAffiliateUrl("buggy-adventure"),
       },
       {
         id: "quad-biking",
@@ -128,6 +133,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         price: "$139",
         rating: 4.9,
         href: "/experiences/quad-biking",
+        affiliateUrl: buildAffiliateUrl("quad-biking"),
       },
       {
         id: "hot-air-balloon",
@@ -138,6 +144,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         price: "$159",
         rating: 4.9,
         href: "/experiences/hot-air-balloon",
+        affiliateUrl: buildAffiliateUrl("hot-air-balloon"),
       },
     ],
   },

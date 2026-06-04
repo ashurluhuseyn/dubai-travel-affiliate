@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type { Experience } from "./types";
 
 export const trendingExperiences: Experience[] = [
@@ -12,7 +14,8 @@ export const trendingExperiences: Experience[] = [
     rating: 4.9,
     reviews: 1240,
     price: "$320",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("desert-safari"),
   },
   {
     id: "burj-khalifa",
@@ -25,7 +28,8 @@ export const trendingExperiences: Experience[] = [
     rating: 4.8,
     reviews: 2870,
     price: "$185",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("burj-khalifa"),
   },
   {
     id: "yacht-charter",
@@ -38,7 +42,8 @@ export const trendingExperiences: Experience[] = [
     rating: 5.0,
     reviews: 640,
     price: "$1,100",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("yacht-charter"),
   },
   {
     id: "helicopter",
@@ -51,7 +56,8 @@ export const trendingExperiences: Experience[] = [
     rating: 4.9,
     reviews: 410,
     price: "$540",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("helicopter"),
   },
   {
     id: "fine-dining",
@@ -64,7 +70,8 @@ export const trendingExperiences: Experience[] = [
     rating: 4.7,
     reviews: 980,
     price: "$260",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("fine-dining"),
   },
   {
     id: "old-dubai",
@@ -77,6 +84,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.8,
     reviews: 1530,
     price: "$95",
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("old-dubai"),
   },
 ];

@@ -106,6 +106,7 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
                 <BookingCard
                   price={experience.price}
                   priceUnit={experience.priceUnit}
+                  affiliateUrl={experience.affiliateUrl}
                 />
                 <SecureSpotCard />
                 <HelpCard />

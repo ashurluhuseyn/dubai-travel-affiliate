@@ -1,3 +1,4 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
 import type {
   DestinationExperience,
   DestinationFilters,
@@ -19,7 +20,8 @@ const experiences: DestinationExperience[] = [
     duration: "6 Hours",
     groupSize: "Small Group",
     price: 79,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
   },
   {
     id: "luxury-yacht-marina-cruise",
@@ -34,7 +36,8 @@ const experiences: DestinationExperience[] = [
     duration: "4 Hours",
     groupSize: "Small Group",
     price: 199,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("luxury-yacht-marina-cruise"),
   },
   {
     id: "burj-khalifa-at-the-top",
@@ -49,7 +52,8 @@ const experiences: DestinationExperience[] = [
     duration: "2 Hours",
     groupSize: "Any Size",
     price: 89,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("burj-khalifa-at-the-top"),
   },
   {
     id: "old-town-heritage-tour",
@@ -64,7 +68,8 @@ const experiences: DestinationExperience[] = [
     duration: "5 Hours",
     groupSize: "Small Group",
     price: 149,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("old-town-heritage-tour"),
   },
   {
     id: "premium-desert-camp",
@@ -79,7 +84,8 @@ const experiences: DestinationExperience[] = [
     duration: "7 Hours",
     groupSize: "Small Group",
     price: 129,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("premium-desert-camp"),
   },
   {
     id: "marina-sunset-sailing",
@@ -94,7 +100,8 @@ const experiences: DestinationExperience[] = [
     duration: "2.5 Hours",
     groupSize: "Small Group",
     price: 119,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("marina-sunset-sailing"),
   },
   {
     id: "panoramic-helicopter-tour",
@@ -109,7 +116,8 @@ const experiences: DestinationExperience[] = [
     duration: "30 Minutes",
     groupSize: "Up to 4",
     price: 299,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("panoramic-helicopter-tour"),
   },
   {
     id: "quad-biking-desert",
@@ -124,7 +132,8 @@ const experiences: DestinationExperience[] = [
     duration: "4 Hours",
     groupSize: "Small Group",
     price: 159,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("quad-biking-desert"),
   },
   {
     id: "burj-al-arab-high-tea",
@@ -139,7 +148,8 @@ const experiences: DestinationExperience[] = [
     duration: "2 Hours",
     groupSize: "Up to 6",
     price: 149,
-    href: "#",
+    href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("burj-al-arab-high-tea"),
   },
 ];
 

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Clock, Star, Users } from "lucide-react";
 
+import { AffiliateButton } from "@/components/shared/affiliate-button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { DestinationExperience } from "@/types";
 
@@ -71,9 +70,13 @@ export function DestinationCard({ experience, priority }: DestinationCardProps) 
             </span>
             <span className="text-xs text-muted-foreground"> / person</span>
           </p>
-          <Button asChild size="sm" className="rounded-full transition-luxury">
-            <Link href={experience.href}>View Experience</Link>
-          </Button>
+          <AffiliateButton
+            href={experience.affiliateUrl}
+            size="sm"
+            className="rounded-full transition-luxury"
+          >
+            View Experience
+          </AffiliateButton>
         </div>
       </CardContent>
     </Card>

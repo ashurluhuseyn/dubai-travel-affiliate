@@ -20,6 +20,8 @@ export type DestinationExperience = {
   /** Price per person in USD */
   price: number;
   href: string;
+  /** External partner booking URL. */
+  affiliateUrl: string;
 };
 
 /** A single selectable option inside a filter group (label + result count) */

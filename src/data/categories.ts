@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type {
   Category,
   CategoryShowcase,
@@ -170,6 +172,7 @@ export const featuredCategory: FeaturedCategory = {
   ],
   ctaLabel: "Explore Adventure",
   href: "/experiences/desert-safari-dune-bashing",
+  affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
 };
 
 export const popularExperiences: PopularExperience[] = [
@@ -182,6 +185,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "2.2k",
     price: "$65",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("morning-desert-safari"),
   },
   {
     id: "burj-khalifa-top",
@@ -192,6 +196,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "1.8k",
     price: "$45",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("burj-khalifa-top"),
   },
   {
     id: "luxury-yacht-tour",
@@ -202,6 +207,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "1.2k",
     price: "$110",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("luxury-yacht-tour"),
   },
   {
     id: "old-dubai-walking-tour",
@@ -212,6 +218,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "980",
     price: "$30",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("old-dubai-walking-tour"),
   },
   {
     id: "hot-air-balloon-ride",
@@ -222,6 +229,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "1.1k",
     price: "$150",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("hot-air-balloon-ride"),
   },
   {
     id: "dhow-cruise-dinner",
@@ -232,6 +240,7 @@ export const popularExperiences: PopularExperience[] = [
     reviewLabel: "1.3k",
     price: "$75",
     href: "/experiences/desert-safari-dune-bashing",
+    affiliateUrl: buildAffiliateUrl("dhow-cruise-dinner"),
   },
 ];
 
