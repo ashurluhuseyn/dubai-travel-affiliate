@@ -5,8 +5,7 @@ import { CategoriesGrid } from "@/components/categories/categories-grid";
 import { CategoriesHero } from "@/components/categories/categories-hero";
 import { FeaturedCategorySection } from "@/components/categories/featured-category";
 import { PopularExperiences } from "@/components/categories/popular-experiences";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
+import { PageLayout } from "@/components/layout/page-layout";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -18,16 +17,12 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function CategoriesPage() {
   return (
-    <>
-      <Header />
-      <main>
-        <CategoriesHero />
-        <CategoriesGrid />
-        <FeaturedCategorySection />
-        <PopularExperiences />
-        <CategoriesCta />
-      </main>
-      <Footer />
-    </>
+    <PageLayout>
+      <CategoriesHero />
+      <CategoriesGrid />
+      <FeaturedCategorySection />
+      <PopularExperiences />
+      <CategoriesCta />
+    </PageLayout>
   );
 }

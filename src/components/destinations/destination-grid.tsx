@@ -1,4 +1,4 @@
-import type { DestinationExperience } from "@/types";
+import type { DestinationExperience } from "@/data";
 
 import { DestinationCard } from "./destination-card";
 

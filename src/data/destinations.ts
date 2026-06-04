@@ -1,10 +1,11 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+
 import type {
   DestinationExperience,
   DestinationFilters,
   DestinationStat,
   SortOption,
-} from "@/types";
+} from "./types";
 
 const experiences: DestinationExperience[] = [
   {

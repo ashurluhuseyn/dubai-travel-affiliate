@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { SortOption } from "@/types";
+import type { SortOption } from "@/data";
 
 type ResultsToolbarProps = {
   resultsCount: number;

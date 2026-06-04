@@ -4,7 +4,7 @@ import { Clock, Star, Users } from "lucide-react";
 import { AffiliateButton } from "@/components/shared/affiliate-button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import type { DestinationExperience } from "@/types";
+import type { DestinationExperience } from "@/data";
 
 import { SaveButton } from "./save-button";
 

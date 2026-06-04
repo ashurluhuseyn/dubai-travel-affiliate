@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 
+import { IconCircle } from "@/components/shared/icon-circle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -33,9 +34,7 @@ export function ContactCta({
       )}
     >
       <div className="flex flex-col items-center gap-4 md:flex-row md:gap-5">
-        <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-luxury-gold-muted/30 bg-luxury-gold/10 text-luxury-gold">
-          <Icon className="size-6" aria-hidden />
-        </span>
+        <IconCircle icon={Icon} size="lg" className="size-12 [&_svg]:size-6" />
         <div>
           <h2 className="font-heading text-2xl text-foreground md:text-3xl">
             {title}

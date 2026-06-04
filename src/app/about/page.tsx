@@ -7,8 +7,7 @@ import { OurMission } from "@/components/about/our-mission";
 import { OurStory } from "@/components/about/our-story";
 import { OurValues } from "@/components/about/our-values";
 import { WhyChoose } from "@/components/about/why-choose";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
+import { PageLayout } from "@/components/layout/page-layout";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -20,18 +19,14 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <>
-      <Header />
-      <main>
-        <AboutHero />
-        <OurStory />
-        <OurValues />
-        <AboutStats />
-        <OurMission />
-        <WhyChoose />
-        <AboutCta />
-      </main>
-      <Footer />
-    </>
+    <PageLayout>
+      <AboutHero />
+      <OurStory />
+      <OurValues />
+      <AboutStats />
+      <OurMission />
+      <WhyChoose />
+      <AboutCta />
+    </PageLayout>
   );
 }

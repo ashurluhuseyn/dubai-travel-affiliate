@@ -9,8 +9,7 @@ import { LatestGuides } from "@/components/home/latest-guides";
 import { LuxuryLifestyle } from "@/components/home/luxury-lifestyle";
 import { TravelerStories } from "@/components/home/traveler-stories";
 import { TrendingExperiences } from "@/components/home/trending-experiences";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
+import { PageLayout } from "@/components/layout/page-layout";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -22,20 +21,16 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function HomePage() {
   return (
-    <>
-      <Header />
-      <main>
-        <HeroSection />
-        <TrendingExperiences />
-        <CategoryExplorer />
-        <AiTripPlanner />
-        <HiddenGems />
-        <LuxuryLifestyle />
-        <TravelerStories />
-        <LatestGuides />
-        <CtaSection />
-      </main>
-      <Footer />
-    </>
+    <PageLayout>
+      <HeroSection />
+      <TrendingExperiences />
+      <CategoryExplorer />
+      <AiTripPlanner />
+      <HiddenGems />
+      <LuxuryLifestyle />
+      <TravelerStories />
+      <LatestGuides />
+      <CtaSection />
+    </PageLayout>
   );
 }

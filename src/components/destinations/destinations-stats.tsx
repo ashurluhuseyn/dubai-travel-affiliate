@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { getDestinationStats } from "@/data";
-import type { StatIconKey } from "@/types";
+import type { StatIconKey } from "@/data";
 
 const statIcons: Record<StatIconKey, LucideIcon> = {
   experiences: Compass,

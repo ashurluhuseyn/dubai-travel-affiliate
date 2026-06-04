@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import type { FilterOption } from "@/types";
+import type { FilterOption } from "@/data";
 import { cn } from "@/lib/utils";
 
 type FilterCheckboxGroupProps = {

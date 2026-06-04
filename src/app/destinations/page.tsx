@@ -7,9 +7,8 @@ import { DestinationsStats } from "@/components/destinations/destinations-stats"
 import { ExpertsCta } from "@/components/destinations/experts-cta";
 import { FilterSidebar } from "@/components/destinations/filter-sidebar";
 import { ResultsToolbar } from "@/components/destinations/results-toolbar";
+import { PageLayout } from "@/components/layout/page-layout";
 import { Container } from "@/components/shared/container";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import {
   getDestinationExperiences,
   getResultsCount,
@@ -32,32 +31,28 @@ export default function DestinationsPage() {
   const resultsCount = getResultsCount();
 
   return (
-    <>
-      <Header />
-      <main>
-        <DestinationsHero />
-        <DestinationsStats />
+    <PageLayout>
+      <DestinationsHero />
+      <DestinationsStats />
 
-        <Container className="py-section">
-          <div className="grid gap-8 lg:grid-cols-[300px_minmax(0,1fr)]">
-            <FilterSidebar />
+      <Container className="py-section">
+        <div className="grid gap-8 lg:grid-cols-[300px_minmax(0,1fr)]">
+          <FilterSidebar />
 
-            <div>
-              <ResultsToolbar
-                resultsCount={resultsCount}
-                sortOptions={sortOptions}
-              />
-              <div className="mt-6">
-                <DestinationGrid experiences={experiences} />
-              </div>
-              <DestinationsPagination totalPages={TOTAL_PAGES} />
+          <div>
+            <ResultsToolbar
+              resultsCount={resultsCount}
+              sortOptions={sortOptions}
+            />
+            <div className="mt-6">
+              <DestinationGrid experiences={experiences} />
             </div>
+            <DestinationsPagination totalPages={TOTAL_PAGES} />
           </div>
-        </Container>
+        </div>
+      </Container>
 
-        <ExpertsCta />
-      </main>
-      <Footer />
-    </>
+      <ExpertsCta />
+    </PageLayout>
   );
 }

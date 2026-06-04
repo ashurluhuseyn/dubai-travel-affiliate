@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
+import { PageLayout } from "@/components/layout/page-layout";
 import { LuxuryCta } from "@/components/luxury/luxury-cta";
 import { LuxuryHero } from "@/components/luxury/luxury-hero";
 import { SignatureCollections } from "@/components/luxury/signature-collections";
@@ -18,16 +17,12 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function LuxuryPage() {
   return (
-    <>
-      <Header />
-      <main>
-        <LuxuryHero />
-        <SignatureCollections />
-        <WhyChooseLuxury />
-        <TopLuxuryExperiences />
-        <LuxuryCta />
-      </main>
-      <Footer />
-    </>
+    <PageLayout>
+      <LuxuryHero />
+      <SignatureCollections />
+      <WhyChooseLuxury />
+      <TopLuxuryExperiences />
+      <LuxuryCta />
+    </PageLayout>
   );
 }
