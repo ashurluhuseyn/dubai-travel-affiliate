@@ -1,4 +1,5 @@
 import { chatPreview, itinerary, plannerChips } from "./ai-planner";
+import { contactFaqs, contactMethods } from "./contact";
 import {
   blogCategories,
   blogPosts,
@@ -39,8 +40,10 @@ import type {
   Category,
   CategoryShowcase,
   ChatMessage,
+  ContactMethod,
   Experience,
   ExperienceDetail,
+  FaqSection,
   FeaturedCategory,
   FeaturedHiddenGem,
   FooterSection,
@@ -159,6 +162,14 @@ export function getSignatureCollections(): LuxuryCollection[] {
 
 export function getTopLuxuryExperiences(): LuxuryExperience[] {
   return topLuxuryExperiences;
+}
+
+export function getContactMethods(): ContactMethod[] {
+  return contactMethods;
+}
+
+export function getContactFaqs(): FaqSection[] {
+  return contactFaqs;
 }
 
 export function getLifestyleItems(): LifestyleItem[] {

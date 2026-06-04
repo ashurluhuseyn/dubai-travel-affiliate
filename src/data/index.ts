@@ -11,5 +11,6 @@ export * from "./guides";
 export * from "./experience-detail";
 export * from "./blog";
 export * from "./luxury";
+export * from "./contact";
 export * from "./queries";
 export * from "./destinations";

@@ -396,3 +396,18 @@ export type LuxuryExperience = {
   price: string;
   href: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Contact page                                                              */
+/* -------------------------------------------------------------------------- */
+
+export type ContactMethodIconKey = "whatsapp" | "email" | "phone" | "location";
+
+export type ContactMethod = {
+  id: string;
+  icon: ContactMethodIconKey;
+  title: string;
+  description: string;
+  actionLabel: string;
+  href: string;
+};
