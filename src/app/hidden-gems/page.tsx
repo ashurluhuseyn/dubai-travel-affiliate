@@ -13,12 +13,14 @@ import { Header } from "@/components/layout/header";
 import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
 import { getHiddenGemsRelated } from "@/data";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Hidden Gems in Dubai",
   description:
-    "Discover secret beaches, local cafés, cultural corners and unforgettable places most tourists never find — curated hidden gems across Dubai.",
-};
+    "Discover secret beaches, local cafés, cultural corners, and unforgettable places most tourists never find. Curated hidden gems and local tips across Dubai.",
+  path: "/hidden-gems",
+});
 
 export default function HiddenGemsPage() {
   const related = getHiddenGemsRelated();

@@ -20,6 +20,7 @@ import { Container } from "@/components/shared/container";
 import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
 import { getExperienceDetail, getExperienceSlugs } from "@/data";
+import { createPageMetadata } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -39,15 +40,16 @@ export async function generateMetadata({
     return { title: "Experience not found" };
   }
 
-  return {
+  const path = `/experiences/${slug}`;
+  const ogImage = experience.gallery[0]?.src;
+
+  return createPageMetadata({
     title: experience.title,
     description: experience.description,
-    openGraph: {
-      title: experience.title,
-      description: experience.description,
-      images: experience.gallery[0] ? [experience.gallery[0].src] : undefined,
-    },
-  };
+    path,
+    images: ogImage ? [ogImage] : undefined,
+    openGraphType: "article",
+  });
 }
 
 export default async function ExperienceDetailPage({ params }: PageProps) {

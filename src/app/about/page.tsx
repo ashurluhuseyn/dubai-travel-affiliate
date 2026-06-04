@@ -9,12 +9,14 @@ import { OurValues } from "@/components/about/our-values";
 import { WhyChoose } from "@/components/about/why-choose";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About Us",
   description:
-    "Dubai Moments was created to help travelers discover the most exceptional experiences in Dubai — blending local expertise with a passion for hospitality.",
-};
+    "Learn how Dubai Luxe Travel helps travelers discover exceptional Dubai experiences — built on local expertise, handpicked partners, and a passion for hospitality.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

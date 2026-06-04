@@ -9,12 +9,14 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact Us",
   description:
-    "Have a question or want to plan a custom experience? Contact the Dubai Moments team — we're here to help you create unforgettable moments in Dubai.",
-};
+    "Have a question or want to plan a custom Dubai experience? Reach our travel experts via WhatsApp, email, or phone — available 24/7 to help you.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

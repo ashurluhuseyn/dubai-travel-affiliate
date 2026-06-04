@@ -18,12 +18,14 @@ import {
   getFeaturedPost,
   getPopularPosts,
 } from "@/data";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Dubai Travel Stories",
+export const metadata: Metadata = createPageMetadata({
+  title: "Dubai Travel Stories & Guides",
   description:
-    "Expert guides, insider tips, and inspiring stories to help you plan your perfect Dubai adventure — itineraries, hidden gems, and luxury experiences.",
-};
+    "Expert Dubai travel guides, insider tips, and inspiring stories. Plan itineraries, discover hidden gems, and explore luxury experiences across the Emirates.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const featuredPost = getFeaturedPost();

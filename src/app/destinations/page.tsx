@@ -15,13 +15,14 @@ import {
   getResultsCount,
   getSortOptions,
 } from "@/data";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Destinations",
+export const metadata: Metadata = createPageMetadata({
+  title: "Browse Dubai Experiences & Tours",
   description:
-    "Browse 1000+ handpicked luxury Dubai experiences — filter by category, price, duration, rating, and more.",
-  alternates: { canonical: "/destinations" },
-};
+    "Browse 1000+ handpicked luxury Dubai experiences. Filter by category, price, duration, rating, and availability to find your perfect adventure.",
+  path: "/destinations",
+});
 
 const TOTAL_PAGES = 8;
 

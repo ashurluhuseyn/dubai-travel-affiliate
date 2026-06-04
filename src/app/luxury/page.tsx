@@ -7,12 +7,14 @@ import { LuxuryHero } from "@/components/luxury/luxury-hero";
 import { SignatureCollections } from "@/components/luxury/signature-collections";
 import { TopLuxuryExperiences } from "@/components/luxury/top-luxury-experiences";
 import { WhyChooseLuxury } from "@/components/luxury/why-choose-luxury";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Luxury Experiences in Dubai",
   description:
-    "Indulge in the finest Dubai has to offer. From private yacht charters to exclusive desert retreats, discover a world of unmatched luxury.",
-};
+    "Indulge in the finest Dubai has to offer. Private yacht charters, exclusive desert retreats, Michelin dining, and VIP tours curated for discerning travelers.",
+  path: "/luxury",
+});
 
 export default function LuxuryPage() {
   return (

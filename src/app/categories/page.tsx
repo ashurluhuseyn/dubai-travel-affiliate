@@ -7,12 +7,14 @@ import { FeaturedCategorySection } from "@/components/categories/featured-catego
 import { PopularExperiences } from "@/components/categories/popular-experiences";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Explore Dubai by Categories",
   description:
-    "Find the perfect experience for your next adventure. From thrilling deserts to luxurious escapes, browse Dubai experiences by category.",
-};
+    "Find the perfect Dubai experience for your next adventure. Browse desert safaris, yacht tours, luxury escapes, nightlife, dining, and culture by category.",
+  path: "/categories",
+});
 
 export default function CategoriesPage() {
   return (
