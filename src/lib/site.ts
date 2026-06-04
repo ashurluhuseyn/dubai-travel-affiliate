@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-const siteUrl =
+/** Production site origin — set `NEXT_PUBLIC_SITE_URL` in deployment. */
+export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const siteConfig = {
@@ -18,7 +19,7 @@ export const siteConfig = {
     "Dubai affiliate travel",
     "UAE luxury holidays",
   ],
-  url: siteUrl,
+  url: SITE_URL,
   /** Default social share image (Dubai skyline). */
   defaultOgImage:
     "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
