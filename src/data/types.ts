@@ -293,3 +293,68 @@ export type PopularPost = {
   date: string;
   href: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Hidden Gems page                                                          */
+/* -------------------------------------------------------------------------- */
+
+export type HiddenGemSpot = {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  image: string;
+  imageAlt: string;
+  /** Short category label shown as an overlay badge, e.g. "Beach". */
+  badge: string;
+  /** Display price, e.g. "Free" or "From $25". */
+  price: string;
+  href: string;
+};
+
+export type FeaturedHiddenGem = {
+  title: string;
+  location: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  tags: string[];
+  ctaLabel: string;
+  href: string;
+};
+
+export type HiddenGemReasonIconKey =
+  | "authentic"
+  | "crowds"
+  | "photography"
+  | "local";
+
+export type HiddenGemReason = {
+  icon: HiddenGemReasonIconKey;
+  title: string;
+  description: string;
+};
+
+export type HiddenGemCategoryIconKey =
+  | "nature"
+  | "culture"
+  | "cafes"
+  | "photography"
+  | "unique"
+  | "free";
+
+export type HiddenGemCategory = {
+  id: string;
+  label: string;
+  count: string;
+  icon: HiddenGemCategoryIconKey;
+  href: string;
+};
+
+export type LocalTipIconKey = "time" | "crowds" | "bring" | "nearby";
+
+export type LocalTip = {
+  icon: LocalTipIconKey;
+  title: string;
+  description: string;
+};

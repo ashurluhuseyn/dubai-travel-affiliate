@@ -10,9 +10,13 @@ import type { RelatedExperience } from "@/data";
 
 type RelatedExperiencesProps = {
   experiences: RelatedExperience[];
+  title?: string;
 };
 
-export function RelatedExperiences({ experiences }: RelatedExperiencesProps) {
+export function RelatedExperiences({
+  experiences,
+  title = "You Might Also Like",
+}: RelatedExperiencesProps) {
   const trackRef = useRef<HTMLUListElement>(null);
 
   const scrollBy = (direction: 1 | -1) => {
@@ -31,7 +35,7 @@ export function RelatedExperiences({ experiences }: RelatedExperiencesProps) {
           id="related-heading"
           className="font-heading text-2xl text-foreground md:text-3xl"
         >
-          You Might Also Like
+          {title}
         </h2>
         <div className="hidden items-center gap-2 sm:flex">
           <button

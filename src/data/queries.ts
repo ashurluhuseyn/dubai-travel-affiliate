@@ -15,7 +15,15 @@ import {
 import { experienceDetails } from "./experience-detail";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
-import { hiddenGems } from "./hidden-gems";
+import {
+  featuredHiddenGem,
+  hiddenGemCategories,
+  hiddenGemReasons,
+  hiddenGems,
+  hiddenGemSpots,
+  hiddenGemsRelated,
+  localTips,
+} from "./hidden-gems";
 import { lifestyleItems } from "./lifestyle";
 import { footerSections, navLinks } from "./navigation";
 import { heroStats } from "./stats";
@@ -29,15 +37,21 @@ import type {
   Experience,
   ExperienceDetail,
   FeaturedCategory,
+  FeaturedHiddenGem,
   FooterSection,
   Guide,
   HeroStat,
   HiddenGem,
+  HiddenGemCategory,
+  HiddenGemReason,
+  HiddenGemSpot,
   ItineraryDay,
   LifestyleItem,
+  LocalTip,
   NavLink,
   PopularExperience,
   PopularPost,
+  RelatedExperience,
   Testimonial,
   TrustItem,
 } from "./types";
@@ -101,6 +115,30 @@ export function getItinerary(): ItineraryDay[] {
 
 export function getHiddenGems(): HiddenGem[] {
   return hiddenGems;
+}
+
+export function getFeaturedHiddenGem(): FeaturedHiddenGem {
+  return featuredHiddenGem;
+}
+
+export function getHiddenGemReasons(): HiddenGemReason[] {
+  return hiddenGemReasons;
+}
+
+export function getHiddenGemSpots(): HiddenGemSpot[] {
+  return hiddenGemSpots;
+}
+
+export function getHiddenGemCategories(): HiddenGemCategory[] {
+  return hiddenGemCategories;
+}
+
+export function getLocalTips(): LocalTip[] {
+  return localTips;
+}
+
+export function getHiddenGemsRelated(): RelatedExperience[] {
+  return hiddenGemsRelated;
 }
 
 export function getLifestyleItems(): LifestyleItem[] {
