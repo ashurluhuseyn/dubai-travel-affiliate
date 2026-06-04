@@ -1,5 +1,11 @@
 import { chatPreview, itinerary, plannerChips } from "./ai-planner";
-import { categories } from "./categories";
+import {
+  categories,
+  categoryShowcase,
+  categoryTrustItems,
+  featuredCategory,
+  popularExperiences,
+} from "./categories";
 import { experienceDetails } from "./experience-detail";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
@@ -10,9 +16,11 @@ import { heroStats } from "./stats";
 import { testimonials } from "./testimonials";
 import type {
   Category,
+  CategoryShowcase,
   ChatMessage,
   Experience,
   ExperienceDetail,
+  FeaturedCategory,
   FooterSection,
   Guide,
   HeroStat,
@@ -20,7 +28,9 @@ import type {
   ItineraryDay,
   LifestyleItem,
   NavLink,
+  PopularExperience,
   Testimonial,
+  TrustItem,
 } from "./types";
 
 /**
@@ -50,6 +60,22 @@ export function getTrendingExperiences(): Experience[] {
 
 export function getCategories(): Category[] {
   return categories;
+}
+
+export function getCategoryShowcase(): CategoryShowcase[] {
+  return categoryShowcase;
+}
+
+export function getFeaturedCategory(): FeaturedCategory {
+  return featuredCategory;
+}
+
+export function getPopularExperiences(): PopularExperience[] {
+  return popularExperiences;
+}
+
+export function getCategoryTrustItems(): TrustItem[] {
+  return categoryTrustItems;
 }
 
 export function getPlannerChips(): string[] {

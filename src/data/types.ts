@@ -185,3 +185,66 @@ export type ExperienceDetail = {
   faqSections: FaqSection[];
   related: RelatedExperience[];
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Categories page                                                           */
+/* -------------------------------------------------------------------------- */
+
+/** Icons for the image-backed category showcase cards. */
+export type CategoryShowcaseIconKey =
+  | "desert"
+  | "yacht"
+  | "luxury"
+  | "nightlife"
+  | "family"
+  | "dining"
+  | "attractions"
+  | "culture";
+
+export type CategoryShowcase = {
+  id: string;
+  title: string;
+  /** Display string, e.g. "25 Experiences". */
+  count: string;
+  icon: CategoryShowcaseIconKey;
+  image: string;
+  imageAlt: string;
+  href: string;
+};
+
+export type FeaturedBenefitIconKey = "thrilling" | "guides" | "safety";
+
+export type FeaturedBenefit = {
+  icon: FeaturedBenefitIconKey;
+  label: string;
+};
+
+export type FeaturedCategory = {
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  benefits: FeaturedBenefit[];
+  ctaLabel: string;
+  href: string;
+};
+
+export type PopularExperience = {
+  id: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  rating: number;
+  /** Abbreviated review count, e.g. "2.2k". */
+  reviewLabel: string;
+  price: string;
+  href: string;
+};
+
+export type TrustItemIconKey = "itinerary" | "price" | "support" | "trusted";
+
+export type TrustItem = {
+  icon: TrustItemIconKey;
+  label: string;
+};
