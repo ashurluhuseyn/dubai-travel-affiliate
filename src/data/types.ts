@@ -358,3 +358,41 @@ export type LocalTip = {
   title: string;
   description: string;
 };
+
+/* -------------------------------------------------------------------------- */
+/*  Luxury page                                                               */
+/* -------------------------------------------------------------------------- */
+
+export type LuxuryHighlightIconKey =
+  | "handpicked"
+  | "partners"
+  | "price"
+  | "support";
+
+export type LuxuryHighlight = {
+  icon: LuxuryHighlightIconKey;
+  label: string;
+};
+
+export type LuxuryCollection = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  badge: string;
+  /** Display price, e.g. "From $499". */
+  price: string;
+  href: string;
+};
+
+export type LuxuryExperience = {
+  id: string;
+  title: string;
+  location: string;
+  image: string;
+  imageAlt: string;
+  badge: string;
+  price: string;
+  href: string;
+};

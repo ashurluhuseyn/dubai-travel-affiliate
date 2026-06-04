@@ -16,6 +16,11 @@ import { experienceDetails } from "./experience-detail";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
 import {
+  luxuryHighlights,
+  signatureCollections,
+  topLuxuryExperiences,
+} from "./luxury";
+import {
   featuredHiddenGem,
   hiddenGemCategories,
   hiddenGemReasons,
@@ -48,6 +53,9 @@ import type {
   ItineraryDay,
   LifestyleItem,
   LocalTip,
+  LuxuryCollection,
+  LuxuryExperience,
+  LuxuryHighlight,
   NavLink,
   PopularExperience,
   PopularPost,
@@ -139,6 +147,18 @@ export function getLocalTips(): LocalTip[] {
 
 export function getHiddenGemsRelated(): RelatedExperience[] {
   return hiddenGemsRelated;
+}
+
+export function getLuxuryHighlights(): LuxuryHighlight[] {
+  return luxuryHighlights;
+}
+
+export function getSignatureCollections(): LuxuryCollection[] {
+  return signatureCollections;
+}
+
+export function getTopLuxuryExperiences(): LuxuryExperience[] {
+  return topLuxuryExperiences;
 }
 
 export function getLifestyleItems(): LifestyleItem[] {
