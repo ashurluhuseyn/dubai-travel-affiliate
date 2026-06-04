@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Sparkles } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Container } from "@/components/shared/container";
@@ -21,6 +22,12 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navLinks = getNavLinks();
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -47,9 +54,15 @@ export function Header() {
         >
           {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              className="text-sm text-muted-foreground transition-luxury hover:text-foreground"
+              aria-current={isActive(link.href) ? "page" : undefined}
+              className={cn(
+                "text-sm transition-luxury hover:text-foreground",
+                isActive(link.href)
+                  ? "text-luxury-gold"
+                  : "text-muted-foreground"
+              )}
             >
               {link.label}
             </Link>
@@ -62,10 +75,7 @@ export function Header() {
             size="sm"
             className="hidden rounded-full transition-luxury sm:inline-flex"
           >
-            <Link href="#planner">
-              <Sparkles className="size-4" />
-              Plan with AI
-            </Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -94,18 +104,23 @@ export function Header() {
               >
                 {navLinks.map((link) => (
                   <Link
-                    key={link.href}
+                    key={link.label}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="font-heading text-2xl text-foreground transition-luxury hover:text-luxury-gold"
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={cn(
+                      "font-heading text-2xl transition-luxury hover:text-luxury-gold",
+                      isActive(link.href)
+                        ? "text-luxury-gold"
+                        : "text-foreground"
+                    )}
                   >
                     {link.label}
                   </Link>
                 ))}
                 <Button asChild className="mt-4 w-full rounded-full">
-                  <Link href="#planner" onClick={() => setOpen(false)}>
-                    <Sparkles className="size-4" />
-                    Plan with AI
+                  <Link href="/contact" onClick={() => setOpen(false)}>
+                    Contact Us
                   </Link>
                 </Button>
               </nav>
