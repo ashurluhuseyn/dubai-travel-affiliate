@@ -6,7 +6,7 @@ export const hiddenGems: HiddenGem[] = [
     title: "Dubai Creek at Dawn",
     location: "Deira",
     image:
-      "https://images.unsplash.com/photo-1580674684081-3e9f8d9b1a8e?w=900&q=80",
+      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=900&q=80",
     imageAlt: "Dubai Creek waterfront in soft morning light",
     span: "tall",
     href: "#",
@@ -16,7 +16,7 @@ export const hiddenGems: HiddenGem[] = [
     title: "Dubai Opera Garden",
     location: "Downtown",
     image:
-      "https://images.unsplash.com/photo-1518684079-3c830dcef0901?w=900&q=80",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Illuminated cityscape at night",
     span: "default",
     href: "#",
@@ -36,7 +36,7 @@ export const hiddenGems: HiddenGem[] = [
     title: "The Dubai Frame",
     location: "Zabeel Park",
     image:
-      "https://images.unsplash.com/photo-1583036561740-bb05f7c4f7e4?w=900&q=80",
+      "https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=900&q=80",
     imageAlt: "Golden architectural frame structure",
     span: "default",
     href: "#",
@@ -46,7 +46,7 @@ export const hiddenGems: HiddenGem[] = [
     title: "Madinat Waterways",
     location: "Jumeirah",
     image:
-      "https://images.unsplash.com/photo-1518684079-3c830dcef0901?w=900&q=80",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Traditional waterways with abra boats",
     span: "wide",
     href: "#",

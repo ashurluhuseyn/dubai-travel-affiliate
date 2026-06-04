@@ -6,7 +6,7 @@ export const trendingExperiences: Experience[] = [
     title: "Private Desert Safari & Dinner",
     location: "Al Marmoom Reserve",
     image:
-      "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=800&q=80",
+      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
     imageAlt: "Sunset over desert dunes",
     category: "Adventure",
     rating: 4.9,
@@ -32,7 +32,7 @@ export const trendingExperiences: Experience[] = [
     title: "Luxury Marina Yacht Charter",
     location: "Dubai Marina",
     image:
-      "https://images.unsplash.com/photo-1567894340315-ef73496d0d3f?w=800&q=80",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
     imageAlt: "Luxury yacht on calm marina waters",
     category: "Cruise",
     rating: 5.0,
@@ -45,7 +45,7 @@ export const trendingExperiences: Experience[] = [
     title: "Skyline Helicopter Tour",
     location: "Palm Jumeirah",
     image:
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4e5a1e?w=800&q=80",
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
     imageAlt: "Helicopter flying over a coastal city",
     category: "Aerial",
     rating: 4.9,
@@ -71,7 +71,7 @@ export const trendingExperiences: Experience[] = [
     title: "Heritage Souk & Abra Tour",
     location: "Al Fahidi",
     image:
-      "https://images.unsplash.com/photo-1546412414-803848c215e1c?w=800&q=80",
+      "https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=800&q=80",
     imageAlt: "Historic Al Fahidi district",
     category: "Culture",
     rating: 4.8,

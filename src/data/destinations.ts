@@ -10,7 +10,7 @@ const experiences: DestinationExperience[] = [
     id: "desert-safari-dune-bashing",
     title: "Desert Safari & Dune Bashing",
     image:
-      "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=800&q=80",
+      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
     imageAlt: "4x4 vehicle dune bashing across golden desert dunes",
     badge: "Bestseller",
     category: "Adventure",
@@ -25,7 +25,7 @@ const experiences: DestinationExperience[] = [
     id: "luxury-yacht-marina-cruise",
     title: "Luxury Yacht Marina Cruise",
     image:
-      "https://images.unsplash.com/photo-1567894340315-ef73496d0d3f?w=800&q=80",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
     imageAlt: "Luxury yacht cruising through Dubai Marina",
     badge: "Popular",
     category: "Cruise",
@@ -55,7 +55,7 @@ const experiences: DestinationExperience[] = [
     id: "old-town-heritage-tour",
     title: "Dubai City & Old Town Heritage Tour",
     image:
-      "https://images.unsplash.com/photo-1546412414-803848c215e1c?w=800&q=80",
+      "https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=800&q=80",
     imageAlt: "Historic Al Fahidi heritage district in Dubai",
     badge: "Cultural",
     category: "Cultural",
@@ -70,7 +70,7 @@ const experiences: DestinationExperience[] = [
     id: "premium-desert-camp",
     title: "Premium Desert Camp Experience",
     image:
-      "https://images.unsplash.com/photo-1509316785289-025f5b846b8e?w=800&q=80",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
     imageAlt: "Luxury desert camp set up at sunset",
     badge: "New",
     category: "Adventure",
@@ -85,7 +85,7 @@ const experiences: DestinationExperience[] = [
     id: "marina-sunset-sailing",
     title: "Dubai Marina Sunset Sailing",
     image:
-      "https://images.unsplash.com/photo-1580674684081-3e9f8d9b1a8e?w=800&q=80",
+      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80",
     imageAlt: "Sailing boat on Dubai Marina at sunset",
     badge: "Popular",
     category: "Cruise",
@@ -100,7 +100,7 @@ const experiences: DestinationExperience[] = [
     id: "panoramic-helicopter-tour",
     title: "Panoramic City Helicopter Tour",
     image:
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4e5a1e?w=800&q=80",
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
     imageAlt: "Helicopter flying over the coastal city skyline",
     badge: "Premium",
     category: "Sightseeing",
@@ -115,7 +115,7 @@ const experiences: DestinationExperience[] = [
     id: "quad-biking-desert",
     title: "Quad Biking Desert Adventure",
     image:
-      "https://images.unsplash.com/photo-1518684079-3c830dcef0901?w=800&q=80",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
     imageAlt: "Quad bikes parked on desert sand",
     badge: "Bestseller",
     category: "Adventure",

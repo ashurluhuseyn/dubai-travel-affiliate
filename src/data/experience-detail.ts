@@ -26,7 +26,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
     priceUnit: "person",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=1400&q=85&fit=crop",
+        src: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=1400&q=85&fit=crop",
         alt: "4x4 vehicle cresting golden desert dunes at sunset",
       },
       {
@@ -34,11 +34,11 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         alt: "Dubai skyline glowing at dusk",
       },
       {
-        src: "https://images.unsplash.com/photo-1476514525535-07fb3b4e5a1e?w=600&q=80&fit=crop",
+        src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80&fit=crop",
         alt: "Aerial view of the coastline at golden hour",
       },
       {
-        src: "https://images.unsplash.com/photo-1567894340315-ef73496d0d3f?w=600&q=80&fit=crop",
+        src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80&fit=crop",
         alt: "Camp set up beside calm desert waters",
       },
       {
@@ -46,7 +46,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         alt: "Elegant BBQ dinner table set under the open sky",
       },
       {
-        src: "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=600&q=80&fit=crop&sat=-20",
+        src: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=600&q=80&fit=crop&sat=-20",
         alt: "Rolling red sand dunes stretching to the horizon",
       },
     ],
@@ -103,7 +103,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         id: "premium-desert-camp",
         title: "Premium Desert Camp Experience",
         image:
-          "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=600&q=80&fit=crop",
+          "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=600&q=80&fit=crop",
         imageAlt: "Luxury desert camp at golden hour",
         price: "$129",
         rating: 4.7,
@@ -113,7 +113,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
         id: "buggy-adventure",
         title: "Buggy Adventure in Dubai Desert",
         image:
-          "https://images.unsplash.com/photo-1476514525535-07fb3b4e5a1e?w=600&q=80&fit=crop",
+          "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80&fit=crop",
         imageAlt: "Off-road buggy speeding across dunes",
         price: "$169",
         rating: 4.8,

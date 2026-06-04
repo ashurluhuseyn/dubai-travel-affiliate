@@ -7,7 +7,7 @@ export const latestGuides: Guide[] = [
     excerpt:
       "Sun-soaked days, shopping festivals, and mild evenings perfect for rooftop dining.",
     image:
-      "https://images.unsplash.com/photo-1518684079-3c830dcef0901?w=800&q=80",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
     imageAlt: "Dubai coastline at golden hour",
     category: "Seasonal",
     readTime: "6 min read",
@@ -20,7 +20,7 @@ export const latestGuides: Guide[] = [
     excerpt:
       "Desert camps, stargazing, and Michelin pop-ups in a curated weekend itinerary.",
     image:
-      "https://images.unsplash.com/photo-1509316785289-025f5b846b8e?w=800&q=80",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
     imageAlt: "Desert landscape at sunset",
     category: "Itinerary",
     readTime: "8 min read",

@@ -70,13 +70,13 @@ export const categories: Category[] = [
 /* -------------------------------------------------------------------------- */
 
 const DESERT_IMG =
-  "https://images.unsplash.com/photo-1451337516015-565b974c4936?w=900&q=80&fit=crop";
+  "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=900&q=80&fit=crop";
 const SKYLINE_IMG =
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80&fit=crop";
 const YACHT_IMG =
-  "https://images.unsplash.com/photo-1567894340315-ef73496d0d3f?w=900&q=80&fit=crop";
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80&fit=crop";
 const COAST_IMG =
-  "https://images.unsplash.com/photo-1476514525535-07fb3b4e5a1e?w=900&q=80&fit=crop";
+  "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=80&fit=crop";
 const DINING_IMG =
   "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&fit=crop";
 
