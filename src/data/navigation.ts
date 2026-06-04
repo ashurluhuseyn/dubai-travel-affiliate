@@ -1,39 +1,43 @@
 import type { FooterSection, NavLink } from "./types";
 
 export const navLinks: NavLink[] = [
-  { href: "#experiences", label: "Experiences" },
-  { href: "#categories", label: "Categories" },
-  { href: "#planner", label: "AI Planner" },
-  { href: "#hidden-gems", label: "Hidden Gems" },
-  { href: "#guides", label: "Guides" },
+  { href: "/", label: "Home" },
+  { href: "/destinations", label: "Destinations" },
+  { href: "/destinations", label: "Experiences" },
+  { href: "/categories", label: "Categories" },
+  { href: "/blog", label: "Blog" },
+  { href: "/hidden-gems", label: "Hidden Gems" },
+  { href: "/luxury", label: "Luxury" },
 ];
 
 export const footerSections: FooterSection[] = [
   {
     title: "Explore",
     links: [
-      { href: "#experiences", label: "Experiences" },
-      { href: "#hidden-gems", label: "Hidden Gems" },
-      { href: "#lifestyle", label: "Luxury Lifestyle" },
-      { href: "#categories", label: "Categories" },
+      { href: "/destinations", label: "Destinations" },
+      { href: "/destinations", label: "Experiences" },
+      { href: "/categories", label: "Categories" },
+      { href: "/hidden-gems", label: "Hidden Gems" },
+      { href: "/luxury", label: "Luxury" },
     ],
   },
   {
     title: "Company",
     links: [
-      { href: "#", label: "About Us" },
-      { href: "#", label: "Partners" },
-      { href: "#", label: "Careers" },
-      { href: "#", label: "Press" },
+      { href: "/blog", label: "Blog" },
+      { href: "/about", label: "About Us" },
+      { href: "#", label: "FAQ" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "#", label: "Privacy Policy" },
     ],
   },
   {
     title: "Support",
     links: [
-      { href: "#", label: "Contact" },
-      { href: "#", label: "FAQ" },
-      { href: "#", label: "Privacy Policy" },
-      { href: "#", label: "Terms" },
+      { href: "#", label: "Help Center" },
+      { href: "#", label: "Booking Guide" },
+      { href: "#", label: "Terms & Conditions" },
+      { href: "#", label: "Cancellation Policy" },
     ],
   },
 ];

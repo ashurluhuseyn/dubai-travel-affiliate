@@ -1,0 +1,58 @@
+import type { Metadata } from "next";
+
+import { DestinationGrid } from "@/components/destinations/destination-grid";
+import { DestinationsHero } from "@/components/destinations/destinations-hero";
+import { DestinationsPagination } from "@/components/destinations/destinations-pagination";
+import { DestinationsStats } from "@/components/destinations/destinations-stats";
+import { ExpertsCta } from "@/components/destinations/experts-cta";
+import { FilterSidebar } from "@/components/destinations/filter-sidebar";
+import { ResultsToolbar } from "@/components/destinations/results-toolbar";
+import { PageLayout } from "@/components/layout/page-layout";
+import { Container } from "@/components/shared/container";
+import {
+  getDestinationExperiences,
+  getResultsCount,
+  getSortOptions,
+} from "@/data";
+import { createPageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Browse Dubai Experiences & Tours",
+  description:
+    "Browse 1000+ handpicked luxury Dubai experiences. Filter by category, price, duration, rating, and availability to find your perfect adventure.",
+  path: "/destinations",
+});
+
+const TOTAL_PAGES = 8;
+
+export default function DestinationsPage() {
+  const experiences = getDestinationExperiences();
+  const sortOptions = getSortOptions();
+  const resultsCount = getResultsCount();
+
+  return (
+    <PageLayout>
+      <DestinationsHero />
+      <DestinationsStats />
+
+      <Container className="py-section">
+        <div className="grid gap-8 lg:grid-cols-[300px_minmax(0,1fr)]">
+          <FilterSidebar />
+
+          <div>
+            <ResultsToolbar
+              resultsCount={resultsCount}
+              sortOptions={sortOptions}
+            />
+            <div className="mt-6">
+              <DestinationGrid experiences={experiences} />
+            </div>
+            <DestinationsPagination totalPages={TOTAL_PAGES} />
+          </div>
+        </div>
+      </Container>
+
+      <ExpertsCta />
+    </PageLayout>
+  );
+}
