@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getBlogSlugs, getExperienceSlugs } from "@/data";
+import { getBlogSlugs, getExperienceSlugs, getHiddenGemSlugs } from "@/data";
 import { SITE_URL } from "@/lib/site";
 
 /** Marketing and listing pages included in the sitemap. */
@@ -41,5 +41,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...experienceEntries, ...blogEntries];
+  const hiddenGemEntries: MetadataRoute.Sitemap = getHiddenGemSlugs().map(
+    (slug) => ({
+      url: `${SITE_URL}/hidden-gems/${slug}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    })
+  );
+
+  return [
+    ...staticEntries,
+    ...experienceEntries,
+    ...blogEntries,
+    ...hiddenGemEntries,
+  ];
 }
