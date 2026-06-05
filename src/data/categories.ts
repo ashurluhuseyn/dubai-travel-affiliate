@@ -91,7 +91,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "desert",
     image: DESERT_IMG,
     imageAlt: "4x4 driving across golden desert dunes",
-    href: "/destinations?category=desert-safari",
+    href: "/destinations?category=Desert%20Safari",
   },
   {
     id: "yacht-tours",
@@ -100,7 +100,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "yacht",
     image: YACHT_IMG,
     imageAlt: "Luxury yacht on calm marina waters",
-    href: "/destinations?category=yacht-tours",
+    href: "/destinations?category=Yacht%20Tours",
   },
   {
     id: "luxury",
@@ -109,7 +109,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "luxury",
     image: SKYLINE_IMG,
     imageAlt: "Dubai skyline glowing at dusk",
-    href: "/destinations?category=luxury",
+    href: "/destinations?category=Luxury%20Experiences",
   },
   {
     id: "nightlife",
@@ -118,7 +118,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "nightlife",
     image: COAST_IMG,
     imageAlt: "City coastline lit up at night",
-    href: "/destinations?category=nightlife",
+    href: "/destinations?category=Nightlife",
   },
   {
     id: "family-activities",
