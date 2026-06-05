@@ -1,4 +1,5 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+import { experienceHrefForId } from "@/lib/experience-path";
 
 import type {
   LuxuryCollection,
@@ -44,7 +45,7 @@ export const signatureCollections: LuxuryCollection[] = [
     imageAlt: "Private luxury yacht on the Dubai coastline",
     badge: "Yacht Charters",
     price: "From $499",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("private-yacht"),
     affiliateUrl: buildAffiliateUrl("private-yacht"),
   },
   {
@@ -56,7 +57,7 @@ export const signatureCollections: LuxuryCollection[] = [
     imageAlt: "Luxury desert retreat at sunset",
     badge: "Desert Luxury",
     price: "From $350",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("desert-retreats"),
     affiliateUrl: buildAffiliateUrl("desert-retreats"),
   },
   {
@@ -68,7 +69,7 @@ export const signatureCollections: LuxuryCollection[] = [
     imageAlt: "Elegant fine-dining table with a skyline view",
     badge: "Fine Dining",
     price: "From $250",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("michelin-dining"),
     affiliateUrl: buildAffiliateUrl("michelin-dining"),
   },
   {
@@ -80,7 +81,7 @@ export const signatureCollections: LuxuryCollection[] = [
     imageAlt: "Chauffeured luxury experience in Dubai",
     badge: "VIP Experiences",
     price: "From $400",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("vip-tours"),
     affiliateUrl: buildAffiliateUrl("vip-tours"),
   },
 ];
@@ -110,7 +111,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     imageAlt: "Aerial view of the Dubai coastline",
     badge: "Popular",
     price: "From $599",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("helicopter-tour"),
     affiliateUrl: buildAffiliateUrl("helicopter-tour"),
   },
   {
@@ -121,7 +122,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     imageAlt: "Atmospheric fine-dining setting",
     badge: "Best Seller",
     price: "From $450",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("underwater-dining"),
     affiliateUrl: buildAffiliateUrl("underwater-dining"),
   },
   {
@@ -132,7 +133,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     imageAlt: "Dubai skyline from a high observation lounge",
     badge: "Luxury",
     price: "From $320",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("sky-lounge"),
     affiliateUrl: buildAffiliateUrl("sky-lounge"),
   },
   {
@@ -143,7 +144,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     imageAlt: "Hot air balloon over the desert at dawn",
     badge: "Exclusive",
     price: "From $380",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("hot-air-balloon"),
     affiliateUrl: buildAffiliateUrl("hot-air-balloon"),
   },
   {
@@ -154,7 +155,7 @@ export const topLuxuryExperiences: LuxuryExperience[] = [
     imageAlt: "Private jet ready for departure",
     badge: "Premium",
     price: "From $4,999",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("private-jet"),
     affiliateUrl: buildAffiliateUrl("private-jet"),
   },
 ];

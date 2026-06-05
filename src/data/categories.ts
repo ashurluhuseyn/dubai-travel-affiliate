@@ -1,4 +1,5 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+import { experienceHrefForId } from "@/lib/experience-path";
 
 import type {
   Category,
@@ -175,7 +176,7 @@ export const featuredCategory: FeaturedCategory = {
     { icon: "safety", label: "Safety First" },
   ],
   ctaLabel: "Explore Adventure",
-  href: "/experiences/desert-safari-dune-bashing",
+  href: experienceHrefForId("desert-safari-dune-bashing"),
   affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
 };
 
@@ -188,7 +189,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.9,
     reviewLabel: "2.2k",
     price: "$65",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("morning-desert-safari"),
     affiliateUrl: buildAffiliateUrl("morning-desert-safari"),
   },
   {
@@ -199,7 +200,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.8,
     reviewLabel: "1.8k",
     price: "$45",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("burj-khalifa-top"),
     affiliateUrl: buildAffiliateUrl("burj-khalifa-top"),
   },
   {
@@ -210,7 +211,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.9,
     reviewLabel: "1.2k",
     price: "$110",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("luxury-yacht-tour"),
     affiliateUrl: buildAffiliateUrl("luxury-yacht-tour"),
   },
   {
@@ -221,7 +222,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.7,
     reviewLabel: "980",
     price: "$30",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("old-dubai-walking-tour"),
     affiliateUrl: buildAffiliateUrl("old-dubai-walking-tour"),
   },
   {
@@ -232,7 +233,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.9,
     reviewLabel: "1.1k",
     price: "$150",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("hot-air-balloon-ride"),
     affiliateUrl: buildAffiliateUrl("hot-air-balloon-ride"),
   },
   {
@@ -243,7 +244,7 @@ export const popularExperiences: PopularExperience[] = [
     rating: 4.8,
     reviewLabel: "1.3k",
     price: "$75",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("dhow-cruise-dinner"),
     affiliateUrl: buildAffiliateUrl("dhow-cruise-dinner"),
   },
 ];

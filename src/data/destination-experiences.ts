@@ -1,4 +1,5 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+import { experienceHref } from "@/lib/experience-path";
 
 import type { DestinationExperience } from "./types";
 
@@ -27,8 +28,18 @@ const IMG = {
     "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
 } as const;
 
+function withExperienceHref(
+  experience: Omit<DestinationExperience, "href" | "affiliateUrl">
+): DestinationExperience {
+  return {
+    ...experience,
+    href: experienceHref(experience.id),
+    affiliateUrl: buildAffiliateUrl(experience.id),
+  };
+}
+
 /** 24 mock listing experiences with filter metadata. */
-export const destinationExperiences: DestinationExperience[] = [
+const rawDestinationExperiences: Omit<DestinationExperience, "href" | "affiliateUrl">[] = [
   {
     id: "desert-safari-dune-bashing",
     title: "Desert Safari & Dune Bashing",
@@ -54,8 +65,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 98,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
   },
   {
     id: "luxury-yacht-marina-cruise",
@@ -82,8 +91,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 95,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("luxury-yacht-marina-cruise"),
   },
   {
     id: "burj-khalifa-at-the-top",
@@ -110,8 +117,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 97,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("burj-khalifa-at-the-top"),
   },
   {
     id: "old-town-heritage-tour",
@@ -138,8 +143,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 88,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("old-town-heritage-tour"),
   },
   {
     id: "premium-desert-camp",
@@ -166,8 +169,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 91,
-    href: "/experiences/premium-desert-camp",
-    affiliateUrl: buildAffiliateUrl("premium-desert-camp"),
   },
   {
     id: "marina-sunset-sailing",
@@ -194,8 +195,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 86,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("marina-sunset-sailing"),
   },
   {
     id: "panoramic-helicopter-tour",
@@ -222,11 +221,9 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: false,
     recommendedScore: 93,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("panoramic-helicopter-tour"),
   },
   {
-    id: "quad-biking-desert",
+    id: "quad-biking",
     title: "Quad Biking Desert Adventure",
     description:
       "Ride powerful quad bikes across open dunes with safety briefing and desert transfer included.",
@@ -250,8 +247,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 90,
-    href: "/experiences/quad-biking",
-    affiliateUrl: buildAffiliateUrl("quad-biking-desert"),
   },
   {
     id: "burj-al-arab-high-tea",
@@ -278,8 +273,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 89,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("burj-al-arab-high-tea"),
   },
   {
     id: "morning-desert-safari",
@@ -305,8 +298,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 84,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("morning-desert-safari"),
   },
   {
     id: "private-yacht-charter",
@@ -333,8 +324,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 96,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("private-yacht-charter"),
   },
   {
     id: "dubai-frame-tickets",
@@ -360,8 +349,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 75,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("dubai-frame-tickets"),
   },
   {
     id: "aquaventure-waterpark",
@@ -388,8 +375,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 92,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("aquaventure-waterpark"),
   },
   {
     id: "rooftop-lounge-night",
@@ -415,8 +400,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: false,
     recommendedScore: 78,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("rooftop-lounge-night"),
   },
   {
     id: "marina-club-night",
@@ -442,8 +425,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: false,
     recommendedScore: 72,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("marina-club-night"),
   },
   {
     id: "old-dubai-food-tour",
@@ -469,8 +450,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 87,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("old-dubai-food-tour"),
   },
   {
     id: "michelin-tasting-menu",
@@ -497,8 +476,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 94,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("michelin-tasting-menu"),
   },
   {
     id: "hot-air-balloon",
@@ -525,8 +502,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 95,
-    href: "/experiences/hot-air-balloon",
-    affiliateUrl: buildAffiliateUrl("hot-air-balloon"),
   },
   {
     id: "dhow-cruise-dinner",
@@ -552,8 +527,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 83,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("dhow-cruise-dinner"),
   },
   {
     id: "img-world-adventure",
@@ -579,8 +552,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 85,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("img-world-adventure"),
   },
   {
     id: "museum-of-future",
@@ -607,8 +578,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 88,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("museum-of-future"),
   },
   {
     id: "al-fahidi-walking-tour",
@@ -634,8 +603,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: false,
     freeCancellation: true,
     recommendedScore: 80,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("al-fahidi-walking-tour"),
   },
   {
     id: "buggy-adventure",
@@ -661,8 +628,6 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 86,
-    href: "/experiences/buggy-adventure",
-    affiliateUrl: buildAffiliateUrl("buggy-adventure"),
   },
   {
     id: "luxury-desert-retreat",
@@ -689,7 +654,8 @@ export const destinationExperiences: DestinationExperience[] = [
     pickupIncluded: true,
     freeCancellation: true,
     recommendedScore: 97,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("luxury-desert-retreat"),
   },
 ];
+
+export const destinationExperiences: DestinationExperience[] =
+  rawDestinationExperiences.map(withExperienceHref);

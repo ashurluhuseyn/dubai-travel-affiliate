@@ -4,11 +4,11 @@ import { MapPin, Star } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Experience } from "@/data";
+import type { ExperienceListing } from "@/data";
 import { cn } from "@/lib/utils";
 
 type ExperienceCardProps = {
-  experience: Experience;
+  experience: ExperienceListing;
   className?: string;
   priority?: boolean;
 };

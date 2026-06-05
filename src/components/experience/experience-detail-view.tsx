@@ -15,16 +15,20 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { Container } from "@/components/shared/container";
 import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
-import type { ExperienceDetail } from "@/data";
+import type { Experience, RelatedExperience } from "@/data";
 
 type ExperienceDetailViewProps = {
-  experience: ExperienceDetail;
+  experience: Experience;
+  relatedExperiences: RelatedExperience[];
 };
 
-export function ExperienceDetailView({ experience }: ExperienceDetailViewProps) {
+export function ExperienceDetailView({
+  experience,
+  relatedExperiences,
+}: ExperienceDetailViewProps) {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: "Experiences", href: "/destinations" },
+    { label: "Tours", href: "/destinations" },
     { label: experience.category, href: "/destinations" },
     { label: experience.title },
   ];
@@ -36,30 +40,24 @@ export function ExperienceDetailView({ experience }: ExperienceDetailViewProps) 
 
         <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_24rem]">
           <div className="space-y-10 lg:space-y-12">
-            <ExperienceHeader
-              title={experience.title}
-              rating={experience.rating}
-              reviews={experience.reviews}
-              description={experience.description}
-              meta={experience.meta}
-            />
+            <ExperienceHeader experience={experience} />
 
             <ExperienceGallery
               title={experience.title}
-              images={experience.gallery}
+              images={experience.images}
               badge={experience.badge}
               extraCount={experience.galleryExtraCount}
             />
 
             <ExperienceHighlights highlights={experience.highlights} />
 
-            <ExperienceIncluded items={experience.included} />
+            <ExperienceIncluded items={experience.includedItems} />
 
             <ExperienceItinerary stops={experience.itinerary} />
 
             <div className="grid gap-8 md:grid-cols-2 md:gap-10">
               <ImportantInformation items={experience.importantInfo} />
-              <ExperienceFaq sections={experience.faqSections} />
+              <ExperienceFaq faqs={experience.faqs} />
             </div>
           </div>
 
@@ -67,17 +65,23 @@ export function ExperienceDetailView({ experience }: ExperienceDetailViewProps) 
             <div className="space-y-5">
               <BookingCard
                 price={experience.price}
+                currency={experience.currency}
                 priceUnit={experience.priceUnit}
                 affiliateUrl={experience.affiliateUrl}
+                freeCancellation={experience.freeCancellation}
+                cancellationText={experience.cancellationText}
               />
-              <SecureSpotCard />
+              <SecureSpotCard
+                instantConfirmation={experience.instantConfirmation}
+                mobileTicket={experience.mobileTicket}
+              />
               <HelpCard />
             </div>
           </aside>
         </div>
 
         <div className="mt-14 lg:mt-20">
-          <RelatedExperiences experiences={experience.related} />
+          <RelatedExperiences experiences={relatedExperiences} />
         </div>
       </Container>
 

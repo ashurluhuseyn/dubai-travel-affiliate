@@ -1,4 +1,5 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+import { experienceHrefForId } from "@/lib/experience-path";
 
 import type {
   FeaturedHiddenGem,
@@ -313,7 +314,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     imageAlt: "4x4 crossing desert dunes at sunset",
     price: "$79",
     rating: 4.8,
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("desert-safari"),
     affiliateUrl: buildAffiliateUrl("desert-safari"),
   },
   {
@@ -323,7 +324,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     imageAlt: "Historic Dubai streets and souks",
     price: "$30",
     rating: 4.7,
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("old-dubai-walking-tour"),
     affiliateUrl: buildAffiliateUrl("old-dubai-walking-tour"),
   },
   {
@@ -333,7 +334,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     imageAlt: "Dinner cruise boat on Dubai Creek at night",
     price: "$75",
     rating: 4.8,
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("creek-dinner-cruise"),
     affiliateUrl: buildAffiliateUrl("creek-dinner-cruise"),
   },
   {
@@ -343,7 +344,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
     imageAlt: "Luxury yacht on turquoise water",
     price: "$110",
     rating: 4.9,
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("luxury-yacht-tour"),
     affiliateUrl: buildAffiliateUrl("luxury-yacht-tour"),
   },
 ];
