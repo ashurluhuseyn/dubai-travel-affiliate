@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 
-import { AffiliateLink } from "@/components/shared/affiliate-button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Experience } from "@/data";
@@ -25,10 +25,7 @@ export function ExperienceCard({
         className
       )}
     >
-      <AffiliateLink
-        href={experience.affiliateUrl}
-        className="flex h-full flex-col"
-      >
+      <Link href={experience.href} className="flex h-full flex-col">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={experience.image}
@@ -71,7 +68,7 @@ export function ExperienceCard({
             </span>
           </div>
         </CardContent>
-      </AffiliateLink>
+      </Link>
     </Card>
   );
 }

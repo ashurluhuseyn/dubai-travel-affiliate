@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
 
+import { HeroSearch } from "@/components/home/hero-search";
 import { Container } from "@/components/shared/container";
-import { Button } from "@/components/ui/button";
 import { getHeroStats } from "@/data";
 
 export function HeroSection() {
@@ -34,23 +32,7 @@ export function HeroSection() {
             crafts your perfect itinerary across the Emirates.
           </p>
 
-          <div className="mt-8 flex w-full max-w-xl flex-col gap-3 rounded-2xl border border-border/70 bg-luxury-charcoal/70 p-3 backdrop-blur-xl sm:flex-row sm:items-center sm:rounded-full sm:pl-6">
-            <div className="flex flex-1 items-center gap-3">
-              <Search className="size-5 shrink-0 text-luxury-gold-muted" />
-              <input
-                type="text"
-                aria-label="Search experiences"
-                placeholder="Search desert safaris, yachts, dining…"
-                className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-              />
-            </div>
-            <Button asChild size="lg" className="rounded-full transition-luxury">
-              <Link href="#experiences">
-                Explore
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
+          <HeroSearch />
 
           <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-border/60 pt-8">
             {heroStats.map((stat) => (

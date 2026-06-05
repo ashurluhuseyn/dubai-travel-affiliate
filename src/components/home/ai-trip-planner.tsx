@@ -1,4 +1,7 @@
+"use client";
+
 import { Bot, Send, Sparkles } from "lucide-react";
+import { useState } from "react";
 
 import { Section } from "@/components/shared/section";
 import { SectionHeader } from "@/components/shared/section-header";
@@ -10,6 +13,13 @@ export function AiTripPlanner() {
   const chatPreview = getChatPreview();
   const itinerary = getItinerary();
   const plannerChips = getPlannerChips();
+  const [prompt, setPrompt] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <Section id="planner">
@@ -21,7 +31,6 @@ export function AiTripPlanner() {
       />
 
       <div className="grid items-start gap-6 lg:grid-cols-2">
-        {/* Chat column */}
         <div className="flex flex-col gap-4">
           <div className="rounded-2xl border border-border/70 bg-luxury-charcoal/60 p-4 backdrop-blur-sm sm:p-6">
             <div className="flex items-center gap-3 border-b border-border/60 pb-4">
@@ -64,33 +73,58 @@ export function AiTripPlanner() {
               ))}
             </div>
 
-            <div className="mt-4 flex items-center gap-2 rounded-full border border-border/70 bg-luxury-black/40 py-2 pl-4 pr-2">
-              <span className="flex-1 truncate text-sm text-muted-foreground">
-                Ask the concierge anything…
-              </span>
-              <span
-                aria-hidden
-                className="flex size-8 items-center justify-center rounded-full bg-primary text-primary-foreground"
+            <form
+              className="mt-4 flex items-center gap-2 rounded-full border border-border/70 bg-luxury-black/40 py-2 pl-4 pr-2"
+              onSubmit={handleSubmit}
+            >
+              <input
+                type="text"
+                value={prompt}
+                onChange={(event) => {
+                  setPrompt(event.target.value);
+                  setSubmitted(false);
+                }}
+                placeholder="Ask the concierge anything…"
+                aria-label="Describe your dream Dubai trip"
+                className="min-w-0 flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+              />
+              <button
+                type="submit"
+                aria-label="Send trip request"
+                className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-luxury hover:opacity-90"
               >
                 <Send className="size-4" />
-              </span>
-            </div>
+              </button>
+            </form>
+
+            {submitted && (
+              <p
+                role="status"
+                className="mt-3 rounded-xl border border-luxury-gold-muted/30 bg-luxury-gold/10 px-4 py-3 text-sm text-luxury-gold-soft"
+              >
+                AI Planner is launching soon. We&apos;re building personalized
+                itineraries — check back shortly.
+              </p>
+            )}
           </div>
 
-          {/* Suggestion chips */}
           <div className="flex flex-wrap gap-2">
             {plannerChips.map((chip) => (
-              <span
+              <button
                 key={chip}
-                className="cursor-default rounded-full border border-border/70 bg-luxury-elevated/60 px-3.5 py-1.5 text-xs text-muted-foreground transition-luxury hover:border-luxury-gold-muted/40 hover:text-foreground"
+                type="button"
+                onClick={() => {
+                  setPrompt(chip);
+                  setSubmitted(false);
+                }}
+                className="rounded-full border border-border/70 bg-luxury-elevated/60 px-3.5 py-1.5 text-xs text-muted-foreground transition-luxury hover:border-luxury-gold-muted/40 hover:text-foreground"
               >
                 {chip}
-              </span>
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Itinerary result column */}
         <div className="rounded-2xl border border-border/70 bg-luxury-charcoal/60 p-4 backdrop-blur-sm sm:p-6">
           <div className="flex items-center justify-between gap-3 border-b border-border/60 pb-4">
             <div>

@@ -22,6 +22,10 @@ const YACHT_IMG =
 const TRAVEL_IMG =
   "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&q=80";
 
+function blogHref(slug: string): string {
+  return `/blog/${slug}`;
+}
+
 export const featuredPost: BlogPost = {
   id: "ultimate-dubai-travel-guide-2024",
   title: "Ultimate Dubai Travel Guide 2024: Everything You Need to Know Before You Go",
@@ -32,7 +36,7 @@ export const featuredPost: BlogPost = {
   category: "Guides",
   readTime: "8 min read",
   date: "May 30, 2024",
-  href: "#",
+  href: blogHref("ultimate-dubai-travel-guide-2024"),
   author: { name: "Sarah Johnson", initials: "SJ" },
 };
 
@@ -47,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "6 min read",
     date: "May 28, 2024",
-    href: "#",
+    href: blogHref("best-things-to-do-2024"),
   },
   {
     id: "dubai-5-day-itinerary",
@@ -59,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     category: "Itineraries",
     readTime: "7 min read",
     date: "May 26, 2024",
-    href: "#",
+    href: blogHref("dubai-5-day-itinerary"),
   },
   {
     id: "hidden-gems-dubai",
@@ -71,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     category: "Hidden Gems",
     readTime: "5 min read",
     date: "May 22, 2024",
-    href: "#",
+    href: blogHref("hidden-gems-dubai"),
   },
   {
     id: "best-rooftop-restaurants",
@@ -83,7 +87,7 @@ export const blogPosts: BlogPost[] = [
     category: "Food & Dining",
     readTime: "6 min read",
     date: "May 20, 2024",
-    href: "#",
+    href: blogHref("best-rooftop-restaurants"),
   },
   {
     id: "desert-safari-guide",
@@ -95,7 +99,7 @@ export const blogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "6 min read",
     date: "May 18, 2024",
-    href: "#",
+    href: blogHref("desert-safari-guide"),
   },
   {
     id: "luxury-dubai-experiences",
@@ -107,31 +111,31 @@ export const blogPosts: BlogPost[] = [
     category: "Luxury",
     readTime: "6 min read",
     date: "May 15, 2024",
-    href: "#",
+    href: blogHref("luxury-dubai-experiences"),
   },
 ];
 
 export const blogCategories: BlogCategory[] = [
-  { id: "guides", label: "Guides", count: 12, icon: "guides", href: "#" },
+  { id: "guides", label: "Guides", count: 12, icon: "guides", href: "/blog" },
   {
     id: "itineraries",
     label: "Itineraries",
     count: 8,
     icon: "itineraries",
-    href: "#",
+    href: blogHref("dubai-5-day-itinerary"),
   },
   {
     id: "hidden-gems",
     label: "Hidden Gems",
     count: 10,
     icon: "hidden-gems",
-    href: "#",
+    href: blogHref("hidden-gems-dubai"),
   },
-  { id: "luxury", label: "Luxury", count: 6, icon: "luxury", href: "#" },
-  { id: "food", label: "Food & Dining", count: 9, icon: "food", href: "#" },
-  { id: "nightlife", label: "Nightlife", count: 7, icon: "nightlife", href: "#" },
-  { id: "culture", label: "Culture", count: 5, icon: "culture", href: "#" },
-  { id: "shopping", label: "Shopping", count: 4, icon: "shopping", href: "#" },
+  { id: "luxury", label: "Luxury", count: 6, icon: "luxury", href: blogHref("luxury-dubai-experiences") },
+  { id: "food", label: "Food & Dining", count: 9, icon: "food", href: blogHref("best-rooftop-restaurants") },
+  { id: "nightlife", label: "Nightlife", count: 7, icon: "nightlife", href: "/blog" },
+  { id: "culture", label: "Culture", count: 5, icon: "culture", href: "/blog" },
+  { id: "shopping", label: "Shopping", count: 4, icon: "shopping", href: blogHref("shopping-in-dubai") },
 ];
 
 export const popularPosts: PopularPost[] = [
@@ -141,7 +145,7 @@ export const popularPosts: PopularPost[] = [
     image: SKYLINE_IMG,
     imageAlt: "Burj Khalifa rising above Downtown Dubai",
     date: "May 10, 2024",
-    href: "#",
+    href: blogHref("visit-burj-khalifa"),
   },
   {
     id: "best-desert-safari-deals",
@@ -149,7 +153,7 @@ export const popularPosts: PopularPost[] = [
     image: DESERT_IMG,
     imageAlt: "Desert dunes at golden hour",
     date: "May 8, 2024",
-    href: "#",
+    href: blogHref("best-desert-safari-deals"),
   },
   {
     id: "dhow-cruise-guide",
@@ -157,7 +161,7 @@ export const popularPosts: PopularPost[] = [
     image: YACHT_IMG,
     imageAlt: "Traditional dhow boat on the water",
     date: "May 5, 2024",
-    href: "#",
+    href: blogHref("dhow-cruise-guide"),
   },
   {
     id: "palm-jumeirah-guide",
@@ -165,7 +169,7 @@ export const popularPosts: PopularPost[] = [
     image: MARINA_IMG,
     imageAlt: "Aerial view of Palm Jumeirah",
     date: "May 3, 2024",
-    href: "#",
+    href: blogHref("palm-jumeirah-guide"),
   },
   {
     id: "shopping-in-dubai",
@@ -173,6 +177,6 @@ export const popularPosts: PopularPost[] = [
     image: TRAVEL_IMG,
     imageAlt: "Luxury shopping mall interior",
     date: "May 1, 2024",
-    href: "#",
+    href: blogHref("shopping-in-dubai"),
   },
 ];
