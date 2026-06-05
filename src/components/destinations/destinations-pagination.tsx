@@ -1,18 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 type DestinationsPaginationProps = {
+  page: number;
   totalPages: number;
+  onPageChange: (page: number) => void;
 };
 
 export function DestinationsPagination({
+  page,
   totalPages,
+  onPageChange,
 }: DestinationsPaginationProps) {
-  const [page, setPage] = useState(1);
+  if (totalPages <= 1) return null;
 
   const leadingPages = Array.from(
     { length: Math.min(3, totalPages) },
@@ -20,9 +23,6 @@ export function DestinationsPagination({
   );
   const showEllipsis = totalPages > 4;
   const showLast = totalPages > 3;
-
-  const goTo = (next: number) =>
-    setPage(Math.min(Math.max(next, 1), totalPages));
 
   const baseButton =
     "flex size-9 items-center justify-center rounded-full border text-sm transition-luxury";
@@ -34,7 +34,7 @@ export function DestinationsPagination({
     >
       <button
         type="button"
-        onClick={() => goTo(page - 1)}
+        onClick={() => onPageChange(page - 1)}
         disabled={page === 1}
         aria-label="Previous page"
         className={cn(
@@ -49,7 +49,7 @@ export function DestinationsPagination({
         <button
           key={value}
           type="button"
-          onClick={() => goTo(value)}
+          onClick={() => onPageChange(value)}
           aria-current={page === value ? "page" : undefined}
           className={cn(
             baseButton,
@@ -69,7 +69,7 @@ export function DestinationsPagination({
       {showLast && (
         <button
           type="button"
-          onClick={() => goTo(totalPages)}
+          onClick={() => onPageChange(totalPages)}
           aria-current={page === totalPages ? "page" : undefined}
           className={cn(
             baseButton,
@@ -84,7 +84,7 @@ export function DestinationsPagination({
 
       <button
         type="button"
-        onClick={() => goTo(page + 1)}
+        onClick={() => onPageChange(page + 1)}
         disabled={page === totalPages}
         aria-label="Next page"
         className={cn(
