@@ -7,9 +7,13 @@ import type { BlogPost } from "@/data";
 
 type BlogLatestArticlesProps = {
   posts: BlogPost[];
+  searchQuery?: string;
 };
 
-export function BlogLatestArticles({ posts }: BlogLatestArticlesProps) {
+export function BlogLatestArticles({
+  posts,
+  searchQuery,
+}: BlogLatestArticlesProps) {
   return (
     <section aria-labelledby="latest-articles-heading">
       <div className="mb-6 flex items-end justify-between gap-4">
@@ -28,13 +32,24 @@ export function BlogLatestArticles({ posts }: BlogLatestArticlesProps) {
         </Link>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        {posts.map((post, index) => (
-          <Reveal key={post.id} delay={index * 60}>
-            <GuideCard guide={post} />
-          </Reveal>
-        ))}
-      </div>
+      {posts.length === 0 ? (
+        <p
+          role="status"
+          className="rounded-xl border border-border/60 bg-card px-5 py-8 text-center text-sm text-muted-foreground"
+        >
+          {searchQuery?.trim()
+            ? `No articles found for "${searchQuery.trim()}". Try a different keyword.`
+            : "No articles found."}
+        </p>
+      ) : (
+        <div className="grid gap-6 sm:grid-cols-2">
+          {posts.map((post, index) => (
+            <Reveal key={post.id} delay={index * 60}>
+              <GuideCard guide={post} />
+            </Reveal>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

@@ -28,7 +28,7 @@ export function ExpertsCta() {
             size="lg"
             className="shrink-0 rounded-full transition-luxury"
           >
-            <Link href="#">Contact Our Experts</Link>
+            <Link href="/contact">Contact Our Experts</Link>
           </Button>
         </div>
       </Container>

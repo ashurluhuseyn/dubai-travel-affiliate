@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { useState } from "react";
 
 import { CheckList } from "@/components/shared/check-list";
 import { Container } from "@/components/shared/container";
@@ -16,6 +19,14 @@ const fieldClasses =
   "h-11 w-full rounded-lg border border-border/70 bg-luxury-black/40 px-3 text-sm text-foreground transition-luxury placeholder:text-muted-foreground focus:border-luxury-gold-muted/60 focus:outline-none";
 
 export function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+    event.currentTarget.reset();
+  };
+
   return (
     <section
       aria-labelledby="contact-form-heading"
@@ -32,7 +43,7 @@ export function ContactForm() {
             </h2>
             <div className="gold-line mt-4 max-w-[6rem]" />
 
-            <form className="mt-6 space-y-4">
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="first-name" className="sr-only">
@@ -101,6 +112,16 @@ export function ContactForm() {
                   className="w-full rounded-lg border border-border/70 bg-luxury-black/40 px-3 py-2.5 text-sm text-foreground transition-luxury placeholder:text-muted-foreground focus:border-luxury-gold-muted/60 focus:outline-none"
                 />
               </div>
+
+              {submitted && (
+                <p
+                  role="status"
+                  className="rounded-xl border border-luxury-gold-muted/30 bg-luxury-gold/10 px-4 py-3 text-sm text-luxury-gold-soft"
+                >
+                  Thank you for your message. Our team will get back to you
+                  shortly.
+                </p>
+              )}
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button

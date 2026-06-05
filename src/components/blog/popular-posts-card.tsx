@@ -48,7 +48,7 @@ export function PopularPostsCard({ posts }: PopularPostsCardProps) {
       </ul>
 
       <Link
-        href="#"
+        href="/blog"
         className="group mt-5 inline-flex items-center gap-1.5 text-sm text-luxury-gold-soft transition-luxury hover:text-luxury-gold"
       >
         View All Popular Posts

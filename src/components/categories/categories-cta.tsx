@@ -39,7 +39,7 @@ export function CategoriesCta() {
               size="lg"
               className="mt-8 rounded-full transition-luxury"
             >
-              <Link href="#contact">Contact Our Experts</Link>
+              <Link href="/contact">Contact Our Experts</Link>
             </Button>
           </div>
 

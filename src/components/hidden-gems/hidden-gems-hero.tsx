@@ -16,7 +16,11 @@ const quickFilters: { icon: LucideIcon; label: string }[] = [
   { icon: Compass, label: "Off the Beaten Path" },
 ];
 
-export function HiddenGemsHero() {
+type HiddenGemsHeroProps = {
+  initialSearch?: string;
+};
+
+export function HiddenGemsHero({ initialSearch = "" }: HiddenGemsHeroProps) {
   return (
     <section className="relative isolate overflow-hidden pt-28 pb-14 lg:pt-32 lg:pb-20">
       <Image
@@ -44,6 +48,8 @@ export function HiddenGemsHero() {
           </p>
 
           <form
+            action="/hidden-gems"
+            method="get"
             role="search"
             className="mt-8 flex w-full max-w-md items-center gap-2 rounded-full border border-border/70 bg-luxury-charcoal/70 p-2 pl-5 backdrop-blur-xl"
           >
@@ -53,6 +59,8 @@ export function HiddenGemsHero() {
             />
             <input
               type="search"
+              name="search"
+              defaultValue={initialSearch}
               aria-label="Search hidden gems"
               placeholder="Search hidden gems…"
               className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"

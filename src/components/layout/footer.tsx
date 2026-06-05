@@ -26,11 +26,11 @@ export function Footer() {
                 Dubai, United Arab Emirates
               </span>
               <a
-                href="mailto:hello@dubailuxe.travel"
+                href={`mailto:${siteConfig.contactEmail}`}
                 className="inline-flex items-center gap-2 transition-luxury hover:text-luxury-gold"
               >
                 <Mail className="size-4 text-luxury-gold-muted" />
-                hello@dubailuxe.travel
+                {siteConfig.contactEmail}
               </a>
             </div>
           </div>

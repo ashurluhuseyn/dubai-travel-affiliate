@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site";
+
 import type { ContactMethod, FaqSection } from "./types";
 
 export const contactMethods: ContactMethod[] = [
@@ -14,8 +16,8 @@ export const contactMethods: ContactMethod[] = [
     icon: "email",
     title: "Email Us",
     description: "Send us an email and we'll respond as soon as possible.",
-    actionLabel: "hello@dubailuxe.travel",
-    href: "mailto:hello@dubailuxe.travel",
+    actionLabel: siteConfig.contactEmail,
+    href: `mailto:${siteConfig.contactEmail}`,
   },
   {
     id: "phone",
@@ -31,7 +33,7 @@ export const contactMethods: ContactMethod[] = [
     title: "Our Location",
     description: "Dubai, United Arab Emirates",
     actionLabel: "View on Map",
-    href: "#",
+    href: "https://maps.google.com/?q=Dubai,+United+Arab+Emirates",
   },
 ];
 

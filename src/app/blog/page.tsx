@@ -14,6 +14,7 @@ import {
   getFeaturedPost,
   getPopularPosts,
 } from "@/data";
+import { matchesSearchQuery } from "@/lib/search";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -23,21 +24,32 @@ export const metadata: Metadata = createPageMetadata({
   path: "/blog",
 });
 
-export default function BlogPage() {
+type BlogPageProps = {
+  searchParams: Promise<{ search?: string }>;
+};
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const { search = "" } = await searchParams;
   const featuredPost = getFeaturedPost();
-  const posts = getBlogPosts();
+  const posts = getBlogPosts().filter((post) =>
+    matchesSearchQuery(search, [
+      post.title,
+      post.excerpt,
+      post.category,
+    ])
+  );
   const categories = getBlogCategories();
   const popularPosts = getPopularPosts();
 
   return (
     <PageLayout>
-      <BlogHero />
+      <BlogHero initialSearch={search} />
 
       <Container className="py-section">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12">
           <div className="space-y-12">
             <FeaturedArticle post={featuredPost} />
-            <BlogLatestArticles posts={posts} />
+            <BlogLatestArticles posts={posts} searchQuery={search} />
             <NewsletterCta />
           </div>
 

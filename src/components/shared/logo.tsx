@@ -8,7 +8,7 @@ type LogoProps = {
 };
 
 export function Logo({ className }: LogoProps) {
-  const [first] = siteConfig.name.split(" ");
+  const [prefix, suffix] = siteConfig.name.split(" ");
 
   return (
     <Link
@@ -18,8 +18,13 @@ export function Logo({ className }: LogoProps) {
         className
       )}
     >
-      {first}
-      <span className="text-luxury-gold"> Luxe</span>
+      {prefix}
+      {suffix ? (
+        <>
+          {" "}
+          <span className="text-luxury-gold">{suffix}</span>
+        </>
+      ) : null}
     </Link>
   );
 }

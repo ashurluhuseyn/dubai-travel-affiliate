@@ -1,6 +1,8 @@
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { siteConfig } from "@/lib/site";
+
 type HelpChannel = {
   icon: LucideIcon;
   label: string;
@@ -14,7 +16,11 @@ const channels: HelpChannel[] = [
     href: "https://wa.me/971501234567",
   },
   { icon: Phone, label: "Call Us +971 50 123 4567", href: "tel:+971501234567" },
-  { icon: Mail, label: "Email Us", href: "mailto:hello@dubailuxe.travel" },
+  {
+    icon: Mail,
+    label: "Email Us",
+    href: `mailto:${siteConfig.contactEmail}`,
+  },
 ];
 
 export function HelpCard() {

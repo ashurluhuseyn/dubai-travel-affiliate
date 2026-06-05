@@ -13,6 +13,11 @@ function destinationsCategoryHref(categoryName: string): string {
   return `/destinations?category=${encodeURIComponent(categoryName)}`;
 }
 
+/** Showcase cards on /categories use the same category labels as destination filters. */
+function showcaseCategoryHref(title: string): string {
+  return destinationsCategoryHref(title);
+}
+
 export const categories: Category[] = [
   {
     id: "landmarks",
@@ -96,7 +101,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "desert",
     image: DESERT_IMG,
     imageAlt: "4x4 driving across golden desert dunes",
-    href: "/destinations?category=Desert%20Safari",
+    href: showcaseCategoryHref("Desert Safari"),
   },
   {
     id: "yacht-tours",
@@ -105,7 +110,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "yacht",
     image: YACHT_IMG,
     imageAlt: "Luxury yacht on calm marina waters",
-    href: "/destinations?category=Yacht%20Tours",
+    href: showcaseCategoryHref("Yacht Tours"),
   },
   {
     id: "luxury",
@@ -114,7 +119,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "luxury",
     image: SKYLINE_IMG,
     imageAlt: "Dubai skyline glowing at dusk",
-    href: "/destinations?category=Luxury%20Experiences",
+    href: showcaseCategoryHref("Luxury Experiences"),
   },
   {
     id: "nightlife",
@@ -123,7 +128,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "nightlife",
     image: COAST_IMG,
     imageAlt: "City coastline lit up at night",
-    href: "/destinations?category=Nightlife",
+    href: showcaseCategoryHref("Nightlife"),
   },
   {
     id: "family-activities",
@@ -132,7 +137,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "family",
     image: COAST_IMG,
     imageAlt: "Family-friendly waterfront attractions",
-    href: "/destinations?category=family-activities",
+    href: showcaseCategoryHref("Family Activities"),
   },
   {
     id: "food-dining",
@@ -141,7 +146,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "dining",
     image: DINING_IMG,
     imageAlt: "Elegant dining table with a view",
-    href: "/destinations?category=food-dining",
+    href: showcaseCategoryHref("Food & Dining"),
   },
   {
     id: "attractions",
@@ -150,7 +155,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "attractions",
     image: SKYLINE_IMG,
     imageAlt: "Iconic Dubai landmarks at golden hour",
-    href: "/destinations?category=attractions",
+    href: showcaseCategoryHref("Attractions"),
   },
   {
     id: "culture-heritage",
@@ -159,7 +164,7 @@ export const categoryShowcase: CategoryShowcase[] = [
     icon: "culture",
     image: DESERT_IMG,
     imageAlt: "Traditional desert heritage setting",
-    href: "/destinations?category=culture-heritage",
+    href: showcaseCategoryHref("Culture & Heritage"),
   },
 ];
 

@@ -18,14 +18,21 @@ export const metadata: Metadata = createPageMetadata({
   path: "/hidden-gems",
 });
 
-export default function HiddenGemsPage() {
+type HiddenGemsPageProps = {
+  searchParams: Promise<{ search?: string }>;
+};
+
+export default async function HiddenGemsPage({
+  searchParams,
+}: HiddenGemsPageProps) {
+  const { search = "" } = await searchParams;
   const related = getHiddenGemsRelated();
 
   return (
     <PageLayout>
-      <HiddenGemsHero />
+      <HiddenGemsHero initialSearch={search} />
       <FeaturedHiddenGemSection />
-      <HiddenGemsGrid />
+      <HiddenGemsGrid searchQuery={search} />
       <HiddenGemCategories />
       <LocalTips />
       <HiddenGemsMap />

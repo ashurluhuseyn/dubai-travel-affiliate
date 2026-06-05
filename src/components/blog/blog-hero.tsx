@@ -7,7 +7,11 @@ import { Button } from "@/components/ui/button";
 
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Blog" }];
 
-export function BlogHero() {
+type BlogHeroProps = {
+  initialSearch?: string;
+};
+
+export function BlogHero({ initialSearch = "" }: BlogHeroProps) {
   return (
     <section className="relative isolate overflow-hidden pt-28 pb-14 lg:pt-32 lg:pb-20">
       <Image
@@ -36,6 +40,8 @@ export function BlogHero() {
           </p>
 
           <form
+            action="/blog"
+            method="get"
             role="search"
             className="mx-auto mt-8 flex w-full max-w-lg items-center gap-2 rounded-full border border-border/70 bg-luxury-charcoal/70 p-2 pl-5 backdrop-blur-xl"
           >
@@ -45,6 +51,8 @@ export function BlogHero() {
             />
             <input
               type="search"
+              name="search"
+              defaultValue={initialSearch}
               aria-label="Search articles"
               placeholder="Search articles…"
               className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
