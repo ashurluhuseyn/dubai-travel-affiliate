@@ -10,6 +10,9 @@ import type {
   RelatedExperience,
 } from "./types";
 
+/** Homepage hidden gem cards link to the listing page until detail routes exist. */
+const HIDDEN_GEMS_PAGE = "/hidden-gems";
+
 export const hiddenGems: HiddenGem[] = [
   {
     id: "creek",
@@ -19,7 +22,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=900&q=80",
     imageAlt: "Dubai Creek waterfront in soft morning light",
     span: "tall",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "opera",
@@ -29,7 +32,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Illuminated cityscape at night",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "alserkal",
@@ -39,7 +42,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=900&q=80",
     imageAlt: "Contemporary art gallery interior",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "frame",
@@ -49,7 +52,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=900&q=80",
     imageAlt: "Golden architectural frame structure",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "madinat",
@@ -59,7 +62,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Traditional waterways with abra boats",
     span: "wide",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "miracle-garden",
@@ -69,7 +72,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900&q=80",
     imageAlt: "Lush flower garden pathways",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 

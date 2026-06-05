@@ -1,3 +1,5 @@
+import { blogHref } from "./blog";
+
 import type { Guide } from "./types";
 
 export const latestGuides: Guide[] = [
@@ -12,7 +14,7 @@ export const latestGuides: Guide[] = [
     category: "Seasonal",
     readTime: "6 min read",
     date: "May 28, 2026",
-    href: "#",
+    href: blogHref("winter-escape"),
   },
   {
     id: "desert-weekend",
@@ -25,7 +27,7 @@ export const latestGuides: Guide[] = [
     category: "Itinerary",
     readTime: "8 min read",
     date: "May 15, 2026",
-    href: "#",
+    href: blogHref("desert-weekend"),
   },
   {
     id: "hotel-guide",
@@ -38,6 +40,6 @@ export const latestGuides: Guide[] = [
     category: "Hotels",
     readTime: "5 min read",
     date: "Apr 30, 2026",
-    href: "#",
+    href: blogHref("hotel-guide"),
   },
 ];
