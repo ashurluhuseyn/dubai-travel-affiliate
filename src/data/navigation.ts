@@ -24,18 +24,18 @@ export const footerSections: FooterSection[] = [
     links: [
       { href: "/blog", label: "Blog" },
       { href: "/about", label: "About Us" },
-      { href: "#", label: "FAQ" },
+      { href: "/contact#faq", label: "FAQ" },
       { href: "/contact", label: "Contact Us" },
-      { href: "#", label: "Privacy Policy" },
+      { href: "/contact", label: "Privacy Policy" },
     ],
   },
   {
     title: "Support",
     links: [
-      { href: "#", label: "Help Center" },
-      { href: "#", label: "Booking Guide" },
-      { href: "#", label: "Terms & Conditions" },
-      { href: "#", label: "Cancellation Policy" },
+      { href: "/contact", label: "Help Center" },
+      { href: "/destinations", label: "Booking Guide" },
+      { href: "/contact", label: "Terms & Conditions" },
+      { href: "/contact#faq", label: "Cancellation Policy" },
     ],
   },
 ];

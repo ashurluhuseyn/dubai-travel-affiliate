@@ -9,11 +9,11 @@ export function ContactFaq() {
   const columns = [faqs.slice(0, midpoint), faqs.slice(midpoint)];
 
   return (
-    <Section>
+    <Section id="faq">
       <SectionHeader
         label="Answers"
         title="Frequently Asked Questions"
-        href="#"
+        href="/contact#faq"
         linkLabel="View All FAQs"
       />
       <div className="grid gap-5 md:grid-cols-2">

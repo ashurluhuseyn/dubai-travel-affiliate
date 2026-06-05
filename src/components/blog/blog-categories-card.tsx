@@ -65,7 +65,7 @@ export function BlogCategoriesCard({ categories }: BlogCategoriesCardProps) {
       </ul>
 
       <Link
-        href="#"
+        href="/blog"
         className="group mt-4 inline-flex items-center gap-1.5 text-sm text-luxury-gold-soft transition-luxury hover:text-luxury-gold"
       >
         View All Categories

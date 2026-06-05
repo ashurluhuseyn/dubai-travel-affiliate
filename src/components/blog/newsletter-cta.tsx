@@ -1,8 +1,19 @@
+"use client";
+
 import { Mail } from "lucide-react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
 export function NewsletterCta() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+    event.currentTarget.reset();
+  };
+
   return (
     <section
       aria-labelledby="newsletter-heading"
@@ -31,7 +42,10 @@ export function NewsletterCta() {
           </div>
         </div>
 
-        <form className="w-full max-w-md lg:w-auto">
+        <form
+          className="w-full max-w-md lg:w-auto"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-3 sm:flex-row">
             <label htmlFor="newsletter-email" className="sr-only">
               Email address
@@ -51,9 +65,15 @@ export function NewsletterCta() {
               Subscribe
             </Button>
           </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            No spam, unsubscribe at any time.
-          </p>
+          {submitted ? (
+            <p role="status" className="mt-2 text-xs text-luxury-gold-soft">
+              Thanks for subscribing! Newsletter delivery is coming soon.
+            </p>
+          ) : (
+            <p className="mt-2 text-xs text-muted-foreground">
+              No spam, unsubscribe at any time.
+            </p>
+          )}
         </form>
       </div>
     </section>

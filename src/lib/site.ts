@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
 
-/** Production site origin — set `NEXT_PUBLIC_SITE_URL` in deployment. */
+/** Production origin used when `NEXT_PUBLIC_SITE_URL` is not set at build time. */
+export const PRODUCTION_SITE_URL = "https://dubaimoments.com";
+
+/** Site origin — set `NEXT_PUBLIC_SITE_URL` in deployment to override. */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL ?? PRODUCTION_SITE_URL;
 
 export const siteConfig = {
-  name: "Dubai Luxe Travel",
+  name: "Dubai Moments",
   tagline: "Curated luxury experiences in Dubai",
   description:
     "Discover handpicked luxury hotels, exclusive experiences, and premium travel offers in Dubai. Your guide to extraordinary stays and unforgettable Arabian Gulf escapes.",
+  contactEmail: "hello@dubaimoments.com",
   locale: "en_AE",
   keywords: [
-    "Dubai luxury travel",
-    "Dubai hotels",
-    "luxury Dubai vacations",
+    "Dubai travel",
     "Dubai experiences",
+    "luxury Dubai vacations",
+    "Dubai tours",
     "premium travel Dubai",
-    "Dubai affiliate travel",
-    "UAE luxury holidays",
+    "UAE holidays",
+    "Dubai hidden gems",
   ],
   url: SITE_URL,
   /** Default social share image (Dubai skyline). */
@@ -78,6 +82,7 @@ export function createPageMetadata({
   images,
   openGraphType = "website",
 }: PageMetadataOptions): Metadata {
+  const canonicalUrl = new URL(path, siteConfig.url).toString();
   const ogImages = (images ?? [siteConfig.defaultOgImage]).map((url) => ({
     url,
     alt: title,
@@ -87,12 +92,12 @@ export function createPageMetadata({
     title,
     description,
     alternates: {
-      canonical: path,
+      canonical: canonicalUrl,
     },
     openGraph: {
       type: openGraphType,
       locale: siteConfig.locale.replace("_", "-"),
-      url: path,
+      url: canonicalUrl,
       siteName: siteConfig.name,
       title,
       description,

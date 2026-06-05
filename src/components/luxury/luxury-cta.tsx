@@ -38,7 +38,7 @@ export function LuxuryCta() {
               size="lg"
               className="w-full rounded-full transition-luxury sm:w-fit"
             >
-              <Link href="#">Get In Touch</Link>
+              <Link href="/contact">Get In Touch</Link>
             </Button>
 
             <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
