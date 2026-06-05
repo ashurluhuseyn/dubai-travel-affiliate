@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Star } from "lucide-react";
 
-import { AffiliateLink } from "@/components/shared/affiliate-button";
 import type { PopularExperience } from "@/data";
 
 type PopularExperienceCardProps = {
@@ -12,8 +12,8 @@ export function PopularExperienceCard({
   experience,
 }: PopularExperienceCardProps) {
   return (
-    <AffiliateLink
-      href={experience.affiliateUrl}
+    <Link
+      href={experience.href}
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-luxury hover:-translate-y-1 hover:border-luxury-gold-muted/40 hover:shadow-lg hover:shadow-luxury-gold/5"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -44,6 +44,6 @@ export function PopularExperienceCard({
           </span>
         </span>
       </div>
-    </AffiliateLink>
+    </Link>
   );
 }

@@ -35,6 +35,13 @@ export const SHOWCASE_TO_CATEGORY_FILTER: Record<string, string> = {
   "Food & Dining": "dining",
   Attractions: "sightseeing",
   "Culture & Heritage": "cultural",
+  Landmarks: "sightseeing",
+  "Fine Dining": "dining",
+  Cruises: "cruise",
+  Adventure: "adventure",
+  Shopping: "sightseeing",
+  "Photo Spots": "sightseeing",
+  "Beach Clubs": "sightseeing",
 };
 
 const CATEGORY_ID_TO_LABEL: Record<string, string> = {
@@ -67,7 +74,14 @@ function matchesCategoryFilters(
   showcaseCategory: string | null
 ): boolean {
   if (showcaseCategory) {
-    if (!experience.showcaseCategories.includes(showcaseCategory)) {
+    const mapped = SHOWCASE_TO_CATEGORY_FILTER[showcaseCategory];
+    if (mapped) {
+      const label = CATEGORY_ID_TO_LABEL[mapped];
+      if (label && experience.category !== label) return false;
+    } else if (
+      !experience.showcaseCategories.includes(showcaseCategory) &&
+      experience.category !== showcaseCategory
+    ) {
       return false;
     }
   }
@@ -299,7 +313,7 @@ export function parseFiltersFromSearchParams(
   const priceMax = Number.parseInt(params.get("priceMax") ?? "", 10);
 
   return {
-    q: params.get("q") ?? "",
+    q: params.get("search") ?? params.get("q") ?? "",
     categories,
     showcaseCategory,
     priceMin: Number.isFinite(priceMin) ? priceMin : DEFAULT_PRICE_MIN,
@@ -322,7 +336,7 @@ export function filtersToSearchParams(
 ): URLSearchParams {
   const params = new URLSearchParams();
 
-  if (filters.q.trim()) params.set("q", filters.q.trim());
+  if (filters.q.trim()) params.set("search", filters.q.trim());
   if (filters.showcaseCategory) {
     params.set("category", filters.showcaseCategory);
   }

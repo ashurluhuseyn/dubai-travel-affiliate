@@ -6,6 +6,7 @@ import {
   aboutValues,
   whyChooseItems,
 } from "./about";
+import { blogDetails } from "./blog-detail";
 import {
   blogCategories,
   blogPosts,
@@ -42,6 +43,7 @@ import { heroStats } from "./stats";
 import { testimonials } from "./testimonials";
 import type {
   BlogCategory,
+  BlogDetail,
   BlogPost,
   AboutStat,
   AboutTrustItem,
@@ -224,6 +226,14 @@ export function getBlogCategories(): BlogCategory[] {
 
 export function getPopularPosts(): PopularPost[] {
   return popularPosts;
+}
+
+export function getBlogSlugs(): string[] {
+  return Object.keys(blogDetails);
+}
+
+export function getBlogDetail(slug: string): BlogDetail | null {
+  return blogDetails[slug] ?? null;
 }
 
 /** All experience detail slugs — used for static route generation. */

@@ -8,62 +8,66 @@ import type {
   TrustItem,
 } from "./types";
 
+function destinationsCategoryHref(categoryName: string): string {
+  return `/destinations?category=${encodeURIComponent(categoryName)}`;
+}
+
 export const categories: Category[] = [
   {
     id: "landmarks",
     label: "Landmarks",
     count: "48 places",
     icon: "building",
-    href: "#",
+    href: destinationsCategoryHref("Landmarks"),
   },
   {
     id: "dining",
     label: "Fine Dining",
     count: "120 venues",
     icon: "dining",
-    href: "#",
+    href: destinationsCategoryHref("Fine Dining"),
   },
   {
     id: "cruises",
     label: "Cruises",
     count: "32 charters",
     icon: "cruise",
-    href: "#",
+    href: destinationsCategoryHref("Cruises"),
   },
   {
     id: "adventure",
     label: "Adventure",
     count: "64 tours",
     icon: "adventure",
-    href: "#",
+    href: destinationsCategoryHref("Adventure"),
   },
   {
     id: "shopping",
     label: "Shopping",
     count: "85 spots",
     icon: "shopping",
-    href: "#",
+    href: destinationsCategoryHref("Shopping"),
   },
   {
     id: "nightlife",
     label: "Nightlife",
     count: "40 lounges",
     icon: "nightlife",
-    href: "#",
+    href: destinationsCategoryHref("Nightlife"),
   },
   {
     id: "photography",
     label: "Photo Spots",
     count: "57 locations",
     icon: "photo",
-    href: "#",
+    href: destinationsCategoryHref("Photo Spots"),
   },
   {
     id: "beaches",
     label: "Beach Clubs",
     count: "28 clubs",
     icon: "beach",
-    href: "#",
+    href: destinationsCategoryHref("Beach Clubs"),
   },
 ];
 

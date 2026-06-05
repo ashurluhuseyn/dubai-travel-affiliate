@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Play, ShieldCheck, UserCheck, Zap } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-import { AffiliateButton } from "@/components/shared/affiliate-button";
 import { Section } from "@/components/shared/section";
+import { Button } from "@/components/ui/button";
 import { getFeaturedCategory, type FeaturedBenefitIconKey } from "@/data";
 
 const benefitIcons: Record<FeaturedBenefitIconKey, LucideIcon> = {
@@ -63,14 +63,12 @@ export function FeaturedCategorySection() {
             })}
           </ul>
 
-          <AffiliateButton
-            href={featured.affiliateUrl}
-            size="lg"
-            className="mt-8 rounded-full transition-luxury"
-          >
-            {featured.ctaLabel}
-            <ArrowRight className="size-4" />
-          </AffiliateButton>
+          <Button asChild size="lg" className="mt-8 rounded-full transition-luxury">
+            <Link href={featured.href}>
+              {featured.ctaLabel}
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </Section>

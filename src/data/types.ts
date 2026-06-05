@@ -275,6 +275,11 @@ export type BlogPost = Guide & {
   author?: BlogAuthor;
 };
 
+export type BlogDetail = BlogPost & {
+  slug: string;
+  content: string[];
+};
+
 export type BlogCategoryIconKey =
   | "guides"
   | "itineraries"

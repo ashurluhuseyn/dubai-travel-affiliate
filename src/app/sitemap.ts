@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getExperienceSlugs } from "@/data";
+import { getBlogSlugs, getExperienceSlugs } from "@/data";
 import { SITE_URL } from "@/lib/site";
 
 /** Marketing and listing pages included in the sitemap. */
@@ -34,5 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticEntries, ...experienceEntries];
+  const blogEntries: MetadataRoute.Sitemap = getBlogSlugs().map((slug) => ({
+    url: `${SITE_URL}/blog/${slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...experienceEntries, ...blogEntries];
 }
