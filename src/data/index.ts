@@ -5,6 +5,7 @@ export * from "./experiences";
 export * from "./categories";
 export * from "./ai-planner";
 export * from "./hidden-gems";
+export * from "./hidden-gem-detail";
 export * from "./lifestyle";
 export * from "./testimonials";
 export * from "./guides";

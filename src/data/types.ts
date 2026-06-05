@@ -352,6 +352,24 @@ export type HiddenGemSpot = {
   href: string;
 };
 
+/** Full hidden gem record powering /hidden-gems/[slug] detail pages. */
+export type HiddenGemDetail = {
+  slug: string;
+  title: string;
+  location: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  badge: string;
+  price: string;
+  tags: string[];
+  highlights: string[];
+  bestTimeToVisit: string;
+  howToGetThere: string;
+  whatToBring: string;
+  content: string[];
+};
+
 export type FeaturedHiddenGem = {
   title: string;
   location: string;

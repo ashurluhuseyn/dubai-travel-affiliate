@@ -29,6 +29,10 @@ import {
   topLuxuryExperiences,
 } from "./luxury";
 import {
+  getAllHiddenGemSlugs,
+  getHiddenGemBySlug,
+} from "./hidden-gem-detail";
+import {
   featuredHiddenGem,
   hiddenGemCategories,
   hiddenGemReasons,
@@ -64,6 +68,7 @@ import type {
   HeroStat,
   HiddenGem,
   HiddenGemCategory,
+  HiddenGemDetail,
   HiddenGemReason,
   HiddenGemSpot,
   ItineraryDay,
@@ -163,6 +168,16 @@ export function getLocalTips(): LocalTip[] {
 
 export function getHiddenGemsRelated(): RelatedExperience[] {
   return hiddenGemsRelated;
+}
+
+/** All hidden gem slugs — used for static route generation. */
+export function getHiddenGemSlugs(): string[] {
+  return getAllHiddenGemSlugs();
+}
+
+/** Returns the hidden gem for a slug, or `null` if it does not exist. */
+export function getHiddenGemDetail(slug: string): HiddenGemDetail | null {
+  return getHiddenGemBySlug(slug);
 }
 
 export function getLuxuryHighlights(): LuxuryHighlight[] {
