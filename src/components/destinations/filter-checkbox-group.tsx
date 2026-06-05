@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import { Checkbox } from "@/components/ui/checkbox";
 import type { FilterOption } from "@/data";
 import { cn } from "@/lib/utils";
@@ -10,20 +8,23 @@ type FilterCheckboxGroupProps = {
   /** Unique namespace so checkbox ids don't collide across groups */
   name: string;
   options: FilterOption[];
-  defaultSelected?: string[];
+  selected: string[];
+  onChange: (selected: string[]) => void;
 };
 
 export function FilterCheckboxGroup({
   name,
   options,
-  defaultSelected = [],
+  selected,
+  onChange,
 }: FilterCheckboxGroupProps) {
-  const [selected, setSelected] = useState<string[]>(defaultSelected);
-
-  const toggle = (id: string) =>
-    setSelected((prev) =>
-      prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]
+  const toggle = (id: string) => {
+    onChange(
+      selected.includes(id)
+        ? selected.filter((value) => value !== id)
+        : [...selected, id]
     );
+  };
 
   return (
     <div className="flex flex-col gap-3">

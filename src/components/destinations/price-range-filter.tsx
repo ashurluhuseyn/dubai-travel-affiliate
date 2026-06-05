@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
-
 import { Slider } from "@/components/ui/slider";
 
 const MIN = 0;
 const MAX = 2000;
 
-export function PriceRangeFilter() {
-  const [range, setRange] = useState<[number, number]>([10, MAX]);
+type PriceRangeFilterProps = {
+  range: [number, number];
+  onChange: (range: [number, number]) => void;
+};
 
+export function PriceRangeFilter({ range, onChange }: PriceRangeFilterProps) {
   const formatMax = (value: number) =>
     value >= MAX ? `$${MAX}+` : `$${value}`;
 
@@ -20,7 +21,7 @@ export function PriceRangeFilter() {
         max={MAX}
         step={10}
         value={range}
-        onValueChange={(value) => setRange([value[0], value[1]])}
+        onValueChange={(value) => onChange([value[0], value[1]])}
         aria-label="Price range"
       />
       <div className="flex items-center gap-3">

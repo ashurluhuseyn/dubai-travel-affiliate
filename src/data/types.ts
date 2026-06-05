@@ -419,22 +419,79 @@ export type ExperienceBadge =
   | "Premium"
   | "Exclusive";
 
+export type DestinationAvailability = "today" | "this-week" | "this-month";
+
+export type DestinationTourType =
+  | "shared"
+  | "private"
+  | "self-guided"
+  | "skip-line"
+  | "vip";
+
+export type DestinationGroupSizeKey =
+  | "1-2"
+  | "3-5"
+  | "6-10"
+  | "11-20"
+  | "21+";
+
 export type DestinationExperience = {
   id: string;
   title: string;
+  description: string;
+  location: string;
   image: string;
   imageAlt: string;
   badge?: ExperienceBadge;
   category: string;
+  /** Showcase labels used for deep links, e.g. "Desert Safari". */
+  showcaseCategories: string[];
   rating: number;
   reviews: number;
   duration: string;
+  /** Numeric hours for sorting and duration filters. */
+  durationHours: number;
   groupSize: string;
+  groupSizeKey: DestinationGroupSizeKey;
   /** Price per person in USD */
   price: number;
+  availability: DestinationAvailability;
+  instantConfirmation: boolean;
+  languages: string[];
+  tourType: DestinationTourType;
+  pickupIncluded: boolean;
+  freeCancellation: boolean;
+  /** Higher = more recommended for default sort. */
+  recommendedScore: number;
   href: string;
   /** External partner booking URL. */
   affiliateUrl: string;
+};
+
+export type DestinationsSortId =
+  | "recommended"
+  | "price-asc"
+  | "price-desc"
+  | "rating-desc"
+  | "duration-asc";
+
+export type DestinationsFilterState = {
+  q: string;
+  /** Sidebar category filter ids (e.g. "adventure"). */
+  categories: string[];
+  showcaseCategory: string | null;
+  priceMin: number;
+  priceMax: number;
+  durations: string[];
+  ratings: string[];
+  availability: string[];
+  instantConfirmation: string[];
+  languages: string[];
+  groupSizes: string[];
+  tourTypes: string[];
+  pickup: string[];
+  cancellation: string[];
+  sort: DestinationsSortId;
 };
 
 /** A single selectable option inside a filter group (label + result count) */

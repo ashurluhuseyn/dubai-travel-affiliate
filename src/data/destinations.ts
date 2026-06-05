@@ -1,158 +1,11 @@
-import { buildAffiliateUrl } from "@/lib/affiliate";
-
 import type {
-  DestinationExperience,
   DestinationFilters,
   DestinationStat,
   SortOption,
 } from "./types";
+import { destinationExperiences } from "./destination-experiences";
 
-const experiences: DestinationExperience[] = [
-  {
-    id: "desert-safari-dune-bashing",
-    title: "Desert Safari & Dune Bashing",
-    image:
-      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
-    imageAlt: "4x4 vehicle dune bashing across golden desert dunes",
-    badge: "Bestseller",
-    category: "Adventure",
-    rating: 4.8,
-    reviews: 3757,
-    duration: "6 Hours",
-    groupSize: "Small Group",
-    price: 79,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("desert-safari-dune-bashing"),
-  },
-  {
-    id: "luxury-yacht-marina-cruise",
-    title: "Luxury Yacht Marina Cruise",
-    image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
-    imageAlt: "Luxury yacht cruising through Dubai Marina",
-    badge: "Popular",
-    category: "Cruise",
-    rating: 4.9,
-    reviews: 1581,
-    duration: "4 Hours",
-    groupSize: "Small Group",
-    price: 199,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("luxury-yacht-marina-cruise"),
-  },
-  {
-    id: "burj-khalifa-at-the-top",
-    title: "Burj Khalifa At The Top",
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-    imageAlt: "Burj Khalifa towering over the Downtown Dubai skyline",
-    badge: "Bestseller",
-    category: "Sightseeing",
-    rating: 4.9,
-    reviews: 5837,
-    duration: "2 Hours",
-    groupSize: "Any Size",
-    price: 89,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("burj-khalifa-at-the-top"),
-  },
-  {
-    id: "old-town-heritage-tour",
-    title: "Dubai City & Old Town Heritage Tour",
-    image:
-      "https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=800&q=80",
-    imageAlt: "Historic Al Fahidi heritage district in Dubai",
-    badge: "Cultural",
-    category: "Cultural",
-    rating: 4.7,
-    reviews: 2105,
-    duration: "5 Hours",
-    groupSize: "Small Group",
-    price: 149,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("old-town-heritage-tour"),
-  },
-  {
-    id: "premium-desert-camp",
-    title: "Premium Desert Camp Experience",
-    image:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
-    imageAlt: "Luxury desert camp set up at sunset",
-    badge: "New",
-    category: "Adventure",
-    rating: 4.8,
-    reviews: 2018,
-    duration: "7 Hours",
-    groupSize: "Small Group",
-    price: 129,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("premium-desert-camp"),
-  },
-  {
-    id: "marina-sunset-sailing",
-    title: "Dubai Marina Sunset Sailing",
-    image:
-      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80",
-    imageAlt: "Sailing boat on Dubai Marina at sunset",
-    badge: "Popular",
-    category: "Cruise",
-    rating: 4.8,
-    reviews: 1799,
-    duration: "2.5 Hours",
-    groupSize: "Small Group",
-    price: 119,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("marina-sunset-sailing"),
-  },
-  {
-    id: "panoramic-helicopter-tour",
-    title: "Panoramic City Helicopter Tour",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
-    imageAlt: "Helicopter flying over the coastal city skyline",
-    badge: "Premium",
-    category: "Sightseeing",
-    rating: 4.9,
-    reviews: 846,
-    duration: "30 Minutes",
-    groupSize: "Up to 4",
-    price: 299,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("panoramic-helicopter-tour"),
-  },
-  {
-    id: "quad-biking-desert",
-    title: "Quad Biking Desert Adventure",
-    image:
-      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
-    imageAlt: "Quad bikes parked on desert sand",
-    badge: "Bestseller",
-    category: "Adventure",
-    rating: 4.7,
-    reviews: 2018,
-    duration: "4 Hours",
-    groupSize: "Small Group",
-    price: 159,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("quad-biking-desert"),
-  },
-  {
-    id: "burj-al-arab-high-tea",
-    title: "Burj Al Arab High Tea Experience",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
-    imageAlt: "Burj Al Arab luxury hotel at dusk",
-    badge: "Exclusive",
-    category: "Dining",
-    rating: 4.8,
-    reviews: 1224,
-    duration: "2 Hours",
-    groupSize: "Up to 6",
-    price: 149,
-    href: "/experiences/desert-safari-dune-bashing",
-    affiliateUrl: buildAffiliateUrl("burj-al-arab-high-tea"),
-  },
-];
+export { destinationExperiences };
 
 const stats: DestinationStat[] = [
   { id: "experiences", icon: "experiences", value: "1000+", label: "Experiences" },
@@ -162,11 +15,11 @@ const stats: DestinationStat[] = [
 ];
 
 const sortOptions: SortOption[] = [
-  { id: "popular", label: "Popular" },
+  { id: "recommended", label: "Recommended" },
   { id: "price-asc", label: "Price: Low to High" },
   { id: "price-desc", label: "Price: High to Low" },
-  { id: "rating", label: "Top Rated" },
-  { id: "newest", label: "Newest" },
+  { id: "rating-desc", label: "Rating: High to Low" },
+  { id: "duration-asc", label: "Duration: Short to Long" },
 ];
 
 const filters: DestinationFilters = {
@@ -255,10 +108,8 @@ const filters: DestinationFilters = {
   ],
 };
 
-const resultsCount = 122;
-
-export function getDestinationExperiences(): DestinationExperience[] {
-  return experiences;
+export function getDestinationExperiences() {
+  return destinationExperiences;
 }
 
 export function getDestinationStats(): DestinationStat[] {
@@ -271,8 +122,4 @@ export function getDestinationFilters(): DestinationFilters {
 
 export function getSortOptions(): SortOption[] {
   return sortOptions;
-}
-
-export function getResultsCount(): number {
-  return resultsCount;
 }

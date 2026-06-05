@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import {
   Select,
   SelectContent,
@@ -9,29 +7,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { SortOption } from "@/data";
+import type { DestinationsSortId, SortOption } from "@/data";
 
 type ResultsToolbarProps = {
   resultsCount: number;
   sortOptions: SortOption[];
+  sort: DestinationsSortId;
+  onSortChange: (sort: DestinationsSortId) => void;
 };
 
 export function ResultsToolbar({
   resultsCount,
   sortOptions,
+  sort,
+  onSortChange,
 }: ResultsToolbarProps) {
-  const [sort, setSort] = useState(sortOptions[0]?.id ?? "");
-
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-sm text-muted-foreground">
-        Showing{" "}
         <span className="font-medium text-foreground">{resultsCount}</span>{" "}
-        experiences
+        experiences found
       </p>
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground">Sort by:</span>
-        <Select value={sort} onValueChange={setSort}>
+        <Select value={sort} onValueChange={(value) => onSortChange(value as DestinationsSortId)}>
           <SelectTrigger className="w-[190px] rounded-full">
             <SelectValue />
           </SelectTrigger>
