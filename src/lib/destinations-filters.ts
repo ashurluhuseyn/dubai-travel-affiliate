@@ -335,8 +335,15 @@ export function parseFiltersFromSearchParams(
   };
 }
 
+/** Reads the `page` query param; defaults to 1. */
+export function parsePageParam(params: URLSearchParams): number {
+  const raw = Number.parseInt(params.get("page") ?? "1", 10);
+  return Number.isFinite(raw) && raw >= 1 ? raw : 1;
+}
+
 export function filtersToSearchParams(
-  filters: DestinationsFilterState
+  filters: DestinationsFilterState,
+  page = 1
 ): URLSearchParams {
   const params = new URLSearchParams();
 
@@ -370,6 +377,8 @@ export function filtersToSearchParams(
   setList("cancellation", filters.cancellation, ["any"]);
 
   if (filters.sort !== "recommended") params.set("sort", filters.sort);
+
+  if (page > 1) params.set("page", String(page));
 
   return params;
 }

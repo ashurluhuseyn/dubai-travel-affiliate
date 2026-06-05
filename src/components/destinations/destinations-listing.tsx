@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { DestinationGrid } from "@/components/destinations/destination-grid";
@@ -19,14 +19,19 @@ import {
   type DestinationsFilterState,
 } from "@/data";
 import {
+  clampPage,
+  DESTINATION_GRID_XL_MEDIA,
+  destinationPageSize,
+  destinationTotalPages,
+  paginateResults,
+} from "@/lib/destination-pagination";
+import {
   filterExperiences,
   filtersToSearchParams,
-  hasActiveFilters,
   parseFiltersFromSearchParams,
+  parsePageParam,
   sortExperiences,
 } from "@/lib/destinations-filters";
-
-const TOTAL_PAGES = 8;
 
 function getToggledId(previous: string[], next: string[]): string | undefined {
   const added = next.find((id) => !previous.includes(id));
@@ -66,28 +71,63 @@ function normalizeMultiSelect(
   return toggleWithDefault(previous, toggledId, defaultId);
 }
 
+function useDestinationPageSize(): number {
+  const [pageSize, setPageSize] = useState(6);
+
+  useEffect(() => {
+    const media = window.matchMedia(DESTINATION_GRID_XL_MEDIA);
+    const update = () => setPageSize(destinationPageSize(media.matches));
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return pageSize;
+}
+
 export function DestinationsListing() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const allExperiences = getDestinationExperiences();
   const filterConfig = getDestinationFilters();
   const sortOptions = getSortOptions();
+  const pageSize = useDestinationPageSize();
 
   const filters = useMemo(
     () => parseFiltersFromSearchParams(searchParams),
     [searchParams]
   );
 
-  const updateFilters = useCallback(
-    (patch: Partial<DestinationsFilterState>) => {
-      const next = { ...filters, ...patch };
-      const params = filtersToSearchParams(next);
+  const currentPage = useMemo(
+    () => parsePageParam(searchParams),
+    [searchParams]
+  );
+
+  const navigateWithParams = useCallback(
+    (params: URLSearchParams) => {
       const query = params.toString();
       router.replace(query ? `/destinations?${query}` : "/destinations", {
         scroll: false,
       });
     },
-    [filters, router]
+    [router]
+  );
+
+  const updateFilters = useCallback(
+    (patch: Partial<DestinationsFilterState>) => {
+      const next = { ...filters, ...patch };
+      const params = filtersToSearchParams(next, 1);
+      navigateWithParams(params);
+    },
+    [filters, navigateWithParams]
+  );
+
+  const updatePage = useCallback(
+    (page: number) => {
+      const params = filtersToSearchParams(filters, page);
+      navigateWithParams(params);
+    },
+    [filters, navigateWithParams]
   );
 
   const clearFilters = useCallback(() => {
@@ -99,7 +139,23 @@ export function DestinationsListing() {
     return sortExperiences(filtered, filters.sort);
   }, [allExperiences, filters]);
 
-  const activeFilters = hasActiveFilters(filters);
+  const totalPages = destinationTotalPages(
+    filteredExperiences.length,
+    pageSize
+  );
+
+  const page = clampPage(currentPage, totalPages);
+
+  useEffect(() => {
+    if (filteredExperiences.length > 0 && currentPage !== page) {
+      updatePage(page);
+    }
+  }, [currentPage, page, filteredExperiences.length, updatePage]);
+
+  const paginatedExperiences = useMemo(
+    () => paginateResults(filteredExperiences, page, pageSize),
+    [filteredExperiences, page, pageSize]
+  );
 
   const handleListChange = (
     key: keyof DestinationsFilterState,
@@ -215,14 +271,18 @@ export function DestinationsListing() {
 
             <div className="mt-6">
               {filteredExperiences.length > 0 ? (
-                <DestinationGrid experiences={filteredExperiences} />
+                <DestinationGrid experiences={paginatedExperiences} />
               ) : (
                 <DestinationsEmptyState onClearFilters={clearFilters} />
               )}
             </div>
 
-            {filteredExperiences.length > 0 && !activeFilters && (
-              <DestinationsPagination totalPages={TOTAL_PAGES} />
+            {filteredExperiences.length > 0 && (
+              <DestinationsPagination
+                page={page}
+                totalPages={totalPages}
+                onPageChange={updatePage}
+              />
             )}
           </div>
         </div>
