@@ -108,7 +108,7 @@ export const featuredHiddenGem: FeaturedHiddenGem = {
   imageAlt: "Lantern-lit historical courtyard café in old Dubai",
   tags: ["Culture", "History", "Photography"],
   ctaLabel: "Explore This Gem",
-  href: "#",
+  href: HIDDEN_GEMS_PAGE,
 };
 
 export const hiddenGemReasons: HiddenGemReason[] = [
@@ -145,7 +145,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Historic wind-tower architecture in Al Fahidi",
     badge: "Culture",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "al-sufouh-beach",
@@ -157,7 +157,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Secluded beach with calm turquoise water",
     badge: "Beach",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "alserkal-avenue",
@@ -169,7 +169,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Contemporary art gallery interior",
     badge: "Art",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "ras-al-khor",
@@ -181,7 +181,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Wetland nature reserve at golden hour",
     badge: "Nature",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "nightjar-coffee",
@@ -193,7 +193,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Cozy specialty coffee roastery interior",
     badge: "Café",
     price: "From $5",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "dubai-creek-abra",
@@ -205,7 +205,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Traditional abra boats on Dubai Creek",
     badge: "Experience",
     price: "From $1",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "green-planet",
@@ -217,7 +217,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Lush indoor rainforest dome",
     badge: "Nature",
     price: "From $25",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "hatta-heritage",
@@ -229,7 +229,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Mountain heritage village landscape",
     badge: "Heritage",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 
@@ -239,42 +239,42 @@ export const hiddenGemCategories: HiddenGemCategory[] = [
     label: "Nature & Outdoors",
     count: "12 spots",
     icon: "nature",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "culture",
     label: "Culture & Heritage",
     count: "18 spots",
     icon: "culture",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "cafes",
     label: "Cafés & Restaurants",
     count: "24 spots",
     icon: "cafes",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "photography",
     label: "Photography Spots",
     count: "15 spots",
     icon: "photography",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "unique",
     label: "Unique Experiences",
     count: "20 spots",
     icon: "unique",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "free",
     label: "Free Places",
     count: "30 spots",
     icon: "free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 
