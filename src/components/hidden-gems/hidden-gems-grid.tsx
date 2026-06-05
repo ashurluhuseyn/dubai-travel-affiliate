@@ -13,7 +13,7 @@ export function HiddenGemsGrid() {
         label="Curated Spots"
         title="More Hidden Gems"
         description="Local favorites and secret spots worth the detour."
-        href="#"
+        href="/hidden-gems"
         linkLabel="View All Gems"
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

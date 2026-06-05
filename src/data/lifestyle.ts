@@ -11,7 +11,7 @@ export const lifestyleItems: LifestyleItem[] = [
     imageAlt: "Luxury beach club pool at golden hour",
     tag: "Leisure",
     featured: true,
-    href: "#",
+    href: "/luxury",
   },
   {
     id: "shopping",
@@ -21,7 +21,7 @@ export const lifestyleItems: LifestyleItem[] = [
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80",
     imageAlt: "Elegant luxury retail boutique",
     tag: "Style",
-    href: "#",
+    href: "/luxury",
   },
   {
     id: "spa",
@@ -31,7 +31,7 @@ export const lifestyleItems: LifestyleItem[] = [
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80",
     imageAlt: "Tranquil spa treatment room",
     tag: "Wellness",
-    href: "#",
+    href: "/luxury",
   },
   {
     id: "dining",
@@ -41,7 +41,7 @@ export const lifestyleItems: LifestyleItem[] = [
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
     imageAlt: "Fine dining table with city view",
     tag: "Cuisine",
-    href: "#",
+    href: "/luxury",
   },
   {
     id: "nightlife",
@@ -51,6 +51,6 @@ export const lifestyleItems: LifestyleItem[] = [
       "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=900&q=80",
     imageAlt: "Stylish rooftop lounge at night",
     tag: "Nightlife",
-    href: "#",
+    href: "/luxury",
   },
 ];

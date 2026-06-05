@@ -13,7 +13,7 @@ export function LatestGuides() {
         label="Journal"
         title="Latest Stories"
         description="Insider stories, itineraries, and editorial picks from our team."
-        href="#"
+        href="/blog"
         linkLabel="Read the journal"
       />
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

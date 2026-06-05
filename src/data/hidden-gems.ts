@@ -10,6 +10,9 @@ import type {
   RelatedExperience,
 } from "./types";
 
+/** Homepage hidden gem cards link to the listing page until detail routes exist. */
+const HIDDEN_GEMS_PAGE = "/hidden-gems";
+
 export const hiddenGems: HiddenGem[] = [
   {
     id: "creek",
@@ -19,7 +22,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=900&q=80",
     imageAlt: "Dubai Creek waterfront in soft morning light",
     span: "tall",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "opera",
@@ -29,7 +32,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Illuminated cityscape at night",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "alserkal",
@@ -39,7 +42,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=900&q=80",
     imageAlt: "Contemporary art gallery interior",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "frame",
@@ -49,7 +52,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=900&q=80",
     imageAlt: "Golden architectural frame structure",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "madinat",
@@ -59,7 +62,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80",
     imageAlt: "Traditional waterways with abra boats",
     span: "wide",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "miracle-garden",
@@ -69,7 +72,7 @@ export const hiddenGems: HiddenGem[] = [
       "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900&q=80",
     imageAlt: "Lush flower garden pathways",
     span: "default",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 
@@ -105,7 +108,7 @@ export const featuredHiddenGem: FeaturedHiddenGem = {
   imageAlt: "Lantern-lit historical courtyard café in old Dubai",
   tags: ["Culture", "History", "Photography"],
   ctaLabel: "Explore This Gem",
-  href: "#",
+  href: HIDDEN_GEMS_PAGE,
 };
 
 export const hiddenGemReasons: HiddenGemReason[] = [
@@ -142,7 +145,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Historic wind-tower architecture in Al Fahidi",
     badge: "Culture",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "al-sufouh-beach",
@@ -154,7 +157,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Secluded beach with calm turquoise water",
     badge: "Beach",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "alserkal-avenue",
@@ -166,7 +169,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Contemporary art gallery interior",
     badge: "Art",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "ras-al-khor",
@@ -178,7 +181,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Wetland nature reserve at golden hour",
     badge: "Nature",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "nightjar-coffee",
@@ -190,7 +193,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Cozy specialty coffee roastery interior",
     badge: "Café",
     price: "From $5",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "dubai-creek-abra",
@@ -202,7 +205,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Traditional abra boats on Dubai Creek",
     badge: "Experience",
     price: "From $1",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "green-planet",
@@ -214,7 +217,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Lush indoor rainforest dome",
     badge: "Nature",
     price: "From $25",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "hatta-heritage",
@@ -226,7 +229,7 @@ export const hiddenGemSpots: HiddenGemSpot[] = [
     imageAlt: "Mountain heritage village landscape",
     badge: "Heritage",
     price: "Free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 
@@ -236,42 +239,42 @@ export const hiddenGemCategories: HiddenGemCategory[] = [
     label: "Nature & Outdoors",
     count: "12 spots",
     icon: "nature",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "culture",
     label: "Culture & Heritage",
     count: "18 spots",
     icon: "culture",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "cafes",
     label: "Cafés & Restaurants",
     count: "24 spots",
     icon: "cafes",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "photography",
     label: "Photography Spots",
     count: "15 spots",
     icon: "photography",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "unique",
     label: "Unique Experiences",
     count: "20 spots",
     icon: "unique",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
   {
     id: "free",
     label: "Free Places",
     count: "30 spots",
     icon: "free",
-    href: "#",
+    href: HIDDEN_GEMS_PAGE,
   },
 ];
 

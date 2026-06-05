@@ -1,5 +1,6 @@
 import type { BlogDetail } from "./types";
-import { blogPosts, featuredPost } from "./blog";
+import { blogHref, blogPosts, featuredPost } from "./blog";
+import { latestGuides } from "./guides";
 
 function createBlogDetail(
   post: (typeof featuredPost),
@@ -136,4 +137,15 @@ export const blogDetails: Record<string, BlogDetail> = {
     href: "/blog/shopping-in-dubai",
     content: defaultParagraphs("shopping in Dubai"),
   },
+  ...Object.fromEntries(
+    latestGuides.map((guide) => [
+      guide.id,
+      {
+        ...guide,
+        slug: guide.id,
+        href: blogHref(guide.id),
+        content: defaultParagraphs(guide.title),
+      } satisfies BlogDetail,
+    ])
+  ),
 };

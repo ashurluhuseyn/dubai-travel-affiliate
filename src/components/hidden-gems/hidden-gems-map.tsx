@@ -55,7 +55,7 @@ export function HiddenGemsMap() {
             size="lg"
             className="mt-2 rounded-full transition-luxury"
           >
-            <Link href="#">
+            <Link href="/hidden-gems">
               View All Locations
               <ArrowRight className="size-4" />
             </Link>

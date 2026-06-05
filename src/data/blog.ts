@@ -22,7 +22,7 @@ const YACHT_IMG =
 const TRAVEL_IMG =
   "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&q=80";
 
-function blogHref(slug: string): string {
+export function blogHref(slug: string): string {
   return `/blog/${slug}`;
 }
 
