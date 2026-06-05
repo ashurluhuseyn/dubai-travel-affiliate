@@ -1,14 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BadgeCheck, Calendar, ChevronDown, RotateCcw } from "lucide-react";
 
 import { AffiliateButton } from "@/components/shared/affiliate-button";
+import { formatPrice } from "@/lib/format-price";
+
+function toDateInputValue(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function openDatePicker(input: HTMLInputElement) {
+  input.focus();
+  if (typeof input.showPicker === "function") {
+    try {
+      input.showPicker();
+    } catch {
+      // showPicker may throw outside a direct user gesture; focus still works.
+    }
+  }
+}
+
+const dateInputClasses =
+  "h-11 min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent text-sm text-foreground focus:outline-none [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-80";
 
 type BookingCardProps = {
-  price: string;
+  price: number;
+  currency: string;
   priceUnit: string;
   affiliateUrl: string;
+  freeCancellation: boolean;
+  cancellationText: string;
 };
 
 const guestOptions = [
@@ -22,14 +47,33 @@ const guestOptions = [
 const fieldClasses =
   "flex h-11 w-full items-center gap-2 rounded-lg border border-border/70 bg-luxury-black/40 px-3 text-sm text-foreground transition-luxury focus-within:border-luxury-gold-muted/60";
 
-export function BookingCard({ price, priceUnit, affiliateUrl }: BookingCardProps) {
+export function BookingCard({
+  price,
+  currency,
+  priceUnit,
+  affiliateUrl,
+  freeCancellation,
+  cancellationText,
+}: BookingCardProps) {
+  const dateInputRef = useRef<HTMLInputElement>(null);
+  const today = toDateInputValue(new Date());
+  const [selectedDate, setSelectedDate] = useState(today);
   const [guests, setGuests] = useState(guestOptions[1]);
+  const formattedPrice = formatPrice(price, currency);
+
+  const handleDateFieldClick = () => {
+    if (dateInputRef.current) {
+      openDatePicker(dateInputRef.current);
+    }
+  };
 
   return (
     <div className="rounded-2xl border border-border/60 bg-card p-5 shadow-lg shadow-black/20 md:p-6">
       <div className="flex items-baseline gap-1.5">
         <span className="text-sm text-muted-foreground">From</span>
-        <span className="font-heading text-3xl text-luxury-gold">{price}</span>
+        <span className="font-heading text-3xl text-luxury-gold">
+          {formattedPrice}
+        </span>
         <span className="text-sm text-muted-foreground">/ {priceUnit}</span>
       </div>
 
@@ -46,14 +90,25 @@ export function BookingCard({ price, priceUnit, affiliateUrl }: BookingCardProps
           >
             Select Date
           </label>
-          <button
-            id="booking-date"
-            type="button"
-            className={fieldClasses}
-          >
-            <Calendar className="size-4 shrink-0 text-luxury-gold-muted" aria-hidden />
-            <span>May 25, 2025</span>
-          </button>
+          <div className={fieldClasses} onClick={handleDateFieldClick}>
+            <Calendar
+              className="size-4 shrink-0 text-luxury-gold-muted"
+              aria-hidden
+            />
+            <input
+              ref={dateInputRef}
+              id="booking-date"
+              type="date"
+              value={selectedDate}
+              min={today}
+              onChange={(event) => setSelectedDate(event.target.value)}
+              onClick={(event) => {
+                event.stopPropagation();
+                openDatePicker(event.currentTarget);
+              }}
+              className={dateInputClasses}
+            />
+          </div>
         </div>
 
         <div>
@@ -92,14 +147,16 @@ export function BookingCard({ price, priceUnit, affiliateUrl }: BookingCardProps
         </AffiliateButton>
       </div>
 
-      <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
-        <RotateCcw className="mt-0.5 size-4 shrink-0 text-luxury-gold-muted" aria-hidden />
-        <span>
-          <span className="font-medium text-foreground">Free Cancellation</span>
-          <br />
-          Up to 24 hours in advance
-        </span>
-      </p>
+      {freeCancellation && (
+        <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
+          <RotateCcw className="mt-0.5 size-4 shrink-0 text-luxury-gold-muted" aria-hidden />
+          <span>
+            <span className="font-medium text-foreground">Free Cancellation</span>
+            <br />
+            {cancellationText}
+          </span>
+        </p>
+      )}
     </div>
   );
 }

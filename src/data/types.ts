@@ -23,7 +23,8 @@ export type HeroStat = {
   label: string;
 };
 
-export type Experience = {
+/** Compact card used on homepage and listing grids. */
+export type ExperienceListing = {
   id: string;
   title: string;
   location: string;
@@ -141,16 +142,29 @@ export type ItineraryStop = {
   description?: string;
 };
 
+export type ExperienceItineraryItem = {
+  time: string;
+  title: string;
+  description: string;
+};
+
 export type GalleryImage = {
   src: string;
   alt: string;
 };
+
+export type ExperienceImage = GalleryImage;
 
 export type FaqSection = {
   id: string;
   title: string;
   /** Plain text; newlines are rendered as separate paragraphs. */
   content: string;
+};
+
+export type ExperienceFaq = {
+  question: string;
+  answer: string;
 };
 
 /** Compact card used in the "You Might Also Like" carousel. */
@@ -165,32 +179,45 @@ export type RelatedExperience = {
   affiliateUrl: string;
 };
 
-export type ExperienceDetail = {
+/** Full experience record powering /experiences/[slug] detail pages. */
+export type Experience = {
+  id: string;
   slug: string;
-  /** External partner booking URL for this experience. */
-  affiliateUrl: string;
   title: string;
   category: string;
+  location: string;
+  description: string;
+  price: number;
+  currency: string;
+  rating: number;
+  reviewCount: number;
+  duration: string;
+  groupSize: string;
+  hotelPickup: boolean;
+  mobileTicket: boolean;
+  instantConfirmation: boolean;
+  freeCancellation: boolean;
+  cancellationText: string;
+  highlights: string[];
+  includedItems: string[];
+  itinerary: ExperienceItineraryItem[];
+  importantInfo: string[];
+  meetingPoint: string;
+  cancellationPolicy: string;
+  faqs: ExperienceFaq[];
+  images: ExperienceImage[];
+  relatedExperienceSlugs: string[];
+  affiliateUrl: string;
   /** Optional overlay badge on the hero image, e.g. "Bestseller". */
   badge?: string;
-  rating: number;
-  reviews: number;
-  description: string;
-  meta: ExperienceMeta[];
-  /** Display string, e.g. "$79". */
-  price: string;
-  /** Unit the price applies to, e.g. "person". */
-  priceUnit: string;
-  gallery: GalleryImage[];
   /** Count of additional photos not shown as thumbnails (the "+12" tile). */
   galleryExtraCount?: number;
-  highlights: string[];
-  included: IncludedItem[];
-  itinerary: ItineraryStop[];
-  importantInfo: string[];
-  faqSections: FaqSection[];
-  related: RelatedExperience[];
+  /** Unit the price applies to, e.g. "person". */
+  priceUnit: string;
 };
+
+/** @deprecated Use {@link Experience} — kept for transitional imports. */
+export type ExperienceDetail = Experience;
 
 /* -------------------------------------------------------------------------- */
 /*  Categories page                                                           */
@@ -441,6 +468,7 @@ export type DestinationGroupSizeKey =
   | "21+";
 
 export type DestinationExperience = {
+  /** Canonical slug used for /experiences/[slug] routes. */
   id: string;
   title: string;
   description: string;

@@ -1,7 +1,7 @@
-import type { ItineraryStop } from "@/data";
+import type { ExperienceItineraryItem } from "@/data";
 
 type ExperienceItineraryProps = {
-  stops: ItineraryStop[];
+  stops: ExperienceItineraryItem[];
 };
 
 export function ExperienceItinerary({ stops }: ExperienceItineraryProps) {
@@ -38,11 +38,9 @@ export function ExperienceItinerary({ stops }: ExperienceItineraryProps) {
                   {stop.time}
                 </p>
                 <p className="mt-0.5 text-sm text-foreground">{stop.title}</p>
-                {stop.description && (
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {stop.description}
-                  </p>
-                )}
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {stop.description}
+                </p>
               </div>
             </li>
           );

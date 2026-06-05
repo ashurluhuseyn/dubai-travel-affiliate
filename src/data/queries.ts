@@ -20,7 +20,7 @@ import {
   featuredCategory,
   popularExperiences,
 } from "./categories";
-import { experienceDetails } from "./experience-detail";
+import { getAllExperienceSlugs, getExperienceBySlug } from "./experience-catalog";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
 import {
@@ -55,6 +55,7 @@ import type {
   WhyChooseItem,
   Experience,
   ExperienceDetail,
+  ExperienceListing,
   FaqSection,
   FeaturedCategory,
   FeaturedHiddenGem,
@@ -100,7 +101,7 @@ export function getHeroStats(): HeroStat[] {
   return heroStats;
 }
 
-export function getTrendingExperiences(): Experience[] {
+export function getTrendingExperiences(): ExperienceListing[] {
   return trendingExperiences;
 }
 
@@ -236,12 +237,23 @@ export function getBlogDetail(slug: string): BlogDetail | null {
   return blogDetails[slug] ?? null;
 }
 
-/** All experience detail slugs — used for static route generation. */
+/** All experience slugs — used for static route generation. */
 export function getExperienceSlugs(): string[] {
-  return Object.keys(experienceDetails);
+  return getAllExperienceSlugs();
 }
 
-/** Returns the experience detail for a slug, or `null` if it does not exist. */
-export function getExperienceDetail(slug: string): ExperienceDetail | null {
-  return experienceDetails[slug] ?? null;
+/** Returns the experience for a slug, or `null` if it does not exist. */
+export function getExperience(slug: string): Experience | null {
+  return getExperienceBySlug(slug);
 }
+
+/** @deprecated Use {@link getExperience} */
+export function getExperienceDetail(slug: string): ExperienceDetail | null {
+  return getExperienceBySlug(slug);
+}
+
+export {
+  getExperienceBySlug,
+  getAllExperienceSlugs,
+  resolveRelatedExperiences,
+} from "./experience-catalog";

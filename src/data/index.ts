@@ -8,6 +8,7 @@ export * from "./hidden-gems";
 export * from "./lifestyle";
 export * from "./testimonials";
 export * from "./guides";
+export * from "./experience-catalog";
 export * from "./experience-detail";
 export * from "./blog";
 export * from "./luxury";

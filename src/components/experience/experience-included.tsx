@@ -1,18 +1,26 @@
-import { Car, GlassWater, Music, Tent, UtensilsCrossed } from "lucide-react";
+import {
+  Car,
+  GlassWater,
+  Music,
+  ShieldCheck,
+  Tent,
+  Ticket,
+  UtensilsCrossed,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-import type { IncludedIconKey, IncludedItem } from "@/data";
-
-const includedIcons: Record<IncludedIconKey, LucideIcon> = {
-  pickup: Car,
-  dinner: UtensilsCrossed,
-  shows: Music,
-  camel: Tent,
-  drinks: GlassWater,
-};
+const includedIcons: LucideIcon[] = [
+  Car,
+  UtensilsCrossed,
+  Music,
+  Tent,
+  GlassWater,
+  Ticket,
+  ShieldCheck,
+];
 
 type ExperienceIncludedProps = {
-  items: IncludedItem[];
+  items: string[];
 };
 
 export function ExperienceIncluded({ items }: ExperienceIncludedProps) {
@@ -25,18 +33,18 @@ export function ExperienceIncluded({ items }: ExperienceIncludedProps) {
         What&apos;s Included
       </h2>
       <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-        {items.map((item) => {
-          const Icon = includedIcons[item.icon];
+        {items.map((label, index) => {
+          const Icon = includedIcons[index % includedIcons.length];
           return (
             <li
-              key={item.id}
+              key={label}
               className="group flex flex-col items-center gap-3 rounded-xl border border-border/60 bg-card p-4 text-center transition-luxury hover:-translate-y-1 hover:border-luxury-gold-muted/40"
             >
               <span className="inline-flex size-12 items-center justify-center rounded-full border border-luxury-gold-muted/30 bg-luxury-gold/10 text-luxury-gold transition-luxury group-hover:bg-luxury-gold/15">
                 <Icon className="size-6" aria-hidden />
               </span>
               <span className="text-xs font-medium leading-snug text-muted-foreground">
-                {item.label}
+                {label}
               </span>
             </li>
           );

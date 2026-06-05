@@ -1,8 +1,9 @@
 import { buildAffiliateUrl } from "@/lib/affiliate";
+import { experienceHrefForId } from "@/lib/experience-path";
 
-import type { Experience } from "./types";
+import type { ExperienceListing } from "./types";
 
-export const trendingExperiences: Experience[] = [
+export const trendingExperiences: ExperienceListing[] = [
   {
     id: "desert-safari",
     title: "Private Desert Safari & Dinner",
@@ -14,7 +15,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.9,
     reviews: 1240,
     price: "$320",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("desert-safari"),
     affiliateUrl: buildAffiliateUrl("desert-safari"),
   },
   {
@@ -28,7 +29,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.8,
     reviews: 2870,
     price: "$185",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("burj-khalifa"),
     affiliateUrl: buildAffiliateUrl("burj-khalifa"),
   },
   {
@@ -42,7 +43,7 @@ export const trendingExperiences: Experience[] = [
     rating: 5.0,
     reviews: 640,
     price: "$1,100",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("yacht-charter"),
     affiliateUrl: buildAffiliateUrl("yacht-charter"),
   },
   {
@@ -56,7 +57,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.9,
     reviews: 410,
     price: "$540",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("helicopter"),
     affiliateUrl: buildAffiliateUrl("helicopter"),
   },
   {
@@ -70,7 +71,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.7,
     reviews: 980,
     price: "$260",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("fine-dining"),
     affiliateUrl: buildAffiliateUrl("fine-dining"),
   },
   {
@@ -84,7 +85,7 @@ export const trendingExperiences: Experience[] = [
     rating: 4.8,
     reviews: 1530,
     price: "$95",
-    href: "/experiences/desert-safari-dune-bashing",
+    href: experienceHrefForId("old-dubai"),
     affiliateUrl: buildAffiliateUrl("old-dubai"),
   },
 ];
