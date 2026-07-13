@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cms:seed": "node --env-file=.env.local --import tsx scripts/cms/seed.ts",
+    "cms:verify": "node --env-file=.env.local --import tsx scripts/cms/verify.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.1",
@@ -33,6 +35,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }
