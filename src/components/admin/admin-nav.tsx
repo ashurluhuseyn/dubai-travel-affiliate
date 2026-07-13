@@ -3,7 +3,7 @@ import Link from "next/link";
 const NAV_ITEMS = [
   { href: "/admin", label: "Dashboard", enabled: true },
   { href: "/admin/experiences", label: "Experiences", enabled: true },
-  { href: "/admin/categories", label: "Categories", enabled: false },
+  { href: "/admin/categories", label: "Categories", enabled: true },
   { href: "/admin/media", label: "Media", enabled: false },
   { href: "/admin/settings", label: "Settings", enabled: false },
 ] as const;
