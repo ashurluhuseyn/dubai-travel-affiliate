@@ -74,15 +74,16 @@ function pickRelatedSlugs(
   const current = all.find((exp) => exp.id === currentId);
   if (!current) return [];
 
-  const sameCategory = all.filter(
-    (exp) => exp.id !== currentId && exp.category === current.category
-  );
-  const pool =
-    sameCategory.length >= 2
-      ? sameCategory
-      : all.filter((exp) => exp.id !== currentId);
-
-  return pool.slice(0, limit).map((exp) => exp.id);
+  return all
+    .filter((exp) => exp.id !== currentId)
+    .sort((a, b) => {
+      const aSameCategory = a.category === current.category ? 1 : 0;
+      const bSameCategory = b.category === current.category ? 1 : 0;
+      if (aSameCategory !== bSameCategory) return bSameCategory - aSameCategory;
+      return b.rating - a.rating;
+    })
+    .slice(0, limit)
+    .map((exp) => exp.id);
 }
 
 function adventureItinerary(dest: DestinationExperience): ExperienceItineraryItem[] {

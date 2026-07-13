@@ -1,4 +1,7 @@
-import { buildAffiliateUrl } from "@/lib/affiliate";
+import {
+  deriveExperienceAggregates,
+  formatLowestProviderPrice,
+} from "@/lib/experience-providers";
 import { experienceHref } from "@/lib/experience-path";
 
 import { destinationExperiences } from "./destination-experiences";
@@ -6,9 +9,14 @@ import {
   DESERT_SAFARI_CONTENT,
   generateExperienceContent,
 } from "./experience-content";
+import { buildProvidersForExperience } from "./experience-providers";
 import type { Experience, RelatedExperience } from "./types";
 
 const DESERT_SAFARI_SLUG = "desert-safari-dune-bashing";
+
+const destinationListingById = new Map(
+  destinationExperiences.map((dest) => [dest.id, dest])
+);
 
 function assembleExperience(
   dest: (typeof destinationExperiences)[number]
@@ -18,6 +26,17 @@ function assembleExperience(
       ? DESERT_SAFARI_CONTENT
       : generateExperienceContent(dest, destinationExperiences);
 
+  const providers = buildProvidersForExperience({
+    slug: dest.id,
+    basePriceUsd: dest.price,
+    rating: dest.rating,
+    reviewCount: dest.reviews,
+    instantConfirmation: dest.instantConfirmation,
+    freeCancellation: dest.freeCancellation,
+  });
+
+  const aggregates = deriveExperienceAggregates(providers);
+
   return {
     id: dest.id,
     slug: dest.id,
@@ -25,17 +44,17 @@ function assembleExperience(
     category: dest.category,
     location: dest.location,
     description: dest.description,
-    price: dest.price,
-    currency: "USD",
-    rating: dest.rating,
-    reviewCount: dest.reviews,
+    price: aggregates.price,
+    currency: aggregates.currency,
+    rating: aggregates.rating,
+    reviewCount: aggregates.reviewCount,
     duration: dest.duration,
     groupSize: dest.groupSize,
     hotelPickup: dest.pickupIncluded,
-    mobileTicket: true,
-    instantConfirmation: dest.instantConfirmation,
-    freeCancellation: dest.freeCancellation,
-    cancellationText: content.cancellationText,
+    mobileTicket: aggregates.mobileTicket,
+    instantConfirmation: aggregates.instantConfirmation,
+    freeCancellation: aggregates.freeCancellation,
+    cancellationText: aggregates.cancellationText,
     highlights: content.highlights,
     includedItems: content.includedItems,
     itinerary: content.itinerary,
@@ -48,7 +67,7 @@ function assembleExperience(
     badge: dest.badge,
     priceUnit: "person",
     relatedExperienceSlugs: content.relatedSlugs,
-    affiliateUrl: buildAffiliateUrl(dest.id),
+    providers,
   };
 }
 
@@ -70,14 +89,20 @@ export function resolveRelatedExperiences(
   return experience.relatedExperienceSlugs
     .map((slug) => experienceCatalog[slug])
     .filter((item): item is Experience => item !== undefined)
-    .map((related) => ({
-      id: related.id,
-      title: related.title,
-      image: related.images[0]?.src ?? "",
-      imageAlt: related.images[0]?.alt ?? related.title,
-      price: `$${related.price}`,
-      rating: related.rating,
-      href: experienceHref(related.slug),
-      affiliateUrl: related.affiliateUrl,
-    }));
+    .map((related) => {
+      const aggregates = deriveExperienceAggregates(related.providers);
+      const listing = destinationListingById.get(related.slug);
+
+      return {
+        id: related.id,
+        title: related.title,
+        category: related.category,
+        image: listing?.image ?? related.images[0]?.src ?? "",
+        imageAlt: listing?.imageAlt ?? related.images[0]?.alt ?? related.title,
+        price: formatLowestProviderPrice(related.providers),
+        rating: related.rating,
+        href: experienceHref(related.slug),
+        affiliateUrl: aggregates.primaryAffiliateUrl,
+      };
+    });
 }

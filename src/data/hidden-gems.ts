@@ -311,6 +311,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
   {
     id: "desert-safari",
     title: "Desert Safari & Dune Bashing",
+    category: "Adventure",
     image: DESERT_IMG,
     imageAlt: "4x4 crossing desert dunes at sunset",
     price: "$79",
@@ -321,6 +322,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
   {
     id: "old-dubai-walking-tour",
     title: "Old Dubai Walking Tour",
+    category: "Culture",
     image: CITY_IMG,
     imageAlt: "Historic Dubai streets and souks",
     price: "$30",
@@ -331,6 +333,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
   {
     id: "creek-dinner-cruise",
     title: "Dubai Creek Dinner Cruise",
+    category: "Cruise",
     image: CREEK_IMG,
     imageAlt: "Dinner cruise boat on Dubai Creek at night",
     price: "$75",
@@ -341,6 +344,7 @@ export const hiddenGemsRelated: RelatedExperience[] = [
   {
     id: "luxury-yacht-tour",
     title: "Luxury Yacht Tour",
+    category: "Cruise",
     image: YACHT_IMG,
     imageAlt: "Luxury yacht on turquoise water",
     price: "$110",
