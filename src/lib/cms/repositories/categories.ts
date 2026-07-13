@@ -1,7 +1,18 @@
-const NOT_IMPLEMENTED =
-  "CMS category repository is not implemented yet. Complete Phase 1.";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
-/** Future: list published categories from Supabase. */
-export async function listPublishedCategories() {
-  throw new Error(NOT_IMPLEMENTED);
+import type { CategoryRow } from "@/lib/cms/types/database";
+
+export async function listCategoriesForAdmin(
+  supabase: SupabaseClient
+): Promise<CategoryRow[]> {
+  const { data, error } = await supabase
+    .from("categories")
+    .select("*")
+    .order("sort_order", { ascending: true });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data ?? []) as CategoryRow[];
 }
