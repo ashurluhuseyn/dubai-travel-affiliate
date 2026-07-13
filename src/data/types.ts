@@ -167,10 +167,36 @@ export type ExperienceFaq = {
   answer: string;
 };
 
+/** Known affiliate partners — extensible for future admin / database records. */
+export type AffiliateProviderName =
+  | "GetYourGuide"
+  | "Viator"
+  | "Klook"
+  | "Headout"
+  | string;
+
+/** A bookable offer from a single affiliate partner for an experience. */
+export type AffiliateProvider = {
+  id: string;
+  providerName: AffiliateProviderName;
+  price: number;
+  currency: "AED" | "USD" | string;
+  rating?: number;
+  reviewCount?: number;
+  cancellationText?: string;
+  instantConfirmation?: boolean;
+  mobileTicket?: boolean;
+  description?: string;
+  affiliateUrl: string;
+  isRecommended?: boolean;
+  badge?: string;
+};
+
 /** Compact card used in the "You Might Also Like" carousel. */
 export type RelatedExperience = {
   id: string;
   title: string;
+  category: string;
   image: string;
   imageAlt: string;
   price: string;
@@ -187,16 +213,23 @@ export type Experience = {
   category: string;
   location: string;
   description: string;
+  /** Lowest provider price — synced when the catalog is assembled. */
   price: number;
+  /** Currency of {@link price} — synced from providers. */
   currency: string;
+  /** Aggregate rating (recommended or top provider) for listing display. */
   rating: number;
   reviewCount: number;
   duration: string;
   groupSize: string;
   hotelPickup: boolean;
+  /** Whether any provider supports mobile tickets. */
   mobileTicket: boolean;
+  /** Whether any provider offers instant confirmation. */
   instantConfirmation: boolean;
+  /** Whether any provider advertises free cancellation. */
   freeCancellation: boolean;
+  /** Cancellation summary from the recommended provider. */
   cancellationText: string;
   highlights: string[];
   includedItems: string[];
@@ -207,12 +240,13 @@ export type Experience = {
   faqs: ExperienceFaq[];
   images: ExperienceImage[];
   relatedExperienceSlugs: string[];
-  affiliateUrl: string;
+  /** Bookable offers from affiliate partners — compare on the detail page. */
+  providers: AffiliateProvider[];
   /** Optional overlay badge on the hero image, e.g. "Bestseller". */
   badge?: string;
   /** Count of additional photos not shown as thumbnails (the "+12" tile). */
   galleryExtraCount?: number;
-  /** Unit the price applies to, e.g. "person". */
+  /** Unit the lowest price applies to, e.g. "person". */
   priceUnit: string;
 };
 

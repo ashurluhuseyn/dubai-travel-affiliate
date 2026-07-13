@@ -5,9 +5,19 @@ import { Clock, Star, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { DestinationExperience } from "@/data";
+import { getExperienceBySlug, type DestinationExperience } from "@/data";
+import { formatFromPrice } from "@/lib/format-price";
 
 import { SaveButton } from "./save-button";
+
+function getListingPrice(experience: DestinationExperience): string {
+  const catalogExperience = getExperienceBySlug(experience.id);
+  if (catalogExperience) {
+    return formatFromPrice(catalogExperience.price, catalogExperience.currency);
+  }
+
+  return formatFromPrice(Math.round(experience.price * 3.67), "AED");
+}
 
 type DestinationCardProps = {
   experience: DestinationExperience;
@@ -71,7 +81,7 @@ export function DestinationCard({ experience, priority }: DestinationCardProps) 
         <div className="mt-auto flex items-center justify-between gap-3 pt-3">
           <p>
             <span className="font-heading text-xl text-luxury-gold-soft">
-              ${experience.price}
+              {getListingPrice(experience)}
             </span>
             <span className="text-xs text-muted-foreground"> / person</span>
           </p>

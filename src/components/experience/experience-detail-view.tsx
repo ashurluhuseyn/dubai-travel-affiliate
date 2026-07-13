@@ -1,6 +1,5 @@
 import { ConciergeBell } from "lucide-react";
 
-import { BookingCard } from "@/components/experience/booking-card";
 import { ExperienceFaq } from "@/components/experience/experience-faq";
 import { ExperienceGallery } from "@/components/experience/experience-gallery";
 import { ExperienceHeader } from "@/components/experience/experience-header";
@@ -9,6 +8,7 @@ import { ExperienceIncluded } from "@/components/experience/experience-included"
 import { ExperienceItinerary } from "@/components/experience/experience-itinerary";
 import { HelpCard } from "@/components/experience/help-card";
 import { ImportantInformation } from "@/components/experience/important-information";
+import { ProviderComparison } from "@/components/experience/provider-comparison";
 import { RelatedExperiences } from "@/components/experience/related-experiences";
 import { SecureSpotCard } from "@/components/experience/secure-spot-card";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
@@ -16,6 +16,7 @@ import { Container } from "@/components/shared/container";
 import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
 import type { Experience, RelatedExperience } from "@/data";
+import { getRecommendedProvider } from "@/lib/experience-providers";
 
 type ExperienceDetailViewProps = {
   experience: Experience;
@@ -26,6 +27,20 @@ export function ExperienceDetailView({
   experience,
   relatedExperiences,
 }: ExperienceDetailViewProps) {
+  const recommendedProvider = getRecommendedProvider(experience.providers);
+
+  const providerComparisonProps = {
+    providers: experience.providers,
+    experienceSlug: experience.slug,
+    priceUnit: experience.priceUnit,
+  };
+
+  const secureSpotProps = {
+    instantConfirmation:
+      recommendedProvider?.instantConfirmation ?? experience.instantConfirmation,
+    mobileTicket: recommendedProvider?.mobileTicket ?? experience.mobileTicket,
+  };
+
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: "Tours", href: "/destinations" },
@@ -38,7 +53,7 @@ export function ExperienceDetailView({
       <Container>
         <Breadcrumb items={breadcrumbItems} />
 
-        <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_24rem]">
+        <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_26rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_28rem]">
           <div className="space-y-10 lg:space-y-12">
             <ExperienceHeader experience={experience} />
 
@@ -47,6 +62,11 @@ export function ExperienceDetailView({
               images={experience.images}
               badge={experience.badge}
               extraCount={experience.galleryExtraCount}
+            />
+
+            <ProviderComparison
+              {...providerComparisonProps}
+              className="lg:hidden"
             />
 
             <ExperienceHighlights highlights={experience.highlights} />
@@ -59,22 +79,17 @@ export function ExperienceDetailView({
               <ImportantInformation items={experience.importantInfo} />
               <ExperienceFaq faqs={experience.faqs} />
             </div>
+
+            <div className="space-y-5 lg:hidden">
+              <SecureSpotCard {...secureSpotProps} />
+              <HelpCard />
+            </div>
           </div>
 
-          <aside className="lg:sticky lg:top-28 lg:self-start">
+          <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <div className="space-y-5">
-              <BookingCard
-                price={experience.price}
-                currency={experience.currency}
-                priceUnit={experience.priceUnit}
-                affiliateUrl={experience.affiliateUrl}
-                freeCancellation={experience.freeCancellation}
-                cancellationText={experience.cancellationText}
-              />
-              <SecureSpotCard
-                instantConfirmation={experience.instantConfirmation}
-                mobileTicket={experience.mobileTicket}
-              />
+              <ProviderComparison {...providerComparisonProps} />
+              <SecureSpotCard {...secureSpotProps} />
               <HelpCard />
             </div>
           </aside>

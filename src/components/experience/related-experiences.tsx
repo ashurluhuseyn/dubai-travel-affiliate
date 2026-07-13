@@ -64,16 +64,16 @@ export function RelatedExperiences({
         {experiences.map((experience) => (
           <li
             key={experience.id}
-            className="w-[15rem] shrink-0 snap-start sm:w-[16rem]"
+            className="w-[15rem] shrink-0 snap-start sm:w-[17rem]"
           >
-            <article className="group h-full overflow-hidden rounded-xl border border-border/60 bg-card transition-luxury hover:-translate-y-1 hover:border-luxury-gold-muted/40">
+            <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-luxury hover:-translate-y-1 hover:border-luxury-gold-muted/40">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Link href={experience.href} className="block h-full w-full">
                   <Image
                     src={experience.image}
                     alt={experience.imageAlt}
                     fill
-                    sizes="256px"
+                    sizes="272px"
                     className="object-cover transition-luxury-slow group-hover:scale-105"
                   />
                 </Link>
@@ -84,24 +84,29 @@ export function RelatedExperiences({
                   className="absolute right-3 top-3"
                 />
               </div>
-              <Link href={experience.href} className="block">
-                <div className="flex flex-col gap-2 p-4">
-                  <h3 className="font-heading text-base leading-snug text-foreground transition-luxury group-hover:text-luxury-gold">
-                    {experience.title}
-                  </h3>
-                  <div className="mt-1 flex items-center justify-between">
-                    <span className="text-sm">
-                      <span className="text-muted-foreground">From </span>
-                      <span className="font-semibold text-luxury-gold-soft">
-                        {experience.price}
-                      </span>
-                      <span className="text-xs text-muted-foreground"> / person</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                      <Star className="size-3.5 fill-luxury-gold text-luxury-gold" aria-hidden />
-                      {experience.rating.toFixed(1)}
-                    </span>
+              <Link href={experience.href} className="flex flex-1 flex-col p-4">
+                <p className="text-xs font-medium uppercase tracking-wide text-luxury-gold-muted">
+                  {experience.category}
+                </p>
+                <h3 className="mt-1 font-heading text-base leading-snug text-foreground transition-luxury group-hover:text-luxury-gold">
+                  {experience.title}
+                </h3>
+                <div className="mt-auto flex items-end justify-between gap-3 pt-3">
+                  <div className="min-w-0">
+                    <p className="whitespace-nowrap text-sm font-semibold text-luxury-gold-soft">
+                      {experience.price}
+                    </p>
+                    <p className="whitespace-nowrap text-xs text-muted-foreground">
+                      / person
+                    </p>
                   </div>
+                  <span className="inline-flex shrink-0 items-center gap-1 text-sm text-muted-foreground">
+                    <Star
+                      className="size-4 fill-luxury-gold text-luxury-gold"
+                      aria-hidden
+                    />
+                    {experience.rating.toFixed(1)}
+                  </span>
                 </div>
               </Link>
             </article>
