@@ -20,7 +20,6 @@ import {
   featuredCategory,
   popularExperiences,
 } from "./categories";
-import { getAllExperienceSlugs, getExperienceBySlug } from "./experience-catalog";
 import { trendingExperiences } from "./experiences";
 import { latestGuides } from "./guides";
 import {
@@ -57,8 +56,6 @@ import type {
   ChatMessage,
   ContactMethod,
   WhyChooseItem,
-  Experience,
-  ExperienceDetail,
   ExperienceListing,
   FaqSection,
   FeaturedCategory,
@@ -251,24 +248,3 @@ export function getBlogSlugs(): string[] {
 export function getBlogDetail(slug: string): BlogDetail | null {
   return blogDetails[slug] ?? null;
 }
-
-/** All experience slugs — used for static route generation. */
-export function getExperienceSlugs(): string[] {
-  return getAllExperienceSlugs();
-}
-
-/** Returns the experience for a slug, or `null` if it does not exist. */
-export function getExperience(slug: string): Experience | null {
-  return getExperienceBySlug(slug);
-}
-
-/** @deprecated Use {@link getExperience} */
-export function getExperienceDetail(slug: string): ExperienceDetail | null {
-  return getExperienceBySlug(slug);
-}
-
-export {
-  getExperienceBySlug,
-  getAllExperienceSlugs,
-  resolveRelatedExperiences,
-} from "./experience-catalog";

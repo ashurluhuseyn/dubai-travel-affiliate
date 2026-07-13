@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import { DestinationsListing } from "@/components/destinations/destinations-listing";
 import { PageLayout } from "@/components/layout/page-layout";
+import { getPublicDestinationExperiences } from "@/lib/cms/content-source";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -20,11 +21,13 @@ function DestinationsListingFallback() {
   );
 }
 
-export default function DestinationsPage() {
+export default async function DestinationsPage() {
+  const experiences = await getPublicDestinationExperiences();
+
   return (
     <PageLayout>
       <Suspense fallback={<DestinationsListingFallback />}>
-        <DestinationsListing />
+        <DestinationsListing experiences={experiences} />
       </Suspense>
     </PageLayout>
   );

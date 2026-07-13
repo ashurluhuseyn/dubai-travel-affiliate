@@ -551,6 +551,10 @@ export type DestinationExperience = {
   href: string;
   /** External partner booking URL. */
   affiliateUrl: string;
+  /** Lowest provider price in AED — populated by the public content repository. */
+  listingPriceAed?: number;
+  /** Currency for {@link listingPriceAed}. */
+  listingCurrency?: string;
 };
 
 export type DestinationsSortId =
