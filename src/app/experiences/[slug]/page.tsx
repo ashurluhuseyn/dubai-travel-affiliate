@@ -4,25 +4,26 @@ import { notFound } from "next/navigation";
 import { ExperienceDetailView } from "@/components/experience/experience-detail-view";
 import { PageLayout } from "@/components/layout/page-layout";
 import {
-  getExperienceBySlug,
-  getExperienceSlugs,
-  resolveRelatedExperiences,
-} from "@/data";
+  getPublicExperienceBySlug,
+  getPublicExperienceSlugs,
+  getRelatedPublicExperiences,
+} from "@/lib/cms/content-source";
 import { createPageMetadata } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return getExperienceSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getPublicExperienceSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const experience = getExperienceBySlug(slug);
+  const experience = await getPublicExperienceBySlug(slug);
 
   if (!experience) {
     return { title: "Experience not found" };
@@ -42,13 +43,13 @@ export async function generateMetadata({
 
 export default async function ExperienceDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const experience = getExperienceBySlug(slug);
+  const experience = await getPublicExperienceBySlug(slug);
 
   if (!experience) {
     notFound();
   }
 
-  const relatedExperiences = resolveRelatedExperiences(experience);
+  const relatedExperiences = await getRelatedPublicExperiences(experience);
 
   return (
     <PageLayout mainClassName="pt-28 lg:pt-32">

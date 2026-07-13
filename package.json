@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "cms:seed": "node --env-file=.env.local --import tsx scripts/cms/seed.ts",
-    "cms:verify": "node --env-file=.env.local --import tsx scripts/cms/verify.ts"
+    "cms:verify": "node --env-file=.env.local --import tsx scripts/cms/verify.ts",
+    "cms:compare": "node --env-file=.env.local --import tsx scripts/cms/compare.ts",
+    "test": "node --import tsx --test tests/**/*.test.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.1",

@@ -13,9 +13,9 @@ import { FilterSidebar } from "@/components/destinations/filter-sidebar";
 import { ResultsToolbar } from "@/components/destinations/results-toolbar";
 import { Container } from "@/components/shared/container";
 import {
-  getDestinationExperiences,
   getDestinationFilters,
   getSortOptions,
+  type DestinationExperience,
   type DestinationsFilterState,
 } from "@/data";
 import {
@@ -85,10 +85,14 @@ function useDestinationPageSize(): number {
   return pageSize;
 }
 
-export function DestinationsListing() {
+type DestinationsListingProps = {
+  experiences: DestinationExperience[];
+};
+
+export function DestinationsListing({ experiences }: DestinationsListingProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const allExperiences = getDestinationExperiences();
+  const allExperiences = experiences;
   const filterConfig = getDestinationFilters();
   const sortOptions = getSortOptions();
   const pageSize = useDestinationPageSize();
