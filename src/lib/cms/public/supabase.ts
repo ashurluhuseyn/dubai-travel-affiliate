@@ -9,7 +9,7 @@ import {
   PUBLIC_CMS_CATEGORIES_TAG,
   PUBLIC_REVALIDATE_SECONDS,
 } from "./constants";
-import { mapExperienceToRelatedCard } from "./normalize";
+import { resolvePublicRelatedExperiences } from "./related-experiences";
 import { fetchPublishedPublicPayload } from "./supabase-fetch";
 import type { PublicCategory } from "./types";
 
@@ -52,37 +52,28 @@ export async function getSupabasePublicDestinationExperiences() {
 }
 
 export async function getSupabaseRelatedPublicExperiences(
-  experience: Experience,
-  limit = 3
+  experience: Experience
 ) {
   const payload = await getCachedPublicPayload();
-  const listingBySlug = new Map(
-    payload.destinationListings.map((listing) => [listing.id, listing])
+  const publishedBySlug = new Map(
+    payload.experiences.map((item) => [item.slug, item])
+  );
+  const listingsBySlug = new Map(
+    payload.destinationListings.map((listing) => [
+      listing.id,
+      { image: listing.image, imageAlt: listing.imageAlt },
+    ])
+  );
+  const recommendedScoreBySlug = new Map(
+    payload.experienceRows.map((row) => [row.slug, row.recommended_score])
   );
 
-  return payload.experiences
-    .filter(
-      (candidate) =>
-        candidate.slug !== experience.slug &&
-        candidate.category === experience.category
-    )
-    .sort((a, b) => {
-      const rowA = payload.experienceRows.find((row) => row.slug === a.slug);
-      const rowB = payload.experienceRows.find((row) => row.slug === b.slug);
-      return (rowB?.recommended_score ?? 0) - (rowA?.recommended_score ?? 0);
-    })
-    .slice(0, limit)
-    .map((related) =>
-      mapExperienceToRelatedCard(
-        related,
-        listingBySlug.get(related.slug)
-          ? {
-              image: listingBySlug.get(related.slug)!.image,
-              imageAlt: listingBySlug.get(related.slug)!.imageAlt,
-            }
-          : undefined
-      )
-    );
+  return resolvePublicRelatedExperiences({
+    experience,
+    publishedBySlug,
+    listingsBySlug,
+    recommendedScoreBySlug,
+  });
 }
 
 /** Uncached fetch for maintenance scripts. */

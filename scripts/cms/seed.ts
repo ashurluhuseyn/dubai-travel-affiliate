@@ -199,6 +199,8 @@ async function upsertExperiences(
       important_info: experience.important_info,
       faqs: experience.faqs,
       gallery: experience.gallery,
+      gallery_extra_count: experience.gallery_extra_count,
+      related_experience_slugs: experience.related_experience_slugs,
       cached_lowest_price: experience.cached_lowest_price,
       cached_currency: experience.cached_currency,
       cached_rating: experience.cached_rating,
@@ -322,6 +324,12 @@ async function main() {
   console.log(`Categories: ${categories.length}`);
   console.log(`Experiences: ${experiences.length}`);
   console.log(`Providers: ${providerCount}`);
+  console.log(
+    `Gallery extra counts: ${experiences.reduce((sum, experience) => sum + experience.gallery_extra_count, 0)} total`
+  );
+  console.log(
+    `Related experience links: ${experiences.reduce((sum, experience) => sum + experience.related_experience_slugs.length, 0)} total`
+  );
 
   const validationErrors = validateSeedPayload(categories, experiences);
   if (validationErrors.length > 0) {

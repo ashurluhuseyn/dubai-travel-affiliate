@@ -15,9 +15,10 @@ import {
   FormSection,
 } from "@/components/admin/experiences/form-section";
 import { ProviderEditor } from "@/components/admin/experiences/provider-editor";
+import { RelatedExperiencesEditor } from "@/components/admin/experiences/related-experiences-editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import type { CategoryRow } from "@/lib/cms/types/database";
+import type { CategoryRow, ExperienceListItem } from "@/lib/cms/types/database";
 import { slugify } from "@/lib/cms/utils/slugify";
 import {
   emptyExperienceFormValues,
@@ -33,6 +34,7 @@ type ExperienceFormProps = {
   initialValues?: ExperienceFormValues;
   initialProviders?: ExperienceProviderInput[];
   categories: CategoryRow[];
+  experienceOptions: Pick<ExperienceListItem, "slug" | "title" | "status">[];
 };
 
 const initialActionState: ExperienceActionState = {};
@@ -96,6 +98,7 @@ export function ExperienceForm({
   initialValues = emptyExperienceFormValues,
   initialProviders = [],
   categories,
+  experienceOptions,
 }: ExperienceFormProps) {
   const action = mode === "create" ? createExperienceAction : updateExperienceAction;
   const [state, formAction, isPending] = useActionState(action, initialActionState);
@@ -437,6 +440,38 @@ export function ExperienceForm({
             />
           </FormField>
         ))}
+        <FormField
+          label="Gallery extra count"
+          htmlFor="gallery_extra_count"
+          hint="Number of additional photos shown as +N on the gallery tile."
+          error={err(state.fieldErrors, "gallery_extra_count")}
+        >
+          <Input
+            id="gallery_extra_count"
+            type="number"
+            min={0}
+            value={values.gallery_extra_count}
+            onChange={(e) =>
+              patch({
+                gallery_extra_count: Math.max(0, Number(e.target.value) || 0),
+              })
+            }
+          />
+        </FormField>
+      </FormSection>
+
+      <FormSection
+        title="Related experiences"
+        description="Curated cards shown in the You Might Also Like section."
+      >
+        <RelatedExperiencesEditor
+          selectedSlugs={values.related_experience_slugs}
+          currentSlug={values.slug || undefined}
+          options={experienceOptions}
+          onChange={(related_experience_slugs) =>
+            patch({ related_experience_slugs })
+          }
+        />
       </FormSection>
 
       <FormSection title="Content blocks">

@@ -6,6 +6,7 @@ import { canWriteContent, requireAdmin } from "@/lib/cms/auth/require-admin";
 import { listCategoriesForAdmin } from "@/lib/cms/repositories/categories";
 import {
   getExperienceByIdForAdmin,
+  listExperiencePickerOptions,
   listProvidersForExperience,
 } from "@/lib/cms/repositories/experiences";
 import { createServerSupabaseClient } from "@/lib/cms/supabase/server";
@@ -31,10 +32,11 @@ export default async function EditExperiencePage({
   const supabase = await createServerSupabaseClient();
   const canEdit = canWriteContent(session.profile.role);
 
-  const [experience, providers, categories] = await Promise.all([
+  const [experience, providers, categories, experienceOptions] = await Promise.all([
     getExperienceByIdForAdmin(supabase, id),
     listProvidersForExperience(supabase, id),
     listCategoriesForAdmin(supabase),
+    listExperiencePickerOptions(supabase),
   ]);
 
   if (!experience) {
@@ -73,6 +75,7 @@ export default async function EditExperiencePage({
           initialValues={experienceRowToFormValues(experience)}
           initialProviders={providers.map(providerRowToInput)}
           categories={categories}
+          experienceOptions={experienceOptions}
         />
       ) : (
         <p className="rounded-xl border border-border/60 bg-card/40 px-6 py-8 text-sm text-muted-foreground">

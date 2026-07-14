@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+import { sanitizeRelatedExperienceSlugs } from "@/lib/cms/public/related-experiences";
+
+const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 const contentStatusSchema = z.enum(["draft", "published", "archived"]);
 
 const itineraryItemSchema = z.object({
@@ -74,6 +78,10 @@ export const experienceFormSchema = z.object({
   important_info: z.array(z.string().min(1)).default([]),
   faqs: z.array(faqItemSchema).default([]),
   gallery: z.array(galleryItemSchema).default([]),
+  gallery_extra_count: z.coerce.number().int().min(0).default(0),
+  related_experience_slugs: z
+    .array(z.string().regex(slugPattern, "Related slug must be lowercase with hyphens"))
+    .default([]),
   cached_lowest_price: z.coerce.number().min(0).optional().nullable(),
   cached_currency: z.string().default("AED"),
   cached_rating: z.coerce.number().min(0).max(5).optional().nullable(),
@@ -91,10 +99,21 @@ export const experienceFormSchema = z.object({
   status: contentStatusSchema,
 });
 
-export const saveExperiencePayloadSchema = z.object({
-  experience: experienceFormSchema,
-  providers: z.array(experienceProviderInputSchema).default([]),
-});
+export const saveExperiencePayloadSchema = z
+  .object({
+    experience: experienceFormSchema,
+    providers: z.array(experienceProviderInputSchema).default([]),
+  })
+  .transform((payload) => ({
+    experience: {
+      ...payload.experience,
+      related_experience_slugs: sanitizeRelatedExperienceSlugs(
+        payload.experience.related_experience_slugs,
+        payload.experience.slug
+      ),
+    },
+    providers: payload.providers,
+  }));
 
 export type ExperienceFormValues = z.infer<typeof experienceFormSchema>;
 export type ExperienceProviderInput = z.infer<typeof experienceProviderInputSchema>;
