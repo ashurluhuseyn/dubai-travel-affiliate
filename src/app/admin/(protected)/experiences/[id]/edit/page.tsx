@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AdminPageHeader } from "@/components/admin/layout/admin-page-header";
 import { ExperienceForm } from "@/components/admin/experiences/experience-form";
 import { canWriteContent, requireAdmin } from "@/lib/cms/auth/require-admin";
 import { listCategoriesForAdmin } from "@/lib/cms/repositories/categories";
@@ -45,19 +45,14 @@ export default async function EditExperiencePage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <p className="text-sm text-muted-foreground">
-          <Link href="/admin/experiences" className="hover:underline">
-            Experiences
-          </Link>
-          <span className="mx-2">/</span>
-          <span>Edit</span>
-        </p>
-        <h1 className="mt-2 font-heading text-3xl text-foreground">
-          Edit experience
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">{experience.title}</p>
-      </div>
+      <AdminPageHeader
+        title="Edit experience"
+        subtitle={experience.title}
+        breadcrumbs={[
+          { label: "Experiences", href: "/admin/experiences" },
+          { label: "Edit" },
+        ]}
+      />
 
       {query.success === "created" && (
         <p

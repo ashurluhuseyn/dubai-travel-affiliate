@@ -178,6 +178,8 @@ export type AffiliateProviderName =
 /** A bookable offer from a single affiliate partner for an experience. */
 export type AffiliateProvider = {
   id: string;
+  /** Supabase experience_providers.id — used for /go/[providerId] tracking. */
+  trackingProviderId?: string;
   providerName: AffiliateProviderName;
   price: number;
   currency: "AED" | "USD" | string;

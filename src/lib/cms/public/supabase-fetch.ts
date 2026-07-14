@@ -14,6 +14,26 @@ import {
 } from "./normalize";
 import type { PublicCategory } from "./types";
 
+/** Public embed columns — `id` is required for /go/[providerId] affiliate tracking. */
+export const PUBLIC_PROVIDER_EMBED_FIELDS = [
+  "id",
+  "experience_id",
+  "provider_name",
+  "price",
+  "currency",
+  "rating",
+  "review_count",
+  "cancellation_text",
+  "instant_confirmation",
+  "mobile_ticket",
+  "description",
+  "affiliate_url",
+  "is_recommended",
+  "badge",
+  "display_order",
+  "is_active",
+] as const;
+
 const EXPERIENCE_SELECT = `
   *,
   categories ( label, slug ),

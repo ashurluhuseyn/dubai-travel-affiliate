@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AdminPageHeader } from "@/components/admin/layout/admin-page-header";
 import { CategoryForm } from "@/components/admin/categories/category-form";
 import { canWriteContent, requireAdmin } from "@/lib/cms/auth/require-admin";
 import { getCategoryByIdForAdmin } from "@/lib/cms/repositories/categories";
@@ -32,19 +32,14 @@ export default async function EditCategoryPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <p className="text-sm text-muted-foreground">
-          <Link href="/admin/categories" className="hover:underline">
-            Categories
-          </Link>
-          <span className="mx-2">/</span>
-          <span>Edit</span>
-        </p>
-        <h1 className="mt-2 font-heading text-3xl text-foreground">
-          Edit category
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">{category.label}</p>
-      </div>
+      <AdminPageHeader
+        title="Edit category"
+        subtitle={category.label}
+        breadcrumbs={[
+          { label: "Categories", href: "/admin/categories" },
+          { label: "Edit" },
+        ]}
+      />
 
       {query.success === "created" && (
         <p
