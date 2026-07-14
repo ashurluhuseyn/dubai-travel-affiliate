@@ -21,6 +21,7 @@ import type {
 } from "@/data/types";
 
 import type { PublicCategory } from "./types";
+import { parseRelatedExperienceSlugs } from "./related-experiences";
 
 export type SupabaseExperienceRow = ExperienceRow & {
   categories: Pick<CategoryRow, "label" | "slug"> | null;
@@ -101,10 +102,12 @@ export function mapSupabaseExperienceRow(row: SupabaseExperienceRow): Experience
     cancellationPolicy: row.cancellation_policy ?? "",
     faqs: row.faqs ?? [],
     images: gallery,
-    galleryExtraCount: 0,
+    galleryExtraCount: row.gallery_extra_count ?? 0,
     badge: row.badge ?? undefined,
     priceUnit: DEFAULT_PRICE_UNIT,
-    relatedExperienceSlugs: [],
+    relatedExperienceSlugs: parseRelatedExperienceSlugs(
+      row.related_experience_slugs
+    ),
     providers,
   };
 }

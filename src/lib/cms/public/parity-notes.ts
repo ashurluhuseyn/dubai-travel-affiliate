@@ -4,8 +4,6 @@
  */
 export const CMS_PUBLIC_PARITY_GAPS = {
   experience: [
-    "relatedExperienceSlugs — CMS uses same-category fallback ordering by recommended_score",
-    "galleryExtraCount — defaults to 0 (static content may show +N photos tile)",
     "showcaseCategories on destination listings — defaults to [category label]",
     "availability on destination listings — defaults to 'this-week'",
     "groupSizeKey on destination listings — derived heuristically from group_size_label",

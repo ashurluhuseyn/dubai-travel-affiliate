@@ -24,8 +24,32 @@ function mapExperienceRow(row: Record<string, unknown>): ExperienceRow {
     important_info: (row.important_info as string[]) ?? [],
     faqs: (row.faqs as ExperienceRow["faqs"]) ?? [],
     gallery: (row.gallery as ExperienceRow["gallery"]) ?? [],
+    gallery_extra_count: Number(row.gallery_extra_count ?? 0),
+    related_experience_slugs: Array.isArray(row.related_experience_slugs)
+      ? (row.related_experience_slugs as string[])
+      : [],
     languages: (row.languages as string[]) ?? [],
   } as ExperienceRow;
+}
+
+export async function listExperiencePickerOptions(
+  supabase: SupabaseClient
+): Promise<
+  Pick<ExperienceListItem, "id" | "slug" | "title" | "status">[]
+> {
+  const { data, error } = await supabase
+    .from("experiences")
+    .select("id, slug, title, status")
+    .order("title", { ascending: true });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data ?? []) as Pick<
+    ExperienceListItem,
+    "id" | "slug" | "title" | "status"
+  >[];
 }
 
 export async function listExperiencesForAdmin(
@@ -151,6 +175,8 @@ function buildExperienceRecord(
     important_info: values.important_info,
     faqs: values.faqs,
     gallery: values.gallery,
+    gallery_extra_count: values.gallery_extra_count,
+    related_experience_slugs: values.related_experience_slugs,
     cached_lowest_price: values.cached_lowest_price ?? null,
     cached_currency: values.cached_currency || "AED",
     cached_rating: values.cached_rating ?? null,

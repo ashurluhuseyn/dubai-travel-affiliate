@@ -65,6 +65,8 @@ export type SeedExperience = {
   canonical_path: string | null;
   no_index: boolean;
   status: "published";
+  gallery_extra_count: number;
+  related_experience_slugs: string[];
   providers: SeedProvider[];
 };
 
@@ -190,6 +192,8 @@ export function extractSeedExperiences(): SeedExperience[] {
         canonical_path: `/experiences/${experience.slug}`,
         no_index: false,
         status: "published" as const,
+        gallery_extra_count: experience.galleryExtraCount ?? 0,
+        related_experience_slugs: experience.relatedExperienceSlugs,
         providers: experience.providers.map((provider, index) =>
           mapProvider(experience.slug, provider, index)
         ),

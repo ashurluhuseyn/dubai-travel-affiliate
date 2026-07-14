@@ -18,8 +18,6 @@ export const UNMAPPED_STATIC_FIELDS = {
   ],
   experiences: [
     "showcaseCategories (string[]) — no column on experiences",
-    "relatedExperienceSlugs — no related-experience table/column",
-    "galleryExtraCount — no column",
     "priceUnit — no column",
     "availability (today | this-week | this-month) — no column",
     "groupSizeKey — only group_size_label is stored",
@@ -69,6 +67,8 @@ export const FIELD_MAPPING = {
     important_info: "Experience.importantInfo (jsonb string[])",
     faqs: "Experience.faqs (jsonb)",
     gallery: "Experience.images → { src, alt }[]",
+    gallery_extra_count: "Experience.galleryExtraCount",
+    related_experience_slugs: "Experience.relatedExperienceSlugs (ordered jsonb string[])",
     cached_lowest_price: "deriveExperienceAggregates().price",
     cached_currency: "deriveExperienceAggregates().currency",
     cached_rating: "deriveExperienceAggregates().rating",

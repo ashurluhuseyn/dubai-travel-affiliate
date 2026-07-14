@@ -61,6 +61,8 @@ export type ExperienceRow = {
   important_info: string[];
   faqs: ExperienceFaqJson[];
   gallery: ExperienceGalleryJson[];
+  gallery_extra_count: number;
+  related_experience_slugs: string[];
   cached_lowest_price: number | null;
   cached_currency: string;
   cached_rating: number | null;

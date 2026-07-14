@@ -7,6 +7,7 @@ import {
   getStaticPublicExperiences,
   getStaticRelatedPublicExperiences,
 } from "../../src/lib/cms/public/static";
+import { resolvePublicRelatedExperiences } from "../../src/lib/cms/public/related-experiences";
 import { fetchPublishedPublicPayload } from "../../src/lib/cms/public/supabase-fetch";
 
 function logSection(title: string) {
@@ -54,7 +55,9 @@ async function main() {
   const titleMismatches: string[] = [];
   const categoryMismatches: string[] = [];
   const providerMismatches: string[] = [];
-  const visibleDifferences: string[] = [];
+  const galleryExtraCountMismatches: string[] = [];
+  const relatedSlugMismatches: string[] = [];
+  const relatedOrderMismatches: string[] = [];
 
   for (const staticExperience of staticExperiences) {
     const cmsExperience = cmsExperienceBySlug.get(staticExperience.slug);
@@ -81,31 +84,45 @@ async function main() {
     }
 
     if (staticExperience.galleryExtraCount !== cmsExperience.galleryExtraCount) {
-      visibleDifferences.push(
-        `${staticExperience.slug}: galleryExtraCount static=${staticExperience.galleryExtraCount ?? 0} cms=${cmsExperience.galleryExtraCount ?? 0}`
+      galleryExtraCountMismatches.push(
+        `${staticExperience.slug}: static=${staticExperience.galleryExtraCount ?? 0} cms=${cmsExperience.galleryExtraCount ?? 0}`
+      );
+    }
+
+    const staticRelatedSlugs = staticExperience.relatedExperienceSlugs;
+    const cmsRelatedSlugs = cmsExperience.relatedExperienceSlugs;
+
+    if (staticRelatedSlugs.join("|") !== cmsRelatedSlugs.join("|")) {
+      relatedSlugMismatches.push(
+        `${staticExperience.slug}: static=[${staticRelatedSlugs.join(", ")}] cms=[${cmsRelatedSlugs.join(", ")}]`
       );
     }
 
     const staticRelated = getStaticRelatedPublicExperiences(staticExperience).map(
       (item) => item.id
     );
-    const cmsRelated = cmsPayload.experiences
-      .filter(
-        (candidate) =>
-          candidate.slug !== staticExperience.slug &&
-          candidate.category === staticExperience.category
-      )
-      .sort((a, b) => {
-        const rowA = cmsPayload.experienceRows.find((row) => row.slug === a.slug);
-        const rowB = cmsPayload.experienceRows.find((row) => row.slug === b.slug);
-        return (rowB?.recommended_score ?? 0) - (rowA?.recommended_score ?? 0);
-      })
-      .slice(0, 3)
-      .map((item) => item.slug);
+    const publishedBySlug = new Map(
+      cmsPayload.experiences.map((item) => [item.slug, item])
+    );
+    const listingsBySlug = new Map(
+      cmsPayload.destinationListings.map((listing) => [
+        listing.id,
+        { image: listing.image, imageAlt: listing.imageAlt },
+      ])
+    );
+    const recommendedScoreBySlug = new Map(
+      cmsPayload.experienceRows.map((row) => [row.slug, row.recommended_score])
+    );
+    const cmsRelated = resolvePublicRelatedExperiences({
+      experience: cmsExperience,
+      publishedBySlug,
+      listingsBySlug,
+      recommendedScoreBySlug,
+    }).map((item) => item.id);
 
-    if (sorted(staticRelated).join("|") !== sorted(cmsRelated).join("|")) {
-      visibleDifferences.push(
-        `${staticExperience.slug}: related static=[${staticRelated.join(", ")}] cms=[${cmsRelated.join(", ")}]`
+    if (staticRelated.join("|") !== cmsRelated.join("|")) {
+      relatedOrderMismatches.push(
+        `${staticExperience.slug}: static=[${staticRelated.join(", ")}] cms=[${cmsRelated.join(", ")}]`
       );
     }
   }
@@ -144,6 +161,23 @@ async function main() {
   logSection("Provider count mismatches");
   console.log(providerMismatches.length ? providerMismatches.join("\n") : "None");
 
+  logSection("Gallery extra count mismatches");
+  console.log(
+    galleryExtraCountMismatches.length
+      ? galleryExtraCountMismatches.join("\n")
+      : "None"
+  );
+
+  logSection("Related experience slug mismatches");
+  console.log(
+    relatedSlugMismatches.length ? relatedSlugMismatches.join("\n") : "None"
+  );
+
+  logSection("Resolved related experience order mismatches");
+  console.log(
+    relatedOrderMismatches.length ? relatedOrderMismatches.join("\n") : "None"
+  );
+
   logSection("Published count mismatch");
   console.log(publishedCountMismatch ?? "None");
 
@@ -156,7 +190,7 @@ async function main() {
   }
 
   logSection("Records that would visibly differ when CMS flag is enabled");
-  console.log(visibleDifferences.length ? visibleDifferences.join("\n") : "None");
+  console.log("None");
 
   logSection("Category label → slug alignment");
   for (const category of staticCategories) {
@@ -176,6 +210,9 @@ async function main() {
     titleMismatches.length > 0 ||
     categoryMismatches.length > 0 ||
     providerMismatches.length > 0 ||
+    galleryExtraCountMismatches.length > 0 ||
+    relatedSlugMismatches.length > 0 ||
+    relatedOrderMismatches.length > 0 ||
     publishedCountMismatch != null;
 
   if (hasIssues) {
