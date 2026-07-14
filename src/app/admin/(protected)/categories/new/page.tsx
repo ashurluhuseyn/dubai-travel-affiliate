@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import { AdminPageHeader } from "@/components/admin/layout/admin-page-header";
 import { CategoryForm } from "@/components/admin/categories/category-form";
 import { requireAdmin } from "@/lib/cms/auth/require-admin";
 
@@ -10,18 +9,13 @@ export default async function NewCategoryPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <p className="text-sm text-muted-foreground">
-          <Link href="/admin/categories" className="hover:underline">
-            Categories
-          </Link>
-          <span className="mx-2">/</span>
-          <span>New</span>
-        </p>
-        <h1 className="mt-2 font-heading text-3xl text-foreground">
-          Create category
-        </h1>
-      </div>
+      <AdminPageHeader
+        title="Create category"
+        breadcrumbs={[
+          { label: "Categories", href: "/admin/categories" },
+          { label: "New" },
+        ]}
+      />
 
       <CategoryForm mode="create" />
     </div>

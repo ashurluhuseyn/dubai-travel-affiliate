@@ -50,6 +50,8 @@ export function mapSupabaseProviders(
 ): AffiliateProvider[] {
   return activeProvidersSorted(providers).map((provider) => ({
     id: providerStableId(slug, provider.provider_name),
+    /** Real DB UUID — never synthesized; powers /go/[providerId] for CMS providers. */
+    trackingProviderId: provider.id || undefined,
     providerName: provider.provider_name,
     price: Number(provider.price),
     currency: provider.currency,

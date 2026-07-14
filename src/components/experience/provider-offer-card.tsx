@@ -4,6 +4,10 @@ import { ProviderBadge } from "@/components/experience/provider-badge";
 import { AffiliateButton } from "@/components/shared/affiliate-button";
 import type { AffiliateProvider } from "@/data";
 import { formatProviderPrice } from "@/lib/experience-providers";
+import {
+  getProviderAffiliateHref,
+  PROVIDER_AFFILIATE_REL,
+} from "@/lib/affiliate-tracking/provider-link";
 
 type ProviderOfferCardProps = {
   provider: AffiliateProvider;
@@ -16,6 +20,8 @@ export function ProviderOfferCard({
   experienceSlug,
   priceUnit,
 }: ProviderOfferCardProps) {
+  const affiliateHref = getProviderAffiliateHref(provider, experienceSlug);
+
   return (
     <article className="rounded-xl border border-border/60 bg-luxury-black/20 p-5 transition-luxury hover:border-luxury-gold-muted/40 md:p-6">
       <div className="flex items-start justify-between gap-4">
@@ -88,10 +94,11 @@ export function ProviderOfferCard({
       </ul>
 
       <AffiliateButton
-        href={provider.affiliateUrl}
+        href={affiliateHref}
         size="lg"
         className="mt-5 min-h-11 w-full rounded-full transition-luxury"
         trackingLabel={`${experienceSlug}:${provider.providerName}`}
+        rel={PROVIDER_AFFILIATE_REL}
         data-provider={provider.providerName}
         data-experience-slug={experienceSlug}
       >

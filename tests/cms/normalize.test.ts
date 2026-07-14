@@ -1,15 +1,20 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
+import { getProviderAffiliateHref } from "../../src/lib/affiliate-tracking/provider-link";
+import { buildProvidersForExperience } from "../../src/data/experience-providers";
 import {
   filterActiveProviders,
   isPublishedExperience,
+  PUBLIC_PROVIDER_EMBED_FIELDS,
 } from "../../src/lib/cms/public/supabase-fetch";
 import {
   mapSupabaseExperienceRow,
   mapSupabaseProviders,
 } from "../../src/lib/cms/public/normalize";
 import type { ExperienceProviderRow, ExperienceRow } from "../../src/lib/cms/types/database";
+
+const CMS_PROVIDER_UUID = "550e8400-e29b-41d4-a716-446655440000";
 
 const baseExperienceRow: ExperienceRow = {
   id: "uuid-1",
@@ -128,6 +133,13 @@ describe("filterActiveProviders", () => {
   });
 });
 
+describe("PUBLIC_PROVIDER_EMBED_FIELDS", () => {
+  it("includes experience_providers.id for affiliate tracking", () => {
+    assert.equal(PUBLIC_PROVIDER_EMBED_FIELDS.includes("id"), true);
+    assert.equal(PUBLIC_PROVIDER_EMBED_FIELDS[0], "id");
+  });
+});
+
 describe("mapSupabaseProviders", () => {
   it("maps only active providers for public output", () => {
     const providers = mapSupabaseProviders("desert-safari-dune-bashing", [
@@ -141,6 +153,55 @@ describe("mapSupabaseProviders", () => {
 
     assert.equal(providers.length, 1);
     assert.equal(providers[0]?.providerName, "GetYourGuide");
+  });
+
+  it("preserves the real experience_providers.id as trackingProviderId", () => {
+    const providers = mapSupabaseProviders("desert-safari-dune-bashing", [
+      makeProvider({
+        id: CMS_PROVIDER_UUID,
+        affiliate_url: "https://partner.example.com/getyourguide/desert-safari",
+      }),
+    ]);
+
+    assert.equal(providers[0]?.trackingProviderId, CMS_PROVIDER_UUID);
+    assert.equal(providers[0]?.id, "desert-safari-dune-bashing-getyourguide");
+    assert.notEqual(providers[0]?.id, CMS_PROVIDER_UUID);
+  });
+
+  it("routes CMS providers through /go and never direct partner URLs", () => {
+    const providers = mapSupabaseProviders("desert-safari-dune-bashing", [
+      makeProvider({
+        id: CMS_PROVIDER_UUID,
+        affiliate_url: "https://partner.example.com/getyourguide/desert-safari",
+      }),
+    ]);
+    const href = getProviderAffiliateHref(
+      providers[0]!,
+      "desert-safari-dune-bashing"
+    );
+
+    assert.match(href, new RegExp(`^/go/${CMS_PROVIDER_UUID}`));
+    assert.doesNotMatch(href, /^https?:\/\//);
+    assert.doesNotMatch(href, /partner\.example\.com/);
+  });
+
+  it("leaves static mock providers without trackingProviderId", () => {
+    const staticProviders = buildProvidersForExperience({
+      slug: "desert-safari-dune-bashing",
+      basePriceUsd: 79,
+      rating: 4.8,
+      reviewCount: 1200,
+      instantConfirmation: true,
+      freeCancellation: true,
+    });
+
+    for (const provider of staticProviders) {
+      assert.equal(provider.trackingProviderId, undefined);
+      assert.match(
+        getProviderAffiliateHref(provider, "desert-safari-dune-bashing"),
+        /^https:\/\/partner\.example\.com\//
+      );
+    }
   });
 });
 

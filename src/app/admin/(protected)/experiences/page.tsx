@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AdminPageHeader } from "@/components/admin/layout/admin-page-header";
 import { ExperienceDeleteButton } from "@/components/admin/experiences/experience-delete-button";
 import { Button } from "@/components/ui/button";
 import { canDeleteContent } from "@/lib/cms/auth/admin-mutations";
@@ -49,17 +50,15 @@ export default async function AdminExperiencesPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="font-heading text-3xl text-foreground">Experiences</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Manage experience content stored in Supabase.
-          </p>
-        </div>
-        <Button asChild>
-          <Link href="/admin/experiences/new">Create experience</Link>
-        </Button>
-      </div>
+      <AdminPageHeader
+        title="Experiences"
+        subtitle="Manage experience content stored in Supabase."
+        actions={
+          <Button asChild>
+            <Link href="/admin/experiences/new">Create experience</Link>
+          </Button>
+        }
+      />
 
       <form className="flex flex-wrap items-end gap-3" method="get">
         <div className="min-w-[14rem] flex-1 space-y-1">

@@ -1,24 +1,35 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
+import { AdminPageHeader } from "@/components/admin/layout/admin-page-header";
 import { isCmsExperiencesEnabled } from "@/lib/cms/flags";
 import { requireAdmin } from "@/lib/cms/auth/require-admin";
+import { getAffiliateDashboardSummary } from "@/lib/cms/repositories/analytics";
+import { createServerSupabaseClient } from "@/lib/cms/supabase/server";
 
 export const metadata: Metadata = {
   title: "Dashboard",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const session = await requireAdmin();
+  const supabase = await createServerSupabaseClient();
+
+  let affiliateSummary = { clicksToday: 0, clicksLast30Days: 0 };
+  try {
+    affiliateSummary = await getAffiliateDashboardSummary(supabase);
+  } catch {
+    affiliateSummary = { clicksToday: 0, clicksLast30Days: 0 };
+  }
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="font-heading text-3xl text-foreground">Dashboard</h1>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          Phase 0 foundation is active. Content management screens will arrive in
-          later phases. The public site continues to use static data.
-        </p>
-      </div>
+      <AdminPageHeader
+        title="Dashboard"
+        subtitle="Manage published experiences, categories, and review outbound affiliate click activity."
+      />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <DashboardCard
@@ -31,25 +42,28 @@ export default async function AdminDashboardPage() {
           value={isCmsExperiencesEnabled() ? "Enabled" : "Disabled"}
           detail={
             isCmsExperiencesEnabled()
-              ? "Public reads will use Supabase when implemented"
+              ? "Public reads use Supabase"
               : "Static src/data (default)"
           }
         />
-        <DashboardCard
-          title="Public site"
-          value="Unchanged"
-          detail="All existing routes still serve static content"
-        />
+        <article className="rounded-xl border border-border/60 bg-card/40 p-5">
+          <p className="text-xs font-medium uppercase tracking-wide text-luxury-gold-muted">
+            Affiliate clicks
+          </p>
+          <p className="mt-2 font-heading text-xl text-foreground">
+            {affiliateSummary.clicksToday} today
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {affiliateSummary.clicksLast30Days} in the last 30 days
+          </p>
+          <Link
+            href="/admin/analytics"
+            className="mt-3 inline-block text-sm text-luxury-gold-soft hover:underline"
+          >
+            View analytics
+          </Link>
+        </article>
       </div>
-
-      <section className="rounded-xl border border-border/60 bg-card/40 p-6">
-        <h2 className="font-heading text-lg text-foreground">Next steps</h2>
-        <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-muted-foreground">
-          <li>Run the SQL migration in your Supabase project</li>
-          <li>Create an Auth user and matching admin_profiles row</li>
-          <li>Phase 1: seed experiences and enable repository reads</li>
-        </ul>
-      </section>
     </div>
   );
 }
