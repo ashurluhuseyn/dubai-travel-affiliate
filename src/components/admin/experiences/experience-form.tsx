@@ -15,6 +15,7 @@ import {
   FormSection,
 } from "@/components/admin/experiences/form-section";
 import { ProviderEditor } from "@/components/admin/experiences/provider-editor";
+import { ExperienceMediaSection } from "@/components/admin/experiences/experience-media-section";
 import { RelatedExperiencesEditor } from "@/components/admin/experiences/related-experiences-editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,7 @@ import { slugify } from "@/lib/cms/utils/slugify";
 import {
   emptyExperienceFormValues,
 } from "@/lib/cms/utils/experience-form-mapper";
+import { dedupeGalleryItems } from "@/lib/cms/media/validation";
 import type {
   ExperienceFormValues,
   ExperienceProviderInput,
@@ -110,6 +112,7 @@ export function ExperienceForm({
   const [languagesInput, setLanguagesInput] = useState(
     initialValues.languages.join(", ")
   );
+  const [isMediaUploading, setIsMediaUploading] = useState(false);
 
   const payload = useMemo(() => {
     const languages = languagesInput
@@ -129,8 +132,8 @@ export function ExperienceForm({
       faqs: values.faqs.filter(
         (item) => item.question.trim() && item.answer.trim()
       ),
-      gallery: values.gallery.filter(
-        (item) => item.src.trim() && item.alt.trim()
+      gallery: dedupeGalleryItems(
+        values.gallery.filter((item) => item.src.trim() && item.alt.trim())
       ),
     };
 
@@ -394,71 +397,13 @@ export function ExperienceForm({
         </FormField>
       </FormSection>
 
-      <FormSection title="Media">
-        <FormField
-          label="Listing image URL"
-          htmlFor="listing_image_url"
-          error={err(state.fieldErrors, "listing_image_url")}
-        >
-          <Input
-            id="listing_image_url"
-            type="url"
-            value={values.listing_image_url ?? ""}
-            onChange={(e) => patch({ listing_image_url: e.target.value })}
-          />
-        </FormField>
-        <StringListEditor
-          label="Gallery images (src per row — add alt in expanded editor below)"
-          values={values.gallery.map((item) => item.src)}
-          onChange={(srcs) =>
-            patch({
-              gallery: srcs.map((src, index) => ({
-                src,
-                alt: values.gallery[index]?.alt ?? "",
-              })),
-            })
-          }
-          placeholder="https://..."
-        />
-        {values.gallery.map((item, index) => (
-          <FormField
-            key={`gallery-alt-${index}`}
-            label={`Gallery alt text #${index + 1}`}
-            htmlFor={`gallery-alt-${index}`}
-            error={err(state.fieldErrors, `gallery.${index}.alt`)}
-          >
-            <Input
-              id={`gallery-alt-${index}`}
-              value={item.alt}
-              onChange={(e) =>
-                patch({
-                  gallery: values.gallery.map((entry, i) =>
-                    i === index ? { ...entry, alt: e.target.value } : entry
-                  ),
-                })
-              }
-            />
-          </FormField>
-        ))}
-        <FormField
-          label="Gallery extra count"
-          htmlFor="gallery_extra_count"
-          hint="Number of additional photos shown as +N on the gallery tile."
-          error={err(state.fieldErrors, "gallery_extra_count")}
-        >
-          <Input
-            id="gallery_extra_count"
-            type="number"
-            min={0}
-            value={values.gallery_extra_count}
-            onChange={(e) =>
-              patch({
-                gallery_extra_count: Math.max(0, Number(e.target.value) || 0),
-              })
-            }
-          />
-        </FormField>
-      </FormSection>
+      <ExperienceMediaSection
+        values={values}
+        onPatch={patch}
+        onUploadStateChange={setIsMediaUploading}
+        fieldErrors={state.fieldErrors}
+        err={(key) => err(state.fieldErrors, key)}
+      />
 
       <FormSection
         title="Related experiences"
@@ -717,7 +662,7 @@ export function ExperienceForm({
       </FormSection>
 
       <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" disabled={isPending}>
+        <Button type="submit" disabled={isPending || isMediaUploading}>
           {isPending
             ? "Saving…"
             : mode === "create"

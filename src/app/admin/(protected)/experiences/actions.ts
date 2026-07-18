@@ -15,6 +15,10 @@ import {
   updateExperienceWithProviders,
 } from "@/lib/cms/repositories/experiences";
 import {
+  cleanupAllExperienceMedia,
+  cleanupRemovedExperienceMedia,
+} from "@/lib/cms/media/storage-cleanup";
+import {
   deriveCachedFields,
   formatZodErrors,
   saveExperiencePayloadSchema,
@@ -121,6 +125,8 @@ export async function updateExperienceAction(
       existing.published_at
     );
 
+    await cleanupRemovedExperienceMedia(supabase, existing, experience);
+
     revalidatePath("/admin/experiences");
     revalidatePath(`/admin/experiences/${experienceId}/edit`);
 
@@ -139,8 +145,13 @@ export async function deleteExperienceAction(
   try {
     await requireAdminDelete();
     const supabase = await getAuthenticatedSupabase();
+    const existing = await getExperienceByIdForAdmin(supabase, experienceId);
 
     await deleteExperienceForAdmin(supabase, experienceId);
+
+    if (existing) {
+      await cleanupAllExperienceMedia(supabase, existing);
+    }
 
     revalidatePath("/admin/experiences");
     return { success: true };
