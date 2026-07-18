@@ -77,7 +77,23 @@ export const experienceFormSchema = z.object({
   itinerary: z.array(itineraryItemSchema).default([]),
   important_info: z.array(z.string().min(1)).default([]),
   faqs: z.array(faqItemSchema).default([]),
-  gallery: z.array(galleryItemSchema).default([]),
+  gallery: z
+    .array(galleryItemSchema)
+    .max(20, "Maximum 20 gallery images allowed")
+    .default([])
+    .superRefine((items, ctx) => {
+      const seen = new Set<string>();
+      for (const [index, item] of items.entries()) {
+        if (seen.has(item.src)) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "Duplicate gallery URLs are not allowed.",
+            path: [index, "src"],
+          });
+        }
+        seen.add(item.src);
+      }
+    }),
   gallery_extra_count: z.coerce.number().int().min(0).default(0),
   related_experience_slugs: z
     .array(z.string().regex(slugPattern, "Related slug must be lowercase with hyphens"))
