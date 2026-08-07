@@ -12,7 +12,7 @@ export function WhyChooseLuxury() {
     <Section muted>
       <div className="grid items-center gap-10 lg:grid-cols-3 lg:gap-10">
         <div>
-          <p className="label-luxury">The Dubai Moments Difference</p>
+          <p className="label-luxury">The Caspaya Difference</p>
           <h2 className="mt-3 font-heading text-3xl text-foreground text-balance md:text-4xl">
             Why Choose Luxury in Dubai?
           </h2>

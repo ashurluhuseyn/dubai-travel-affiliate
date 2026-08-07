@@ -20,8 +20,8 @@ export function WhyChoose() {
   return (
     <Section muted>
       <SectionHeader
-        label="The Dubai Moments Difference"
-        title="Why Choose Dubai Moments"
+        label="The Caspaya Difference"
+        title="Why Choose Caspaya"
         align="center"
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">

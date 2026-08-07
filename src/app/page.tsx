@@ -10,14 +10,18 @@ import { LuxuryLifestyle } from "@/components/home/luxury-lifestyle";
 import { TravelerStories } from "@/components/home/traveler-stories";
 import { TrendingExperiences } from "@/components/home/trending-experiences";
 import { PageLayout } from "@/components/layout/page-layout";
-import { createPageMetadata } from "@/lib/site";
+import { createPageMetadata, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Luxury Dubai Travel & Curated Experiences",
-  description:
-    "Discover handpicked luxury hotels, exclusive experiences, and premium travel offers in Dubai. Plan desert safaris, yacht charters, and unforgettable Arabian Gulf escapes.",
-  path: "/",
-});
+export const metadata: Metadata = {
+  ...createPageMetadata({
+    title: siteConfig.tagline,
+    description: siteConfig.description,
+    path: "/",
+  }),
+  title: {
+    absolute: `${siteConfig.name} | ${siteConfig.tagline}`,
+  },
+};
 
 export default function HomePage() {
   return (

@@ -94,14 +94,14 @@ describe("buildAffiliateTrackingUrl", () => {
   it("builds internal tracking URLs with attribution", () => {
     const url = buildAffiliateTrackingUrl(VALID_UUID, {
       source_path: "/experiences/desert-safari-dune-bashing",
-      utm_source: "dubaimoments",
+      utm_source: "caspaya",
       utm_medium: "affiliate",
       utm_campaign: "experience-detail",
     });
 
     assert.match(url, new RegExp(`^/go/${VALID_UUID}\\?`));
     assert.match(url, /source_path=/);
-    assert.match(url, /utm_source=dubaimoments/);
+    assert.match(url, /utm_source=caspaya/);
   });
 });
 
@@ -135,7 +135,7 @@ describe("getProviderAffiliateHref", () => {
     assert.doesNotMatch(href, /^https?:/);
     assert.doesNotMatch(href, /partner\.example\.com/);
     assert.match(href, /source_path=/);
-    assert.match(href, /utm_source=dubaimoments/);
+    assert.match(href, /utm_source=caspaya/);
     assert.match(href, /utm_medium=affiliate/);
     assert.match(href, /utm_campaign=experience-detail/);
   });
@@ -149,7 +149,7 @@ describe("aggregateAffiliateAnalytics", () => {
     experience_title: "Desert Safari",
     source_path: "/experiences/desert-safari-dune-bashing",
     referrer: null,
-    utm_source: "dubaimoments",
+    utm_source: "caspaya",
     utm_medium: "affiliate",
     utm_campaign: "experience-detail",
   };

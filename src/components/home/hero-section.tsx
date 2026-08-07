@@ -3,6 +3,7 @@ import Image from "next/image";
 import { HeroSearch } from "@/components/home/hero-search";
 import { Container } from "@/components/shared/container";
 import { getHeroStats } from "@/data";
+import { siteConfig } from "@/lib/site";
 
 export function HeroSection() {
   const heroStats = getHeroStats();
@@ -22,14 +23,14 @@ export function HeroSection() {
 
       <Container className="relative z-10">
         <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-8 fill-mode-both duration-700">
-          <p className="label-luxury">Curated Luxury Travel · Dubai</p>
+          <p className="label-luxury">{siteConfig.tagline}</p>
           <h1 className="mt-4 font-heading text-4xl leading-[1.05] text-foreground text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-            Experience Dubai{" "}
-            <span className="gold-gradient-text">Beyond Tourism</span>
+            Discover Dubai{" "}
+            <span className="gold-gradient-text">Beyond the Ordinary</span>
           </h1>
           <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-            Hand-picked experiences, hidden gems, and an AI concierge that
-            crafts your perfect itinerary across the Emirates.
+            Curated experiences, tours, hidden gems, and luxury recommendations
+            — plus AI trip planning to help you explore Dubai with confidence.
           </p>
 
           <HeroSearch />

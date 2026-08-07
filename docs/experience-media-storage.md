@@ -1,6 +1,6 @@
 # Experience media storage
 
-Dubai Moments stores optional admin-uploaded experience images in Supabase Storage while continuing to support existing external image URLs.
+Caspaya stores optional admin-uploaded experience images in Supabase Storage while continuing to support existing external image URLs.
 
 ## Bucket and access model
 

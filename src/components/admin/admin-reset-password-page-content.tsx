@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 
 import { AdminResetPasswordForm } from "@/components/admin/admin-reset-password-form";
+import { siteConfig } from "@/lib/site";
 
 function ResetPasswordFormFallback() {
   return (
@@ -19,7 +20,7 @@ export function AdminResetPasswordPageContent() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-luxury-gold-muted">
-            Dubai Moments
+            {siteConfig.name}
           </p>
           <h1 className="mt-2 font-heading text-2xl text-foreground">
             Reset Password

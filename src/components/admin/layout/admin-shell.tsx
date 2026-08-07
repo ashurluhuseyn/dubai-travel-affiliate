@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { formatAdminRole } from "@/lib/admin/navigation";
+import { siteConfig } from "@/lib/site";
 
 import {
   AdminSidebarNav,
@@ -46,7 +47,7 @@ function AdminMobileNav({ user }: AdminMobileNavProps) {
         </button>
         <div className="min-w-0">
           <p className="truncate font-heading text-base text-foreground">
-            Dubai Moments Admin
+            {siteConfig.name} Admin
           </p>
           <p className="truncate text-xs capitalize text-muted-foreground">
             {formatAdminRole(user.role)}
