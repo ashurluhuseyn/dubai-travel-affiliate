@@ -8,23 +8,15 @@ type LogoProps = {
 };
 
 export function Logo({ className }: LogoProps) {
-  const [prefix, suffix] = siteConfig.name.split(" ");
-
   return (
     <Link
       href="/"
       className={cn(
-        "font-heading text-xl tracking-wide text-foreground transition-luxury hover:text-luxury-gold md:text-2xl",
+        "font-heading text-xl tracking-wide transition-luxury hover:opacity-90 md:text-2xl",
         className
       )}
     >
-      {prefix}
-      {suffix ? (
-        <>
-          {" "}
-          <span className="text-luxury-gold">{suffix}</span>
-        </>
-      ) : null}
+      <span className="gold-gradient-text">{siteConfig.name}</span>
     </Link>
   );
 }

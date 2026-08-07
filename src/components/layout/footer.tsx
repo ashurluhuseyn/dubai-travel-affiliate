@@ -1,11 +1,30 @@
 import Link from "next/link";
-import { Mail, MapPin, Share2 } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/shared/logo";
 import { Separator } from "@/components/ui/separator";
 import { getFooterSections } from "@/data";
 import { siteConfig } from "@/lib/site";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -61,11 +80,13 @@ export function Footer() {
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <a
-            href="#"
-            aria-label="Share"
+            href={siteConfig.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Caspaya on Instagram"
             className="text-muted-foreground transition-luxury hover:text-luxury-gold"
           >
-            <Share2 className="size-5" />
+            <InstagramIcon className="size-5" />
           </a>
         </div>
       </Container>

@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "About Us",
   description:
-    "Learn how Dubai Moments helps travelers discover exceptional Dubai experiences — built on local expertise, handpicked partners, and a passion for hospitality.",
+    "Learn how Caspaya helps travelers discover exceptional Dubai experiences — built on local expertise, handpicked partners, and a passion for hospitality.",
   path: "/about",
 });
 

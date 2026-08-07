@@ -9,7 +9,7 @@ export function getProviderAffiliateHref(
   if (provider.trackingProviderId) {
     return buildAffiliateTrackingUrl(provider.trackingProviderId, {
       source_path: `/experiences/${experienceSlug}`,
-      utm_source: "dubaimoments",
+      utm_source: "caspaya",
       utm_medium: "affiliate",
       utm_campaign: "experience-detail",
     });

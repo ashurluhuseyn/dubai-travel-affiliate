@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { AdminForgotPasswordForm } from "@/components/admin/admin-forgot-password-form";
+import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +11,7 @@ export default function AdminForgotPasswordPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-luxury-gold-muted">
-            Dubai Moments
+            {siteConfig.name}
           </p>
           <h1 className="mt-2 font-heading text-2xl text-foreground">
             Forgot Password

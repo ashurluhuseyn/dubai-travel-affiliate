@@ -109,7 +109,7 @@ export const aboutMissionImage: AboutImage = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*  Why Choose Dubai Moments                                                  */
+/*  Why Choose Caspaya                                                         */
 /* -------------------------------------------------------------------------- */
 
 export const whyChooseItems: WhyChooseItem[] = [

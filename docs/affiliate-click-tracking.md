@@ -1,6 +1,6 @@
 # Affiliate click tracking
 
-Dubai Moments records outbound affiliate clicks through a server-only redirect route before sending visitors to the stored provider `affiliate_url`.
+Caspaya records outbound affiliate clicks through a server-only redirect route before sending visitors to the stored provider `affiliate_url`.
 
 ## How `/go/[providerId]` works
 
@@ -47,7 +47,7 @@ We do **not** store:
 Example manual URL (replace UUID):
 
 ```bash
-open "http://localhost:3000/go/550e8400-e29b-41d4-a716-446655440000?source_path=/experiences/desert-safari-dune-bashing&utm_source=dubaimoments&utm_medium=affiliate&utm_campaign=experience-detail"
+open "http://localhost:3000/go/550e8400-e29b-41d4-a716-446655440000?source_path=/experiences/desert-safari-dune-bashing&utm_source=caspaya&utm_medium=affiliate&utm_campaign=experience-detail"
 ```
 
 ## Querying click totals

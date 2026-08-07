@@ -39,7 +39,7 @@ describe("parseAnalyticsSearchParams", () => {
       experience: "desert-safari-dune-bashing",
       provider: "GetYourGuide",
       source: "/experiences/desert-safari",
-      utm_source: "dubaimoments",
+      utm_source: "caspaya",
       utm_campaign: "experience-detail",
       page: "2",
     });
@@ -48,7 +48,7 @@ describe("parseAnalyticsSearchParams", () => {
     assert.equal(filters.experienceSlug, "desert-safari-dune-bashing");
     assert.equal(filters.providerName, "GetYourGuide");
     assert.equal(filters.sourcePath, "/experiences/desert-safari");
-    assert.equal(filters.utmSource, "dubaimoments");
+    assert.equal(filters.utmSource, "caspaya");
     assert.equal(filters.utmCampaign, "experience-detail");
     assert.equal(filters.page, 2);
   });
@@ -125,7 +125,7 @@ describe("buildAnalyticsSearchParams", () => {
       experienceSlug: "desert-safari-dune-bashing",
       providerName: "GetYourGuide",
       sourcePath: "/experiences/",
-      utmSource: "dubaimoments",
+      utmSource: "caspaya",
       utmCampaign: "experience-detail",
     });
 
@@ -133,7 +133,7 @@ describe("buildAnalyticsSearchParams", () => {
     assert.equal(params.get("experience"), "desert-safari-dune-bashing");
     assert.equal(params.get("provider"), "GetYourGuide");
     assert.equal(params.get("source"), "/experiences/");
-    assert.equal(params.get("utm_source"), "dubaimoments");
+    assert.equal(params.get("utm_source"), "caspaya");
     assert.equal(params.get("utm_campaign"), "experience-detail");
   });
 

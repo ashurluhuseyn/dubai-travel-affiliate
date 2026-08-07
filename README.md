@@ -1,6 +1,6 @@
-# Dubai Moments
+# Caspaya
 
-Luxury affiliate travel site for curated Dubai experiences. Built with Next.js App Router, static data, and a Supabase-backed admin CMS (in progress).
+B2C travel discovery and affiliate content platform currently focused on Dubai. Built with Next.js App Router, static data, and a Supabase-backed admin CMS.
 
 ## Getting Started
 
@@ -48,7 +48,7 @@ In **Supabase Dashboard → Authentication → URL Configuration**, add this to 
 http://localhost:3000/admin/reset-password
 ```
 
-For production, also add your live admin reset URL (for example `https://dubaimoments.com/admin/reset-password`) and set `NEXT_PUBLIC_ADMIN_RESET_PASSWORD_URL` accordingly.
+For production, also add your live admin reset URL (for example `https://caspaya.com/admin/reset-password`) and set `NEXT_PUBLIC_ADMIN_RESET_PASSWORD_URL` accordingly.
 
 ### 3. Run the database migration
 

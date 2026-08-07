@@ -1,38 +1,43 @@
 import type { Metadata } from "next";
 
 /** Production origin used when `NEXT_PUBLIC_SITE_URL` is not set at build time. */
-export const PRODUCTION_SITE_URL = "https://dubaimoments.com";
+export const PRODUCTION_SITE_URL = "https://caspaya.com";
 
 /** Site origin — set `NEXT_PUBLIC_SITE_URL` in deployment to override. */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? PRODUCTION_SITE_URL;
 
 export const siteConfig = {
-  name: "Dubai Moments",
-  tagline: "Curated luxury experiences in Dubai",
+  name: "Caspaya",
+  tagline: "Dubai Travel Guide",
   description:
-    "Discover handpicked luxury hotels, exclusive experiences, and premium travel offers in Dubai. Your guide to extraordinary stays and unforgettable Arabian Gulf escapes.",
-  contactEmail: "hello@dubaimoments.com",
+    "Discover Dubai beyond the ordinary with curated experiences, tours, hidden gems, luxury recommendations, and practical travel guides from Caspaya.",
+  contactEmail: "hello@caspaya.com",
   locale: "en_AE",
   keywords: [
-    "Dubai travel",
+    "Dubai travel guide",
     "Dubai experiences",
-    "luxury Dubai vacations",
     "Dubai tours",
-    "premium travel Dubai",
-    "UAE holidays",
     "Dubai hidden gems",
+    "luxury Dubai travel",
+    "things to do in Dubai",
+    "UAE holidays",
+    "Dubai itinerary",
   ],
   url: SITE_URL,
   /** Default social share image (Dubai skyline). */
   defaultOgImage:
     "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
+  social: {
+    instagram: "https://instagram.com/explorecaspaya",
+    instagramHandle: "@explorecaspaya",
+  },
 } as const;
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Luxury Dubai Travel`,
+    default: `${siteConfig.name} | ${siteConfig.tagline}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

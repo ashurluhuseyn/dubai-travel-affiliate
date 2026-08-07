@@ -40,7 +40,7 @@ export function AboutHero() {
             <span className="gold-gradient-text">Dubai</span>
           </h1>
           <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
-            Dubai Moments was created with a simple goal — to help travelers
+            Caspaya was created with a simple goal — to help travelers
             discover the most exceptional experiences in Dubai. We combine local
             expertise with a passion for hospitality to bring you closer to the
             magic of this city.

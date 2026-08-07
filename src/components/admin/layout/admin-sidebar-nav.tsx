@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { logoutAction } from "@/app/admin/actions";
+import { siteConfig } from "@/lib/site";
 import {
   ADMIN_NAV_GROUPS,
   formatAdminRole,
@@ -108,7 +109,7 @@ export function AdminSidebarNav({
           onClick={onNavigate}
           className="block font-heading text-lg text-foreground transition-colors hover:text-luxury-gold-soft"
         >
-          Dubai Moments Admin
+          {siteConfig.name} Admin
         </Link>
         <p className="mt-2 text-sm text-foreground">{user.name}</p>
         <p className="text-xs capitalize text-muted-foreground">
