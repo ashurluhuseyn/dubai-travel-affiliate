@@ -429,10 +429,231 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
       },
     ],
     internalLinks: [
-      { label: "Explore Caspaya's Dubai travel ideas", href: "/" },
+      { label: "Read the first-time Dubai planning guide", href: "/blog/dubai-first-time-guide" },
       { label: "Read how Caspaya researches its guides", href: "/about" },
     ],
     relatedArticleSlugs: [],
+  },
+  "dubai-first-time-guide": {
+    id: "dubai-first-time-guide",
+    slug: "dubai-first-time-guide",
+    title: "Dubai for First-Time Visitors: What to Know Before You Go",
+    seoTitle: "Dubai for First-Time Visitors: Practical Travel Guide",
+    metaDescription:
+      "Plan your first Dubai trip with practical guidance on entry checks, trip length, weather, where to stay, transport, money and local etiquette.",
+    excerpt:
+      "The essential decisions to make before a first Dubai trip — from entry checks and timing to choosing an area and getting around.",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
+    imageAlt: "Burj Khalifa and the Dubai skyline viewed across the city",
+    category: "Guides",
+    readTime: "12 min read",
+    date: "August 24, 2026",
+    publishedAt: "2026-08-24T12:00:00.000Z",
+    updatedAt: "2026-08-24T12:00:00.000Z",
+    href: "/blog/dubai-first-time-guide",
+    status: "published",
+    noindex: false,
+    author: {
+      name: "Caspaya Editorial Team",
+      initials: "CE",
+      entityType: "Organization",
+      bio: "Caspaya prepared this guide from current UAE Government, Dubai RTA and Visit Dubai sources. It does not claim personal experience or recommend an affiliate product.",
+      url: "https://caspaya.com/about",
+    },
+    sections: [
+      {
+        id: "plan-decisions-first",
+        heading: "Plan the decisions first, not the attractions",
+        paragraphs: [
+          "A first Dubai trip can become a long list of landmarks before the basic decisions are settled. The city stretches along the coast, outdoor comfort changes sharply through the year, and two hotels both described as central can create very different daily routes. A useful plan therefore starts with entry rules, trip length, season, area and transport — then adds attractions.",
+          "This guide is a planning hub rather than another top-things-to-do list. It gives you the order in which to make those decisions, explains where assumptions commonly fail and links to Caspaya's detailed itinerary when you are ready to build the days themselves. Information that can change was reviewed against official sources on 24 August 2026.",
+        ],
+        bullets: [
+          "Confirm entry eligibility before paying for non-refundable bookings.",
+          "Decide how many full sightseeing days you truly have after arrival and departure.",
+          "Choose an area based on your itinerary, not only the hotel photograph.",
+          "Prebook a small number of timed anchors and keep the rest flexible.",
+        ],
+      },
+      {
+        id: "entry-checks",
+        heading: "1. Check entry rules for your own passport",
+        paragraphs: [
+          "Do not rely on a general statement that visitors receive a visa on arrival. UAE entry treatment varies by nationality: some travellers enter visa-free, some are eligible for visa on arrival and others need an arrangement in advance. The UAE Government's eligibility page is the correct starting point, followed by the relevant immigration authority, UAE-based airline or embassy guidance for your case.",
+          "The UAE Government currently states that passports should be valid for at least six months from the date of entry and warns that visa-on-arrival country lists can change. Check again shortly before travel, especially if your passport, residence status, airline or transit plan has changed. Caspaya cannot determine a reader's individual immigration eligibility.",
+          "Keep accommodation, onward or return travel and insurance documents accessible in the format requested by your airline or immigration authority. If an agency offers to arrange a tourist visa, verify that it is genuine before sending documents or money; the official tourist-visa guidance specifically recommends checking an agent's authenticity.",
+        ],
+      },
+      {
+        id: "trip-length-and-pace",
+        heading: "2. Count full days, then choose your pace",
+        paragraphs: [
+          "A two-night booking does not always equal two sightseeing days. Immigration, baggage, hotel check-in, the transfer back to the airport and recovery from an overnight flight can remove large parts of the schedule. Write down the hours you can realistically use before choosing what fits.",
+          "For a short introduction, prioritise contrasting areas instead of many individual tickets: Old Dubai and the Creek, Downtown, one coastal area and, if time and health considerations allow, a desert experience. Longer visits can add family attractions, a full beach day or a day trip without stacking them into the same morning.",
+          "Leave at least one uncommitted block on trips of four days or more. It can absorb heat, traffic, a late start or an attraction that takes longer than expected. A plan with room to change is more useful than an impressive spreadsheet that fails on the first day.",
+        ],
+      },
+      {
+        id: "weather-and-timing",
+        heading: "3. Build the day around weather, not only the month",
+        paragraphs: [
+          "Dubai has a desert climate, with warm winter conditions and hot, humid summers. The practical effect is not simply whether you should visit: it changes when you walk, how much outdoor time is realistic and whether a midday transfer feels easy. Use Visit Dubai's current weather information close to departure and check the forecast again each day.",
+          "In hotter periods, put heritage walks, beaches and open-air viewpoints early in the morning or later in the day. Use midday for a meal, rest or an indoor visit. In the cooler high-demand season, comfortable outdoor weather can come with busier hotels, attractions and restaurants, so booking the few things you care about most becomes more important.",
+          "Public holidays, Ramadan and major events can change transport or attraction hours. Do not copy a timetable from an old blog post into your plan. Open the official page for each timed booking and review the terms sent with your confirmation.",
+        ],
+      },
+      {
+        id: "where-to-stay",
+        heading: "4. Choose where to stay from your daily route",
+        paragraphs: [
+          "There is no single best area for every first-time visitor. Downtown suits a short landmark-focused stay around Burj Khalifa and Dubai Mall. Dubai Marina and JBR offer waterfront walks and beach access but sit farther from Old Dubai. Bur Dubai and Deira place you near the Creek, heritage districts and value-oriented food options. Palm Jumeirah is a resort choice and can add travel time when most of your plans are elsewhere.",
+          "Mark your three highest-priority areas on a map, then compare hotels by total daily travel rather than distance to one attraction. Also check the actual walking route to the nearest Metro station. A hotel may describe itself as Metro-accessible even when the outdoor walk is uncomfortable with luggage or during summer.",
+          "Splitting a short stay between hotels usually costs more time than it saves. It becomes more sensible on a longer trip when you deliberately want a city phase and a resort phase. For two to four nights, one well-chosen base is normally simpler.",
+        ],
+      },
+      {
+        id: "getting-around",
+        heading: "5. Combine Metro and taxis instead of choosing only one",
+        paragraphs: [
+          "Dubai Metro is useful along the airport, Old Dubai, Downtown, Mall of the Emirates and Marina corridor. It does not deliver you directly to every beach, hotel or attraction. Taxis are useful for the final connection, for groups whose per-person public-transport saving is small, and when heat or luggage makes a long walk impractical.",
+          "RTA uses nol cards and tickets across Metro, buses, tram and several marine services. You tap in and out, and the system calculates public-transport fares by the zones travelled. Current RTA guidance requires sufficient balance before entry and notes that operating hours may change on holidays and for special events. Check the official journey planner rather than memorising a schedule from this article.",
+          "A rental car is not automatically an upgrade for a first short visit. Parking, hotel access and unfamiliar roads can offset its benefits when most of your stops are in established visitor districts. It becomes more useful when the itinerary includes distant places not served conveniently by public transport and the driver is comfortable with local road conditions.",
+        ],
+      },
+      {
+        id: "money-and-bookings",
+        heading: "6. Budget with components, not a universal daily figure",
+        paragraphs: [
+          "The UAE's official currency is the dirham, abbreviated AED. Cards are widely accepted, while a small amount of cash remains useful for situations such as a traditional abra route or a small market purchase. The UAE Government advises using licensed exchange centres and notes that ATMs are widely available.",
+          "Avoid a universal claim that Dubai costs a certain amount per day. Accommodation dates, room type, dining style and ticket choices create most of the difference. Build your own total from the hotel, airport transfers, daily transport, meals and the exact attractions you intend to visit. Keep a separate buffer for deposits, luggage, taxes or changes rather than treating the headline room rate as the complete cost.",
+          "Prebook only what controls the structure of a day: a timed observation deck, a high-priority museum or a desert pickup, for example. Read cancellation rules before paying. Caspaya does not currently sell tours and has not activated affiliate booking links, so this guide has no commission-driven recommendation.",
+        ],
+      },
+      {
+        id: "etiquette-and-clothing",
+        heading: "7. Match clothing and behaviour to the setting",
+        paragraphs: [
+          "Dubai welcomes international visitors, but beachwear, shopping malls, historic districts and places of worship are different settings. UAE Government guidance asks visitors to dress modestly in conservative areas and public places, avoid transparent or offensively printed clothing and keep swimwear to beaches, pools and water parks. Women are not generally required to cover their hair, while a mosque visit has its own requirements.",
+          "Ask before photographing people and do not photograph restricted government or military sites. Keep public displays of affection restrained and be considerate around religious and family spaces. The useful principle is situational respect, not anxiety about every clothing choice.",
+          "During Ramadan, religious holidays and local observances, check current official guidance rather than relying on rules remembered from another year. Hours, entertainment programmes and traffic patterns around iftar can all change the shape of a day.",
+        ],
+      },
+      {
+        id: "arrival-checklist",
+        heading: "A practical 24-hour-before-arrival checklist",
+        paragraphs: [
+          "The day before travel, bring the plan back to essentials. Save the address of your first hotel, the route from your arrival terminal, your entry and insurance documents, and the official contact details for anything already booked. Download offline access to the information you would need before a local data connection is working.",
+        ],
+        bullets: [
+          "Recheck the UAE entry rule for your passport and the airline's document requirements.",
+          "Confirm your DXB terminal and hotel check-in or luggage-storage arrangement.",
+          "Check the forecast and move long outdoor walks if needed.",
+          "Top-level plan: one area per half-day, with transfer and rest buffers.",
+          "Save UAE emergency numbers: 999 police, 998 ambulance and 997 fire.",
+          "Keep official source links available; opening hours and service notices can change after this guide's review date.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How many days are enough for a first trip to Dubai?",
+        answer:
+          "Two full days provide an introduction, while three to five full days allow a more balanced mix of heritage, Downtown, coast and desert. Count usable sightseeing time after flights and transfers rather than counting hotel nights alone.",
+      },
+      {
+        question: "Do all tourists receive a Dubai visa on arrival?",
+        answer:
+          "No. Eligibility depends on nationality and circumstances. Some travellers enter visa-free, some receive a visa on arrival and others must arrange entry in advance. Check the current UAE Government eligibility page for your passport before booking.",
+      },
+      {
+        question: "Do first-time visitors need to rent a car in Dubai?",
+        answer:
+          "Not for a typical short city itinerary. Metro and taxis can cover the main visitor districts, while a car may be useful for a route with distant stops. Include parking, hotel access and driving confidence in the decision.",
+      },
+      {
+        question: "What is the best area to stay in Dubai for a first visit?",
+        answer:
+          "It depends on your priorities. Downtown is efficient for central landmarks, Marina and JBR suit waterfront stays, Bur Dubai and Deira suit Creek and heritage access, and Palm Jumeirah suits a resort-focused trip. Choose the area that reduces travel to your own top three plans.",
+      },
+      {
+        question: "Do I need cash in Dubai?",
+        answer:
+          "Cards are widely accepted, but carrying a small amount of AED is useful for a few cash-based or small purchases. Use licensed exchange centres or recognised ATMs and check any card or withdrawal fees charged by your provider.",
+      },
+      {
+        question: "What should tourists wear in Dubai?",
+        answer:
+          "Dress for the setting. Swimwear belongs at beaches, pools and water parks; modest clothing is appropriate in malls, historic or conservative areas and public places; places of worship may require additional coverage. Official UAE guidance does not generally require women visitors to cover their hair outside relevant religious settings.",
+      },
+    ],
+    sources: [
+      {
+        title: "Top Tips for Your First Visit to Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/articles/top-tips-for-your-first-visit-in-dubai",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Check If You Need a Visa to Enter the UAE",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/visa-and-emirates-id/do-you-need-an-entry-permit-or-a-visa-to-enter-the-uae",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Tourist Visa",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/visa-and-emirates-id/tourist-visa",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Weather in Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/plan-your-trip/weather-in-dubai",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Dubai Neighbourhoods",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/travel-trade/explore-dubai/dubai-neighbourhoods",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "About nol Cards",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/About-Nol-Card",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "The UAE National Currency",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/finance-and-investment/the-uae-national-currency",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Foreign Currency",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/visiting-and-exploring-the-uae/foreign-currency",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Social Responsibility and Visitor Etiquette",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/visiting-and-exploring-the-uae/social-responsibility",
+        accessedAt: "2026-08-24",
+      },
+      {
+        title: "Emergency Help for Tourists in the UAE",
+        publisher: "The Official Platform of the UAE Government",
+        url: "https://u.ae/en/information-and-services/visiting-and-exploring-the-uae/emergency-help-for-tourists-in-the-uae",
+        accessedAt: "2026-08-24",
+      },
+    ],
+    internalLinks: [
+      { label: "Use the Dubai in 48 Hours itinerary", href: "/blog/dubai-in-48-hours" },
+      { label: "See how Caspaya researches its guides", href: "/about" },
+    ],
+    relatedArticleSlugs: ["dubai-in-48-hours"],
   },
 };
 

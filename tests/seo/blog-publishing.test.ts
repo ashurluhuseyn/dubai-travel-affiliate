@@ -19,7 +19,7 @@ describe("blog publishing guard", () => {
     assert.equal(isBlogPostIndexable(placeholder), false);
     assert.deepEqual(
       publishedPosts.map((post) => post.slug),
-      ["dubai-in-48-hours"]
+      ["dubai-first-time-guide", "dubai-in-48-hours"]
     );
   });
 
@@ -52,7 +52,7 @@ describe("blog publishing guard", () => {
 });
 
 describe("sitemap publishing policy", () => {
-  it("contains legal foundations and only the researched article", async () => {
+  it("contains legal foundations and only researched articles", async () => {
     const entries = await sitemap();
     const urls = entries.map((entry) => entry.url);
 
@@ -60,6 +60,7 @@ describe("sitemap publishing policy", () => {
     assert.ok(urls.includes("https://caspaya.com/terms"));
     assert.ok(urls.includes("https://caspaya.com/affiliate-disclosure"));
     assert.ok(urls.includes("https://caspaya.com/blog"));
+    assert.ok(urls.includes("https://caspaya.com/blog/dubai-first-time-guide"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-in-48-hours"));
     assert.equal(
       urls.includes("https://caspaya.com/blog/ultimate-dubai-travel-guide-2024"),

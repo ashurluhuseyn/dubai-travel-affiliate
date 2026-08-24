@@ -12,6 +12,13 @@ type BlogDetailViewProps = {
 };
 
 export function BlogDetailView({ article }: BlogDetailViewProps) {
+  const reviewedDate = article.updatedAt
+    ? new Intl.DateTimeFormat("en-US", {
+        dateStyle: "long",
+        timeZone: "UTC",
+      }).format(new Date(article.updatedAt))
+    : null;
+
   return (
     <article>
       <div className="relative aspect-[21/9] min-h-[16rem] overflow-hidden">
@@ -70,7 +77,14 @@ export function BlogDetailView({ article }: BlogDetailViewProps) {
               <Clock className="size-3.5" aria-hidden />
               {article.readTime}
             </span>
+            {reviewedDate && <span>Last reviewed {reviewedDate}</span>}
           </div>
+
+          {article.author?.bio && (
+            <p className="mt-5 max-w-2xl border-l-2 border-luxury-gold-muted/50 pl-4 text-sm leading-relaxed text-muted-foreground">
+              {article.author.bio}
+            </p>
+          )}
         </header>
 
         {article.sections.length > 0 ? (
@@ -165,6 +179,26 @@ export function BlogDetailView({ article }: BlogDetailViewProps) {
               ))}
             </ul>
           </section>
+        )}
+
+        {article.internalLinks.length > 0 && (
+          <nav className="mt-14 max-w-3xl" aria-labelledby="continue-planning">
+            <h2 id="continue-planning" className="font-heading text-2xl text-foreground">
+              Continue planning
+            </h2>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {article.internalLinks.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="block rounded-xl border border-border/60 bg-card p-4 text-sm text-luxury-gold-soft transition-luxury hover:border-luxury-gold-muted/50 hover:text-luxury-gold"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         )}
       </Container>
     </article>
