@@ -4,6 +4,9 @@ Caspaya blog posts are intentionally stored as typed TypeScript objects. A
 post is never added to the sitemap unless it is marked as published and passes
 the minimum editorial checks in `isBlogPostIndexable`.
 
+Choose and scope new Dubai articles using the priorities, search intent and
+cannibalisation rules in [`dubai-seo-content-map.md`](./dubai-seo-content-map.md).
+
 ## Workflow
 
 1. Add the article to `researchedBlogDetails` in
