@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Star } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -42,10 +42,6 @@ export function ExperienceCard({
           >
             {experience.category}
           </Badge>
-          <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-luxury-black/60 px-2.5 py-1 text-xs font-medium text-luxury-white backdrop-blur-sm">
-            <Star className="size-3 fill-luxury-gold text-luxury-gold" />
-            {experience.rating.toFixed(1)}
-          </span>
         </div>
 
         <CardContent className="flex flex-1 flex-col gap-2 p-5">
@@ -56,17 +52,9 @@ export function ExperienceCard({
           <h3 className="font-heading text-lg leading-snug text-foreground transition-luxury group-hover:text-luxury-gold">
             {experience.title}
           </h3>
-          <div className="mt-auto flex items-end justify-between pt-3">
-            <span className="text-xs text-muted-foreground">
-              {experience.reviews.toLocaleString()} reviews
-            </span>
-            <span className="text-sm">
-              <span className="text-muted-foreground">from </span>
-              <span className="font-semibold text-luxury-gold-soft">
-                {experience.price}
-              </span>
-            </span>
-          </div>
+          <span className="mt-auto pt-3 text-sm text-luxury-gold-soft">
+            Read the overview
+          </span>
         </CardContent>
       </Link>
     </Card>

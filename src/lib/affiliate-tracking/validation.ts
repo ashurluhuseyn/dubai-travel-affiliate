@@ -10,7 +10,9 @@ export function isValidProviderUuid(value: string): boolean {
 export function isSafeAffiliateRedirectUrl(value: string): boolean {
   try {
     const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
+    const blockedPlaceholderHost =
+      url.hostname === "example.com" || url.hostname.endsWith(".example.com");
+    return url.protocol === "https:" && !blockedPlaceholderHost;
   } catch {
     return false;
   }

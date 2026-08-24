@@ -22,12 +22,12 @@ export function AboutCta() {
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">
             <h2 className="font-heading text-3xl text-foreground text-balance md:text-4xl">
-              Ready to Experience the Best of{" "}
+              Start Exploring More of{" "}
               <span className="gold-gradient-text">Dubai?</span>
             </h2>
             <p className="mt-3 text-muted-foreground md:text-lg">
-              Explore our handpicked experiences and create memories that last
-              forever.
+              Browse destination ideas while our first in-depth guides are
+              being researched and prepared.
             </p>
           </div>
           <Button

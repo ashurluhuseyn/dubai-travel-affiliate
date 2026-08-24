@@ -55,9 +55,6 @@ export function CategoryCard({ category, priority = false }: CategoryCardProps) 
         <h3 className="font-heading text-lg text-luxury-white">
           {category.title}
         </h3>
-        <span className="inline-flex w-fit items-center rounded-full border border-luxury-gold-muted/30 bg-luxury-gold/10 px-2.5 py-0.5 text-xs font-medium text-luxury-gold-soft">
-          {category.count}
-        </span>
       </div>
     </Link>
   );

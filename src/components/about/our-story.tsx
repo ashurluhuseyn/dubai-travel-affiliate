@@ -13,7 +13,7 @@ export function OurStory() {
         <div>
           <p className="label-luxury">Our Story</p>
           <h2 className="mt-3 font-heading text-3xl text-foreground text-balance md:text-4xl">
-            Passion. Local Knowledge. Unmatched Experiences.
+            Useful Guides Before Commercial Offers
           </h2>
           <div className="mt-5 space-y-4 text-muted-foreground md:text-lg">
             {aboutStoryParagraphs.map((paragraph) => (
@@ -26,7 +26,7 @@ export function OurStory() {
             className="mt-8 rounded-full transition-luxury"
           >
             <Link href="/destinations">
-              Discover Our Journey
+              Explore Dubai Ideas
               <ArrowRight className="size-4" />
             </Link>
           </Button>

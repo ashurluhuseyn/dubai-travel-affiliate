@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 
 import type { Experience } from "@/data";
 import { cn } from "@/lib/utils";
+import { siteFeatures } from "@/lib/site-features";
 
 type MetaItem = {
   icon: LucideIcon;
@@ -36,6 +37,7 @@ export function ExperienceHeader({ experience }: ExperienceHeaderProps) {
         {experience.title}
       </h1>
 
+      {siteFeatures.affiliateOffers && (
       <div className="mt-3 flex items-center gap-2 text-sm">
         <div className="flex items-center" aria-hidden>
           {Array.from({ length: 5 }).map((_, index) => (
@@ -57,7 +59,9 @@ export function ExperienceHeader({ experience }: ExperienceHeaderProps) {
           ({experience.reviewCount.toLocaleString()} reviews)
         </span>
       </div>
+      )}
 
+      {siteFeatures.affiliateOffers && (
       <ul className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
         {meta.map((item) => (
           <li key={item.label} className="inline-flex items-center gap-2">
@@ -66,6 +70,7 @@ export function ExperienceHeader({ experience }: ExperienceHeaderProps) {
           </li>
         ))}
       </ul>
+      )}
 
       <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
         {experience.description}

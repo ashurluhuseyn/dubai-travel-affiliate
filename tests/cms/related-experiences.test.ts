@@ -12,11 +12,13 @@ import {
 function makeExperience(
   overrides: Partial<Experience> & Pick<Experience, "slug" | "category">
 ): Experience {
+  const { slug, category, ...rest } = overrides;
+
   return {
-    id: overrides.slug,
-    slug: overrides.slug,
-    title: overrides.title ?? overrides.slug,
-    category: overrides.category,
+    id: slug,
+    slug,
+    title: overrides.title ?? slug,
+    category,
     location: "",
     description: "",
     price: 100,
@@ -42,7 +44,7 @@ function makeExperience(
     priceUnit: "person",
     relatedExperienceSlugs: [],
     providers: [],
-    ...overrides,
+    ...rest,
   };
 }
 

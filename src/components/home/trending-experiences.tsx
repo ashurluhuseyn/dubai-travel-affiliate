@@ -11,9 +11,9 @@ export function TrendingExperiences() {
     <Section id="experiences">
       <SectionHeader
         align="center"
-        label="Trending Now"
-        title="Trending Experiences"
-        description="The most sought-after adventures, handpicked by our local curators."
+        label="Ideas for Dubai"
+        title="Experience Inspiration"
+        description="A visual starting point for researching Dubai activities and places."
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {trendingExperiences.map((experience, index) => (

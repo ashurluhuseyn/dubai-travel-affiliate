@@ -36,7 +36,7 @@ export const lifestyleItems: LifestyleItem[] = [
   {
     id: "dining",
     title: "Skyline Fine Dining",
-    description: "Michelin-starred tables above the city lights.",
+    description: "Fine-dining settings with views across the city lights.",
     image:
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
     imageAlt: "Fine dining table with city view",

@@ -43,6 +43,8 @@ const baseExperienceRow: ExperienceRow = {
   important_info: ["Wear comfortable shoes"],
   faqs: [{ question: "Pickup?", answer: "Yes" }],
   gallery: [{ src: "https://example.com/1.jpg", alt: "Desert" }],
+  gallery_extra_count: 0,
+  related_experience_slugs: [],
   cached_lowest_price: 290,
   cached_currency: "AED",
   cached_rating: 4.8,

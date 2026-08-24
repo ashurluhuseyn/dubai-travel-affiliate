@@ -10,11 +10,9 @@ export function SignatureCollections() {
   return (
     <Section id="collections">
       <SectionHeader
-        label="Curated Collections"
-        title="Signature Luxury Collections"
-        description="Our most coveted experiences, reserved for travelers who expect the extraordinary."
-        href="#experiences"
-        linkLabel="View All Experiences"
+        label="Editorial Themes"
+        title="Luxury Travel Inspiration"
+        description="Starting points for researching Dubai's waterfront, desert, dining, and private-experience landscape."
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {collections.map((collection, index) => (

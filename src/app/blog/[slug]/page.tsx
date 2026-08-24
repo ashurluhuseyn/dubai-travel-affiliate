@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import { BlogDetailView } from "@/components/blog/blog-detail-view";
 import { PageLayout } from "@/components/layout/page-layout";
-import { getBlogDetail, getBlogSlugs } from "@/data";
-import { createPageMetadata } from "@/lib/site";
+import { getBlogDetail, getBlogSlugs, isBlogPostIndexable } from "@/data";
+import { createPageMetadata, SITE_URL } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -24,12 +24,15 @@ export async function generateMetadata({
     return { title: "Article not found" };
   }
 
+  const indexable = isBlogPostIndexable(article);
+
   return createPageMetadata({
-    title: article.title,
-    description: article.excerpt,
+    title: article.seoTitle,
+    description: article.metaDescription,
     path: `/blog/${slug}`,
     images: [article.image],
     openGraphType: "article",
+    index: indexable,
   });
 }
 
@@ -41,8 +44,67 @@ export default async function BlogDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const indexable = isBlogPostIndexable(article);
+  const structuredData = indexable
+    ? {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            headline: article.title,
+            description: article.metaDescription,
+            image: [article.image],
+            datePublished: article.publishedAt,
+            dateModified: article.updatedAt,
+            author: {
+              "@type": "Person",
+              name: article.author!.name,
+              ...(article.author!.url ? { url: article.author!.url } : {}),
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Caspaya",
+              url: SITE_URL,
+            },
+            mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: `${SITE_URL}/blog`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: article.title,
+                item: `${SITE_URL}/blog/${slug}`,
+              },
+            ],
+          },
+        ],
+      }
+    : null;
+
   return (
     <PageLayout mainClassName="pt-28 lg:pt-32">
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       <BlogDetailView article={article} />
     </PageLayout>
   );

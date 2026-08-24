@@ -328,6 +328,42 @@ export type BlogAuthor = {
   name: string;
   /** Initials shown in the gold avatar chip. */
   initials: string;
+  bio?: string;
+  url?: string;
+};
+
+export type BlogStatus = "draft" | "published";
+
+export type BlogSubsection = {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type BlogSection = {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+  subsections?: BlogSubsection[];
+};
+
+export type BlogFaq = {
+  question: string;
+  answer: string;
+};
+
+export type BlogSource = {
+  title: string;
+  publisher: string;
+  url: string;
+  accessedAt: string;
+};
+
+export type BlogInternalLink = {
+  label: string;
+  href: string;
 };
 
 /**
@@ -340,7 +376,19 @@ export type BlogPost = Guide & {
 
 export type BlogDetail = BlogPost & {
   slug: string;
-  content: string[];
+  status: BlogStatus;
+  noindex: boolean;
+  seoTitle: string;
+  metaDescription: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  /** Legacy draft paragraphs kept while placeholder routes are de-indexed. */
+  content?: string[];
+  sections: BlogSection[];
+  faqs: BlogFaq[];
+  sources: BlogSource[];
+  internalLinks: BlogInternalLink[];
+  relatedArticleSlugs: string[];
 };
 
 export type BlogCategoryIconKey =

@@ -8,6 +8,7 @@ import {
   isTrackableProvider,
   isValidProviderUuid,
 } from "@/lib/affiliate-tracking/validation";
+import { areAffiliateRedirectsEnabled } from "@/lib/affiliate-tracking/flags";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +36,10 @@ function redirectResponse(destination: string) {
 }
 
 export async function GET(request: Request, context: RouteContext) {
+  if (!areAffiliateRedirectsEnabled()) {
+    return notFoundResponse();
+  }
+
   const { providerId } = await context.params;
 
   if (!isValidProviderUuid(providerId)) {

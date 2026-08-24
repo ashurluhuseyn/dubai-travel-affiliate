@@ -30,6 +30,7 @@ export async function generateMetadata({
     path: `/hidden-gems/${slug}`,
     images: [gem.image],
     openGraphType: "article",
+    index: false,
   });
 }
 

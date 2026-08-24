@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button";
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Hidden Gems" }];
 
 const quickFilters: { icon: LucideIcon; label: string }[] = [
-  { icon: Heart, label: "Local Favorites" },
-  { icon: Sparkles, label: "Unique Experiences" },
-  { icon: Camera, label: "Photo Worthy" },
-  { icon: Compass, label: "Off the Beaten Path" },
+  { icon: Heart, label: "Waterfront" },
+  { icon: Sparkles, label: "Culture" },
+  { icon: Camera, label: "Architecture" },
+  { icon: Compass, label: "Art & Cafés" },
 ];
 
 type HiddenGemsHeroProps = {
@@ -43,8 +43,8 @@ export function HiddenGemsHero({ initialSearch = "" }: HiddenGemsHeroProps) {
             Hidden Gems <span className="gold-gradient-text">in Dubai</span>
           </h1>
           <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
-            Discover secret beaches, local cafés, cultural corners and
-            unforgettable places most tourists never find.
+            Browse less-obvious beaches, cafés, cultural places, and city
+            corners while detailed guides are being verified.
           </p>
 
           <form

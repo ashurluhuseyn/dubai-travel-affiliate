@@ -4,36 +4,20 @@ import type { ContactMethod, FaqSection } from "./types";
 
 export const contactMethods: ContactMethod[] = [
   {
-    id: "whatsapp",
-    icon: "whatsapp",
-    title: "WhatsApp",
-    description: "Chat with us instantly on WhatsApp for quick assistance.",
-    actionLabel: "Chat on WhatsApp",
-    href: "https://wa.me/971501234567",
-  },
-  {
     id: "email",
     icon: "email",
     title: "Email Us",
-    description: "Send us an email and we'll respond as soon as possible.",
+    description: "For content corrections, source suggestions, and partnership enquiries.",
     actionLabel: siteConfig.contactEmail,
     href: `mailto:${siteConfig.contactEmail}`,
-  },
-  {
-    id: "phone",
-    icon: "phone",
-    title: "Call Us",
-    description: "Speak with our travel experts for personalized help.",
-    actionLabel: "+971 50 123 4567",
-    href: "tel:+971501234567",
   },
   {
     id: "location",
     icon: "location",
     title: "Our Location",
     description: "Dubai, United Arab Emirates",
-    actionLabel: "View on Map",
-    href: "https://maps.google.com/?q=Dubai,+United+Arab+Emirates",
+    actionLabel: "About Caspaya",
+    href: "/about",
   },
 ];
 

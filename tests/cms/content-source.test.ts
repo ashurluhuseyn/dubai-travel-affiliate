@@ -43,7 +43,8 @@ describe("getPublicExperienceBySlug with static source", () => {
     const experience = await getPublicExperienceBySlug("desert-safari-dune-bashing");
     assert.ok(experience);
     assert.equal(experience.title, "Desert Safari & Dune Bashing");
-    assert.ok(experience.providers.length > 0);
+    assert.equal(experience.providers.length, 0);
+    assert.equal(experience.price, 0);
   });
 
   it("returns null for a missing slug", async () => {

@@ -7,12 +7,7 @@ import {
   whyChooseItems,
 } from "./about";
 import { blogDetails } from "./blog-detail";
-import {
-  blogCategories,
-  blogPosts,
-  featuredPost,
-  popularPosts,
-} from "./blog";
+import { blogCategories } from "./blog";
 import {
   categories,
   categoryShowcase,
@@ -225,20 +220,34 @@ export function getLatestGuides(): Guide[] {
   return latestGuides;
 }
 
-export function getFeaturedPost(): BlogPost {
-  return featuredPost;
+export function getFeaturedPost(): BlogPost | null {
+  return getIndexableBlogPosts()[0] ?? null;
 }
 
 export function getBlogPosts(): BlogPost[] {
-  return blogPosts;
+  return getIndexableBlogPosts();
 }
 
 export function getBlogCategories(): BlogCategory[] {
-  return blogCategories;
+  const posts = getIndexableBlogPosts();
+  return blogCategories
+    .map((category) => ({
+      ...category,
+      count: posts.filter((post) => post.category === category.label).length,
+      href: `/blog?category=${encodeURIComponent(category.label)}`,
+    }))
+    .filter((category) => category.count > 0);
 }
 
 export function getPopularPosts(): PopularPost[] {
-  return popularPosts;
+  return getIndexableBlogPosts().slice(0, 5).map((post) => ({
+    id: post.id,
+    title: post.title,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    date: post.date,
+    href: post.href,
+  }));
 }
 
 export function getBlogSlugs(): string[] {
@@ -247,4 +256,25 @@ export function getBlogSlugs(): string[] {
 
 export function getBlogDetail(slug: string): BlogDetail | null {
   return blogDetails[slug] ?? null;
+}
+
+export function isBlogPostIndexable(post: BlogDetail): boolean {
+  return Boolean(
+    post.status === "published" &&
+      !post.noindex &&
+      post.author &&
+      post.publishedAt &&
+      post.updatedAt &&
+      post.sections.length > 0 &&
+      post.sources.length > 0
+  );
+}
+
+export function getIndexableBlogPosts(): BlogDetail[] {
+  return Object.values(blogDetails)
+    .filter(isBlogPostIndexable)
+    .sort(
+      (a, b) =>
+        Date.parse(b.publishedAt ?? "") - Date.parse(a.publishedAt ?? "")
+    );
 }

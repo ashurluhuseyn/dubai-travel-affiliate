@@ -28,9 +28,9 @@ export const aboutHeroImage: AboutImage = {
 };
 
 export const aboutTrustItems: AboutTrustItem[] = [
-  { id: "handpicked", icon: "handpicked", label: "Handpicked Experiences" },
-  { id: "experts", icon: "experts", label: "Trusted Local Experts" },
-  { id: "quality", icon: "quality", label: "Quality & Safety First" },
+  { id: "handpicked", icon: "handpicked", label: "Independent Editorial" },
+  { id: "experts", icon: "experts", label: "Dubai-Focused Research" },
+  { id: "quality", icon: "quality", label: "Transparent Information" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -38,8 +38,8 @@ export const aboutTrustItems: AboutTrustItem[] = [
 /* -------------------------------------------------------------------------- */
 
 export const aboutStoryParagraphs: string[] = [
-  "We are a team of travel enthusiasts and Dubai locals who know the city inside out. From iconic landmarks to hidden gems, we curate experiences that go beyond the ordinary.",
-  "Every moment is designed to create memories that last a lifetime — blending local expertise with a genuine passion for hospitality.",
+  "Caspaya is an independent travel-content project focused first on Dubai. It is being built to make trip research clearer, more practical, and easier to navigate.",
+  "The current priority is publishing genuinely useful guides based on reliable sources. Caspaya does not currently sell or operate tours, process bookings, or represent a travel provider.",
 ];
 
 export const aboutStoryImages: AboutImage[] = [
@@ -54,28 +54,28 @@ export const aboutStoryImages: AboutImage[] = [
 
 export const aboutValues: AboutValue[] = [
   {
-    id: "customer-first",
+    id: "usefulness",
     icon: "customer",
-    title: "Customer First",
-    description: "We put our travelers at the heart of everything we do.",
+    title: "Usefulness",
+    description: "Every guide should answer a real planning question clearly.",
   },
   {
     id: "authenticity",
     icon: "authenticity",
-    title: "Authenticity",
-    description: "We showcase the real Dubai with genuine and unique experiences.",
+    title: "Accuracy",
+    description: "Changeable travel information is checked against current sources.",
   },
   {
     id: "excellence",
     icon: "excellence",
-    title: "Excellence",
-    description: "We are committed to the highest standards in quality and service.",
+    title: "Transparency",
+    description: "Commercial relationships and editorial limits are disclosed clearly.",
   },
   {
     id: "sustainability",
     icon: "sustainability",
-    title: "Sustainability",
-    description: "We support responsible tourism and a better future.",
+    title: "Care",
+    description: "Content is prepared thoughtfully without inventing personal experience.",
   },
 ];
 
@@ -95,12 +95,12 @@ export const aboutStats: AboutStat[] = [
 /* -------------------------------------------------------------------------- */
 
 export const aboutMissionParagraph =
-  "Our mission is to inspire travelers from around the world to explore Dubai in meaningful ways. We connect you with extraordinary experiences and help you create stories worth sharing.";
+  "Our mission is to help travelers research Dubai with practical context, clear sources, and fewer unsupported claims.";
 
 export const aboutMissionBenefits: string[] = [
-  "Curated by local experts",
-  "Premium experiences at the best value",
-  "Personalized support every step of the way",
+  "Clear search intent for every article",
+  "Current sources for information that can change",
+  "Transparent affiliate disclosure when links are introduced",
 ];
 
 export const aboutMissionImage: AboutImage = {
@@ -114,34 +114,22 @@ export const aboutMissionImage: AboutImage = {
 
 export const whyChooseItems: WhyChooseItem[] = [
   {
-    id: "local-expertise",
+    id: "independent-research",
     icon: "expertise",
-    title: "Local Expertise",
-    description: "We live here, we know here, and we love sharing it with you.",
+    title: "Independent Research",
+    description: "Guides are written around real traveler questions and source checks.",
   },
   {
-    id: "premium-selection",
+    id: "practical-structure",
     icon: "selection",
-    title: "Premium Selection",
-    description: "Only the best experiences make it to our collection.",
+    title: "Practical Structure",
+    description: "Articles focus on decisions, logistics, and useful planning details.",
   },
   {
-    id: "secure-booking",
+    id: "clear-boundaries",
     icon: "secure",
-    title: "Secure Booking",
-    description: "Your booking and payment are safe and protected.",
-  },
-  {
-    id: "best-price",
-    icon: "price",
-    title: "Best Price Guarantee",
-    description: "Get the best value with no hidden fees.",
-  },
-  {
-    id: "concierge",
-    icon: "concierge",
-    title: "24/7 Concierge",
-    description: "We're here for you anytime, anywhere.",
+    title: "Clear Boundaries",
+    description: "Caspaya explains when a booking or service belongs to a third party.",
   },
 ];
 

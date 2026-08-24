@@ -1,21 +1,8 @@
 import Image from "next/image";
-import { Headset, ShieldCheck, Star } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { Container } from "@/components/shared/container";
 
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Contact Us" }];
-
-const trust: { icon: LucideIcon; title: string; description: string }[] = [
-  { icon: Headset, title: "24/7 Support", description: "We're here anytime" },
-  {
-    icon: ShieldCheck,
-    title: "Trusted Service",
-    description: "Your satisfaction is our priority",
-  },
-  { icon: Star, title: "Local Experts", description: "Insider knowledge of Dubai" },
-];
 
 export function ContactHero() {
   return (
@@ -35,33 +22,14 @@ export function ContactHero() {
         <Breadcrumb items={breadcrumbItems} />
 
         <div className="mt-10 max-w-2xl">
-          <p className="label-luxury">We Are Here to Help</p>
+          <p className="label-luxury">Get in Touch</p>
           <h1 className="mt-3 font-heading text-4xl leading-[1.05] text-foreground text-balance md:text-5xl lg:text-6xl">
             Contact <span className="gold-gradient-text">Us</span>
           </h1>
           <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
-            Have a question, need travel advice, or want to plan a custom
-            experience? Our team is here to help you create unforgettable
-            moments in Dubai.
+            Found something that needs correcting, have a useful source, or
+            want to discuss a future partnership? Send Caspaya an email.
           </p>
-
-          <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-5">
-            {trust.map((item) => (
-              <li key={item.title} className="flex items-start gap-2.5">
-                <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-luxury-gold-muted/30 bg-luxury-gold/10 text-luxury-gold">
-                  <item.icon className="size-4" aria-hidden />
-                </span>
-                <span>
-                  <span className="block text-sm font-medium text-foreground">
-                    {item.title}
-                  </span>
-                  <span className="block text-xs text-muted-foreground">
-                    {item.description}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
     </section>

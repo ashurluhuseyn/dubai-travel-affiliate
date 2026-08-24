@@ -51,10 +51,7 @@ export function HiddenGemCard({ gem, priority = false }: HiddenGemCardProps) {
           <p className="line-clamp-2 text-sm text-muted-foreground">
             {gem.description}
           </p>
-          <div className="mt-auto flex items-center justify-between pt-3">
-            <span className="text-sm font-semibold text-luxury-gold-soft">
-              {gem.price}
-            </span>
+          <div className="mt-auto flex items-center justify-end pt-3">
             <span className="inline-flex items-center gap-1 text-sm text-luxury-gold-soft transition-luxury group-hover:text-luxury-gold">
               View Guide
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

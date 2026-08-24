@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { FavoriteButton } from "@/components/experience/favorite-button";
 import type { RelatedExperience } from "@/data";
@@ -91,23 +91,9 @@ export function RelatedExperiences({
                 <h3 className="mt-1 font-heading text-base leading-snug text-foreground transition-luxury group-hover:text-luxury-gold">
                   {experience.title}
                 </h3>
-                <div className="mt-auto flex items-end justify-between gap-3 pt-3">
-                  <div className="min-w-0">
-                    <p className="whitespace-nowrap text-sm font-semibold text-luxury-gold-soft">
-                      {experience.price}
-                    </p>
-                    <p className="whitespace-nowrap text-xs text-muted-foreground">
-                      / person
-                    </p>
-                  </div>
-                  <span className="inline-flex shrink-0 items-center gap-1 text-sm text-muted-foreground">
-                    <Star
-                      className="size-4 fill-luxury-gold text-luxury-gold"
-                      aria-hidden
-                    />
-                    {experience.rating.toFixed(1)}
-                  </span>
-                </div>
+                <span className="mt-auto pt-3 text-sm text-luxury-gold-soft">
+                  View overview
+                </span>
               </Link>
             </article>
           </li>

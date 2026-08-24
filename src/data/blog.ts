@@ -37,7 +37,6 @@ export const featuredPost: BlogPost = {
   readTime: "8 min read",
   date: "May 30, 2024",
   href: blogHref("ultimate-dubai-travel-guide-2024"),
-  author: { name: "Sarah Johnson", initials: "SJ" },
 };
 
 export const blogPosts: BlogPost[] = [

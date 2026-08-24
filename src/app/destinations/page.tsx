@@ -9,8 +9,9 @@ import { createPageMetadata } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Browse Dubai Experiences & Tours",
   description:
-    "Browse 1000+ handpicked luxury Dubai experiences. Filter by category, price, duration, rating, and availability to find your perfect adventure.",
+    "Browse Dubai experience ideas while Caspaya researches detailed editorial guides and future partner offers.",
   path: "/destinations",
+  index: false,
 });
 
 function DestinationsListingFallback() {

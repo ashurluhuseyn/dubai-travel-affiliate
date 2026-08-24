@@ -32,9 +32,6 @@ export function CategoryExplorer() {
                 <span className="text-sm font-medium text-foreground">
                   {category.label}
                 </span>
-                <span className="text-xs text-muted-foreground">
-                  {category.count}
-                </span>
               </Link>
             </Reveal>
           );

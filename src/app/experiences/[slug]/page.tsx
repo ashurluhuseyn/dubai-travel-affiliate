@@ -38,6 +38,7 @@ export async function generateMetadata({
     path,
     images: ogImage ? [ogImage] : undefined,
     openGraphType: "article",
+    index: false,
   });
 }
 

@@ -20,7 +20,7 @@ export function ContactMethods() {
   return (
     <Section>
       <SectionHeader label="Reach Out" title="Get in Touch" />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
         {methods.map((method, index) => {
           const Icon = methodIcons[method.icon];
           return (

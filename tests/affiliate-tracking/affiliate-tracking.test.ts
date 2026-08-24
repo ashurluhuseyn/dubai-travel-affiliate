@@ -28,12 +28,13 @@ describe("isValidProviderUuid", () => {
 });
 
 describe("isSafeAffiliateRedirectUrl", () => {
-  it("accepts http and https destinations", () => {
-    assert.equal(isSafeAffiliateRedirectUrl("https://partner.example.com/book"), true);
-    assert.equal(isSafeAffiliateRedirectUrl("http://partner.example.com/book"), true);
+  it("accepts secure non-placeholder destinations", () => {
+    assert.equal(isSafeAffiliateRedirectUrl("https://www.viator.com/tours/test"), true);
   });
 
-  it("rejects unsafe affiliate URL protocols", () => {
+  it("rejects insecure, placeholder, and unsafe destinations", () => {
+    assert.equal(isSafeAffiliateRedirectUrl("http://www.viator.com/tours/test"), false);
+    assert.equal(isSafeAffiliateRedirectUrl("https://partner.example.com/book"), false);
     assert.equal(isSafeAffiliateRedirectUrl("javascript:alert(1)"), false);
     assert.equal(isSafeAffiliateRedirectUrl("ftp://files.example.com"), false);
     assert.equal(isSafeAffiliateRedirectUrl("not-a-url"), false);
@@ -43,7 +44,7 @@ describe("isSafeAffiliateRedirectUrl", () => {
 describe("isTrackableProvider", () => {
   const base = {
     is_active: true,
-    affiliate_url: "https://partner.example.com/book",
+    affiliate_url: "https://www.viator.com/tours/test",
     experience: { status: "published" },
   };
 

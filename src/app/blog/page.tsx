@@ -12,16 +12,20 @@ import {
   getBlogCategories,
   getBlogPosts,
   getFeaturedPost,
+  getIndexableBlogPosts,
   getPopularPosts,
 } from "@/data";
 import { matchesSearchQuery } from "@/lib/search";
 import { createPageMetadata } from "@/lib/site";
 
+const hasPublishedArticles = getIndexableBlogPosts().length > 0;
+
 export const metadata: Metadata = createPageMetadata({
   title: "Dubai Travel Stories & Guides",
   description:
-    "Expert Dubai travel guides, insider tips, and inspiring stories. Plan itineraries, discover hidden gems, and explore luxury experiences across the Emirates.",
+    "Independent Dubai travel articles, practical planning notes, and carefully researched destination guides from Caspaya.",
   path: "/blog",
+  index: hasPublishedArticles,
 });
 
 type BlogPageProps = {
@@ -46,17 +50,29 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <BlogHero initialSearch={search} />
 
       <Container className="py-section">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12">
+        <div
+          className={
+            categories.length > 0 || popularPosts.length > 0
+              ? "grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12"
+              : "grid gap-10"
+          }
+        >
           <div className="space-y-12">
-            <FeaturedArticle post={featuredPost} />
+            {featuredPost && <FeaturedArticle post={featuredPost} />}
             <BlogLatestArticles posts={posts} searchQuery={search} />
-            <NewsletterCta />
+            {posts.length > 0 && <NewsletterCta />}
           </div>
 
-          <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
-            <BlogCategoriesCard categories={categories} />
-            <PopularPostsCard posts={popularPosts} />
-          </aside>
+          {(categories.length > 0 || popularPosts.length > 0) && (
+            <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
+              {categories.length > 0 && (
+                <BlogCategoriesCard categories={categories} />
+              )}
+              {popularPosts.length > 0 && (
+                <PopularPostsCard posts={popularPosts} />
+              )}
+            </aside>
+          )}
         </div>
       </Container>
     </PageLayout>

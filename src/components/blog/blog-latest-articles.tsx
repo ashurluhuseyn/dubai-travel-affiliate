@@ -39,7 +39,7 @@ export function BlogLatestArticles({
         >
           {searchQuery?.trim()
             ? `No articles found for "${searchQuery.trim()}". Try a different keyword.`
-            : "No articles found."}
+            : "New Dubai guides are being researched and prepared. The first articles will appear here once they are ready."}
         </p>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2">

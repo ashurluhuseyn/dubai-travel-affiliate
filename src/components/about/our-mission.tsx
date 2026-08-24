@@ -11,8 +11,8 @@ export function OurMission() {
         <div>
           <p className="label-luxury">Our Mission</p>
           <h2 className="mt-3 font-heading text-3xl text-foreground text-balance md:text-4xl">
-            To Inspire, Connect &amp; Create{" "}
-            <span className="gold-gradient-text">Memories</span>
+            Research First. Publish With{" "}
+            <span className="gold-gradient-text">Purpose</span>
           </h2>
           <p className="mt-5 text-muted-foreground md:text-lg">
             {aboutMissionParagraph}

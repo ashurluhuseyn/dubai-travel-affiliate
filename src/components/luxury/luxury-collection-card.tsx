@@ -43,13 +43,7 @@ export function LuxuryCollectionCard({
           <p className="line-clamp-2 text-sm text-muted-foreground">
             {collection.description}
           </p>
-          <div className="mt-auto flex items-center justify-between pt-3">
-            <span className="text-sm">
-              <span className="text-muted-foreground">From </span>
-              <span className="font-semibold text-luxury-gold-soft">
-                {collection.price.replace(/^From\s/, "")}
-              </span>
-            </span>
+          <div className="mt-auto flex items-center justify-end pt-3">
             <span
               className="inline-flex size-9 items-center justify-center rounded-full border border-luxury-gold-muted/30 bg-luxury-black/40 text-luxury-gold transition-luxury group-hover:bg-luxury-gold/15"
               aria-hidden

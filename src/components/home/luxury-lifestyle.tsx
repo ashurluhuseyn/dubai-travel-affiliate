@@ -16,9 +16,9 @@ export function LuxuryLifestyle() {
     <Section id="lifestyle" muted>
       <SectionHeader
         align="center"
-        label="Live the Dream"
-        title="Luxury Lifestyle"
-        description="Immerse yourself in the refined side of the Emirates."
+        label="Editorial Inspiration"
+        title="Dubai Lifestyle Themes"
+        description="Visual starting points for researching Dubai's leisure, dining, and city-life options."
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[230px] lg:auto-rows-[240px]">
         {lifestyleItems.map((item, index) => (

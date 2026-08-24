@@ -1,26 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Star, Users } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { DestinationExperience } from "@/data";
-import { usdToAed } from "@/lib/experience-providers";
-import { formatFromPrice } from "@/lib/format-price";
 
 import { SaveButton } from "./save-button";
-
-function getListingPrice(experience: DestinationExperience): string {
-  if (experience.listingPriceAed != null) {
-    return formatFromPrice(
-      experience.listingPriceAed,
-      experience.listingCurrency ?? "AED"
-    );
-  }
-
-  return formatFromPrice(usdToAed(experience.price), "AED");
-}
 
 type DestinationCardProps = {
   experience: DestinationExperience;
@@ -60,36 +47,18 @@ export function DestinationCard({ experience, priority }: DestinationCardProps) 
           </h3>
         </Link>
 
-        <div className="flex items-center gap-1.5 text-sm">
-          <Star className="size-4 fill-luxury-gold text-luxury-gold" />
-          <span className="font-medium text-foreground">
-            {experience.rating.toFixed(1)}
-          </span>
-          <span className="text-xs text-muted-foreground">
-            ({experience.reviews.toLocaleString()} reviews)
-          </span>
-        </div>
+        <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+          <MapPin className="size-3.5 text-luxury-gold-muted" aria-hidden />
+          {experience.location}
+        </span>
 
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
-          <span className="inline-flex items-center gap-1.5">
-            <Clock className="size-3.5 text-luxury-gold-muted" />
-            {experience.duration}
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <Users className="size-3.5 text-luxury-gold-muted" />
-            {experience.groupSize}
-          </span>
-        </div>
+        <p className="line-clamp-2 text-sm text-muted-foreground">
+          {experience.description}
+        </p>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-3">
-          <p>
-            <span className="font-heading text-xl text-luxury-gold-soft">
-              {getListingPrice(experience)}
-            </span>
-            <span className="text-xs text-muted-foreground"> / person</span>
-          </p>
           <Button asChild size="sm" className="rounded-full transition-luxury">
-            <Link href={experience.href}>View Experience</Link>
+            <Link href={experience.href}>View Overview</Link>
           </Button>
         </div>
       </CardContent>

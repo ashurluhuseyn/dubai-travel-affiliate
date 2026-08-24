@@ -2,12 +2,9 @@ import Image from "next/image";
 
 import { HeroSearch } from "@/components/home/hero-search";
 import { Container } from "@/components/shared/container";
-import { getHeroStats } from "@/data";
 import { siteConfig } from "@/lib/site";
 
 export function HeroSection() {
-  const heroStats = getHeroStats();
-
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-32">
       <Image
@@ -29,24 +26,11 @@ export function HeroSection() {
             <span className="gold-gradient-text">Beyond the Ordinary</span>
           </h1>
           <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-            Curated experiences, tours, hidden gems, and luxury recommendations
-            — plus AI trip planning to help you explore Dubai with confidence.
+            Independent travel notes, destination ideas, and practical guides
+            for planning a more informed visit to Dubai.
           </p>
 
           <HeroSearch />
-
-          <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-border/60 pt-8">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="font-heading text-2xl text-luxury-gold-soft md:text-3xl">
-                  {stat.value}
-                </dt>
-                <dd className="mt-1 text-xs text-muted-foreground md:text-sm">
-                  {stat.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </Container>
     </section>

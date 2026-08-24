@@ -1,4 +1,5 @@
 import { isCmsExperiencesEnabled } from "@/lib/cms/flags";
+import { siteFeatures } from "@/lib/site-features";
 import type { DestinationExperience, Experience, RelatedExperience } from "@/data/types";
 
 import {
@@ -25,6 +26,64 @@ async function loadSupabasePublicSource() {
   return import("./public/supabase");
 }
 
+function withoutCommercialExperienceData(experience: Experience): Experience {
+  if (siteFeatures.affiliateOffers) return experience;
+
+  return {
+    ...experience,
+    price: 0,
+    rating: 0,
+    reviewCount: 0,
+    hotelPickup: false,
+    mobileTicket: false,
+    instantConfirmation: false,
+    freeCancellation: false,
+    cancellationText: "",
+    includedItems: [],
+    itinerary: [],
+    importantInfo: [],
+    meetingPoint: "",
+    cancellationPolicy: "",
+    faqs: [],
+    providers: [],
+    badge: undefined,
+  };
+}
+
+function withoutCommercialDestinationData(
+  experience: DestinationExperience
+): DestinationExperience {
+  if (siteFeatures.affiliateOffers) return experience;
+
+  return {
+    ...experience,
+    badge: undefined,
+    rating: 0,
+    reviews: 0,
+    price: 0,
+    listingPriceAed: undefined,
+    listingCurrency: undefined,
+    availability: "this-month",
+    instantConfirmation: false,
+    pickupIncluded: false,
+    freeCancellation: false,
+    affiliateUrl: "",
+  };
+}
+
+function withoutCommercialRelatedData(
+  experience: RelatedExperience
+): RelatedExperience {
+  if (siteFeatures.affiliateOffers) return experience;
+
+  return {
+    ...experience,
+    price: "",
+    rating: 0,
+    affiliateUrl: "",
+  };
+}
+
 /**
  * Public content repository — single server-side seam for experience/category reads.
  *
@@ -44,22 +103,25 @@ export async function getPublicCategories(): Promise<PublicCategory[]> {
 
 export async function getPublicExperiences(): Promise<Experience[]> {
   if (resolvePublicContentSource() === "static") {
-    return getStaticPublicExperiences();
+    return getStaticPublicExperiences().map(withoutCommercialExperienceData);
   }
 
   const supabase = await loadSupabasePublicSource();
-  return supabase.getSupabasePublicExperiences();
+  const experiences = await supabase.getSupabasePublicExperiences();
+  return experiences.map(withoutCommercialExperienceData);
 }
 
 export async function getPublicExperienceBySlug(
   slug: string
 ): Promise<Experience | null> {
   if (resolvePublicContentSource() === "static") {
-    return getStaticPublicExperienceBySlug(slug);
+    const experience = getStaticPublicExperienceBySlug(slug);
+    return experience ? withoutCommercialExperienceData(experience) : null;
   }
 
   const supabase = await loadSupabasePublicSource();
-  return supabase.getSupabasePublicExperienceBySlug(slug);
+  const experience = await supabase.getSupabasePublicExperienceBySlug(slug);
+  return experience ? withoutCommercialExperienceData(experience) : null;
 }
 
 export async function getPublicExperienceSlugs(): Promise<string[]> {
@@ -75,20 +137,26 @@ export async function getPublicDestinationExperiences(): Promise<
   DestinationExperience[]
 > {
   if (resolvePublicContentSource() === "static") {
-    return getStaticPublicDestinationExperiences();
+    return getStaticPublicDestinationExperiences().map(
+      withoutCommercialDestinationData
+    );
   }
 
   const supabase = await loadSupabasePublicSource();
-  return supabase.getSupabasePublicDestinationExperiences();
+  const experiences = await supabase.getSupabasePublicDestinationExperiences();
+  return experiences.map(withoutCommercialDestinationData);
 }
 
 export async function getRelatedPublicExperiences(
   experience: Experience
 ): Promise<RelatedExperience[]> {
   if (resolvePublicContentSource() === "static") {
-    return getStaticRelatedPublicExperiences(experience);
+    return getStaticRelatedPublicExperiences(experience).map(
+      withoutCommercialRelatedData
+    );
   }
 
   const supabase = await loadSupabasePublicSource();
-  return supabase.getSupabaseRelatedPublicExperiences(experience);
+  const experiences = await supabase.getSupabaseRelatedPublicExperiences(experience);
+  return experiences.map(withoutCommercialRelatedData);
 }

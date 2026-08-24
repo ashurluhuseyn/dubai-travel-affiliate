@@ -22,9 +22,9 @@ export function HiddenGemsGrid({ searchQuery = "" }: HiddenGemsGridProps) {
   return (
     <Section id="gems" muted>
       <SectionHeader
-        label="Curated Spots"
-        title="More Hidden Gems"
-        description="Local favorites and secret spots worth the detour."
+        label="Places to Research"
+        title="More Dubai Places"
+        description="A visual directory of places being reviewed for future editorial guides."
       />
       {gems.length === 0 ? (
         <p

@@ -24,8 +24,8 @@ export function CategoriesHero() {
               <span className="gold-gradient-text">Categories</span>
             </h1>
             <p className="mt-5 max-w-md text-muted-foreground md:text-lg">
-              Find the perfect experience for your next adventure. From thrilling
-              deserts to luxurious escapes, Dubai has it all.
+              Browse broad themes for future Dubai guides, from desert
+              landscapes and waterways to culture, dining, and city life.
             </p>
             <Button
               asChild
@@ -33,7 +33,7 @@ export function CategoriesHero() {
               className="mt-8 rounded-full transition-luxury"
             >
               <Link href="/#experiences">
-                Browse All Experiences
+                Browse Experience Ideas
                 <ArrowRight className="size-4" />
               </Link>
             </Button>

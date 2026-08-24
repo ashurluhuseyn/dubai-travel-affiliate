@@ -20,9 +20,9 @@ export function HiddenGems() {
     <Section id="hidden-gems">
       <SectionHeader
         align="center"
-        label="Off the Beaten Path"
-        title="Hidden Gems"
-        description="Secret spots and local favorites that most travelers never discover."
+        label="Places to Research"
+        title="Beyond the Main Landmarks"
+        description="A visual directory of Dubai places being reviewed for future guides."
       />
       <div className="grid auto-rows-[200px] grid-cols-1 gap-4 sm:auto-rows-[210px] sm:grid-cols-2 lg:grid-cols-4">
         {hiddenGems.map((gem) => (

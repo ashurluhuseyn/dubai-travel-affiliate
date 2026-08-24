@@ -17,6 +17,7 @@ import { ContactCta } from "@/components/shared/contact-cta";
 import { Section } from "@/components/shared/section";
 import type { Experience, RelatedExperience } from "@/data";
 import { getRecommendedProvider } from "@/lib/experience-providers";
+import { siteFeatures } from "@/lib/site-features";
 
 type ExperienceDetailViewProps = {
   experience: Experience;
@@ -53,7 +54,13 @@ export function ExperienceDetailView({
       <Container>
         <Breadcrumb items={breadcrumbItems} />
 
-        <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_26rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_28rem]">
+        <div
+          className={
+            siteFeatures.affiliateOffers
+              ? "mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_26rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_28rem]"
+              : "mt-6 lg:mt-8"
+          }
+        >
           <div className="space-y-10 lg:space-y-12">
             <ExperienceHeader experience={experience} />
 
@@ -64,35 +71,40 @@ export function ExperienceDetailView({
               extraCount={experience.galleryExtraCount}
             />
 
-            <ProviderComparison
-              {...providerComparisonProps}
-              className="lg:hidden"
-            />
+            {siteFeatures.affiliateOffers && (
+              <ProviderComparison
+                {...providerComparisonProps}
+                className="lg:hidden"
+              />
+            )}
 
             <ExperienceHighlights highlights={experience.highlights} />
 
-            <ExperienceIncluded items={experience.includedItems} />
-
-            <ExperienceItinerary stops={experience.itinerary} />
-
-            <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-              <ImportantInformation items={experience.importantInfo} />
-              <ExperienceFaq faqs={experience.faqs} />
-            </div>
-
-            <div className="space-y-5 lg:hidden">
-              <SecureSpotCard {...secureSpotProps} />
-              <HelpCard />
-            </div>
+            {siteFeatures.affiliateOffers && (
+              <>
+                <ExperienceIncluded items={experience.includedItems} />
+                <ExperienceItinerary stops={experience.itinerary} />
+                <div className="grid gap-8 md:grid-cols-2 md:gap-10">
+                  <ImportantInformation items={experience.importantInfo} />
+                  <ExperienceFaq faqs={experience.faqs} />
+                </div>
+                <div className="space-y-5 lg:hidden">
+                  <SecureSpotCard {...secureSpotProps} />
+                  <HelpCard />
+                </div>
+              </>
+            )}
           </div>
 
-          <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
-            <div className="space-y-5">
-              <ProviderComparison {...providerComparisonProps} />
-              <SecureSpotCard {...secureSpotProps} />
-              <HelpCard />
-            </div>
-          </aside>
+          {siteFeatures.affiliateOffers && (
+            <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
+              <div className="space-y-5">
+                <ProviderComparison {...providerComparisonProps} />
+                <SecureSpotCard {...secureSpotProps} />
+                <HelpCard />
+              </div>
+            </aside>
+          )}
         </div>
 
         <div className="mt-14 lg:mt-20">
@@ -100,15 +112,17 @@ export function ExperienceDetailView({
         </div>
       </Container>
 
-      <Section>
-        <ContactCta
-          icon={ConciergeBell}
-          title="Still Have Questions?"
-          description="Our Dubai experts are here to help you plan the perfect experience."
-          actionLabel="Contact Our Experts"
-          actionHref="/contact"
-        />
-      </Section>
+      {siteFeatures.affiliateOffers && (
+        <Section>
+          <ContactCta
+            icon={ConciergeBell}
+            title="Still Have Questions?"
+            description="Contact Caspaya about this experience overview."
+            actionLabel="Contact Caspaya"
+            actionHref="/contact"
+          />
+        </Section>
+      )}
     </>
   );
 }

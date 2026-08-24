@@ -36,14 +36,12 @@ export function AboutHero() {
         <div className="mt-10 max-w-2xl">
           <p className="label-luxury">Our Story</p>
           <h1 className="mt-3 font-heading text-4xl leading-[1.05] text-foreground text-balance md:text-5xl lg:text-6xl">
-            Crafting Unforgettable Moments in{" "}
+            Building a Clearer Way to Explore{" "}
             <span className="gold-gradient-text">Dubai</span>
           </h1>
           <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
-            Caspaya was created with a simple goal — to help travelers
-            discover the most exceptional experiences in Dubai. We combine local
-            expertise with a passion for hospitality to bring you closer to the
-            magic of this city.
+            Caspaya creates independent Dubai travel content with an emphasis
+            on practical research, clear sourcing, and honest recommendations.
           </p>
 
           <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-4 border-t border-border/40 pt-7">

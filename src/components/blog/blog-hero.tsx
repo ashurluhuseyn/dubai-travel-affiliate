@@ -34,9 +34,8 @@ export function BlogHero({ initialSearch = "" }: BlogHeroProps) {
             Dubai Travel Stories
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            Expert guides, insider tips, and inspiring stories to help you plan
-            your perfect Dubai adventure — from itineraries to hidden gems and
-            luxury experiences.
+            Carefully researched guides and practical planning notes for
+            exploring Dubai with clearer, more useful information.
           </p>
 
           <form

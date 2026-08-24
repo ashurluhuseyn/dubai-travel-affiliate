@@ -37,8 +37,8 @@ export function DestinationsHero({
             <span className="gold-gradient-text">Experiences</span>
           </h1>
           <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-            Discover unforgettable moments in the city of dreams. Choose from
-            1000+ handpicked experiences.
+            Browse visual ideas for activities and places while detailed
+            Caspaya guides are being researched.
           </p>
 
           <form

@@ -1,25 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Gem, Handshake, Headset } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
-import { getLuxuryHighlights, type LuxuryHighlightIconKey } from "@/data";
-
-const highlightIcons: Record<LuxuryHighlightIconKey, LucideIcon> = {
-  handpicked: Gem,
-  partners: Handshake,
-  price: BadgeCheck,
-  support: Headset,
-};
 
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Luxury" }];
 
 export function LuxuryHero() {
-  const highlights = getLuxuryHighlights();
-
   return (
     <section className="relative isolate overflow-hidden pt-28 pb-14 lg:pt-32 lg:pb-20">
       <Image
@@ -43,9 +32,8 @@ export function LuxuryHero() {
             <span className="gold-gradient-text">in Dubai</span>
           </h1>
           <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
-            Indulge in the finest Dubai has to offer. From private yacht
-            charters to exclusive desert retreats, discover a world of unmatched
-            luxury.
+            Explore editorial themes for researching Dubai&apos;s hotels, dining,
+            desert retreats, and waterfront experiences.
           </p>
 
           <Button
@@ -59,23 +47,6 @@ export function LuxuryHero() {
             </Link>
           </Button>
 
-          <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-8">
-            {highlights.map((highlight) => {
-              const Icon = highlightIcons[highlight.icon];
-              return (
-                <li
-                  key={highlight.label}
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground"
-                >
-                  <Icon
-                    className="size-4 shrink-0 text-luxury-gold-muted"
-                    aria-hidden
-                  />
-                  {highlight.label}
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </Container>
     </section>

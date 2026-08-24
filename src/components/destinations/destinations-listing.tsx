@@ -32,6 +32,7 @@ import {
   parsePageParam,
   sortExperiences,
 } from "@/lib/destinations-filters";
+import { siteFeatures } from "@/lib/site-features";
 
 function getToggledId(previous: string[], next: string[]): string | undefined {
   const added = next.find((id) => !previous.includes(id));
@@ -182,6 +183,32 @@ export function DestinationsListing({ experiences }: DestinationsListingProps) {
       ...(clearShowcase ? { showcaseCategory: null } : {}),
     } as Partial<DestinationsFilterState>);
   };
+
+  if (!siteFeatures.affiliateOffers) {
+    return (
+      <>
+        <DestinationsHero
+          key={filters.q}
+          initialQuery={filters.q}
+          onSearchSubmit={(q) => updateFilters({ q })}
+        />
+        <Container className="py-section">
+          {filteredExperiences.length > 0 ? (
+            <DestinationGrid experiences={paginatedExperiences} />
+          ) : (
+            <DestinationsEmptyState onClearFilters={clearFilters} />
+          )}
+          {filteredExperiences.length > 0 && (
+            <DestinationsPagination
+              page={page}
+              totalPages={totalPages}
+              onPageChange={updatePage}
+            />
+          )}
+        </Container>
+      </>
+    );
+  }
 
   return (
     <>

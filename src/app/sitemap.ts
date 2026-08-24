@@ -1,59 +1,40 @@
 import type { MetadataRoute } from "next";
 
-import { getBlogSlugs, getHiddenGemSlugs } from "@/data";
-import { getPublicExperienceSlugs } from "@/lib/cms/content-source";
+import { getIndexableBlogPosts } from "@/data";
 import { SITE_URL } from "@/lib/site";
 
-/** Marketing and listing pages included in the sitemap. */
-const STATIC_PATHS = [
-  "/",
-  "/destinations",
-  "/categories",
-  "/blog",
-  "/hidden-gems",
-  "/luxury",
-  "/contact",
-  "/about",
+const STATIC_PAGES = [
+  { path: "/", updatedAt: "2026-08-24", priority: 1 },
+  { path: "/about", updatedAt: "2026-08-24", priority: 0.7 },
+  { path: "/contact", updatedAt: "2026-08-24", priority: 0.6 },
+  { path: "/privacy-policy", updatedAt: "2026-08-24", priority: 0.4 },
+  { path: "/terms", updatedAt: "2026-08-24", priority: 0.4 },
+  { path: "/affiliate-disclosure", updatedAt: "2026-08-24", priority: 0.4 },
 ] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date();
-  const experienceSlugs = await getPublicExperienceSlugs();
-
-  const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
-    url: `${SITE_URL}${path === "/" ? "" : path}`,
-    lastModified,
-    changeFrequency: path === "/" ? "daily" : "weekly",
-    priority: path === "/" ? 1 : 0.8,
+  const staticEntries: MetadataRoute.Sitemap = STATIC_PAGES.map((page) => ({
+    url: `${SITE_URL}${page.path === "/" ? "" : page.path}`,
+    lastModified: new Date(page.updatedAt),
+    priority: page.priority,
   }));
 
-  const experienceEntries: MetadataRoute.Sitemap = experienceSlugs.map((slug) => ({
-    url: `${SITE_URL}/experiences/${slug}`,
-    lastModified,
-    changeFrequency: "weekly",
+  const indexablePosts = getIndexableBlogPosts();
+  const blogEntries: MetadataRoute.Sitemap = indexablePosts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt!),
     priority: 0.7,
   }));
 
-  const blogEntries: MetadataRoute.Sitemap = getBlogSlugs().map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  if (indexablePosts.length > 0) {
+    staticEntries.push({
+      url: `${SITE_URL}/blog`,
+      lastModified: new Date(
+        Math.max(...indexablePosts.map((post) => Date.parse(post.updatedAt!)))
+      ),
+      priority: 0.8,
+    });
+  }
 
-  const hiddenGemEntries: MetadataRoute.Sitemap = getHiddenGemSlugs().map(
-    (slug) => ({
-      url: `${SITE_URL}/hidden-gems/${slug}`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    })
-  );
-
-  return [
-    ...staticEntries,
-    ...experienceEntries,
-    ...blogEntries,
-    ...hiddenGemEntries,
-  ];
+  return [...staticEntries, ...blogEntries];
 }

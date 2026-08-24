@@ -2,10 +2,25 @@ import type { BlogDetail } from "./types";
 import { blogHref, blogPosts, featuredPost } from "./blog";
 import { latestGuides } from "./guides";
 
+type LegacyBlogDetail = Omit<
+  BlogDetail,
+  | "status"
+  | "noindex"
+  | "seoTitle"
+  | "metaDescription"
+  | "publishedAt"
+  | "updatedAt"
+  | "sections"
+  | "faqs"
+  | "sources"
+  | "internalLinks"
+  | "relatedArticleSlugs"
+>;
+
 function createBlogDetail(
   post: (typeof featuredPost),
   content: string[]
-): BlogDetail {
+): LegacyBlogDetail {
   return {
     ...post,
     slug: post.id,
@@ -20,7 +35,7 @@ const defaultParagraphs = (title: string): string[] => [
   "Dubai rewards travellers who plan ahead. Book popular experiences early, allow buffer time between activities, and mix headline attractions with quieter neighbourhood discoveries for a richer trip.",
 ];
 
-export const blogDetails: Record<string, BlogDetail> = {
+const legacyBlogDetails: Record<string, LegacyBlogDetail> = {
   [featuredPost.id]: createBlogDetail(featuredPost, [
     "Dubai has evolved from a desert trading port into one of the world's most dynamic cities. Before you pack your bags, understanding visa requirements, local customs, and the best seasons to visit will set you up for a seamless trip.",
     "Most visitors receive a visa on arrival, but requirements vary by nationality. Check official UAE immigration guidance before departure and ensure your passport is valid for at least six months beyond your travel dates.",
@@ -145,7 +160,41 @@ export const blogDetails: Record<string, BlogDetail> = {
         slug: guide.id,
         href: blogHref(guide.id),
         content: defaultParagraphs(guide.title),
-      } satisfies BlogDetail,
+      } satisfies LegacyBlogDetail,
     ])
   ),
+};
+
+/**
+ * Existing short articles are intentionally retained as crawlable drafts so
+ * search engines can see `noindex`. New, researched articles should use the
+ * structured fields below and only move to `published` when complete.
+ */
+const placeholderBlogDetails: Record<string, BlogDetail> = Object.fromEntries(
+  Object.entries(legacyBlogDetails).map(([slug, article]) => [
+    slug,
+    {
+      ...article,
+      status: "draft",
+      noindex: true,
+      seoTitle: article.title,
+      metaDescription: article.excerpt,
+      sections: [],
+      faqs: [],
+      sources: [],
+      internalLinks: [],
+      relatedArticleSlugs: [],
+    } satisfies BlogDetail,
+  ])
+);
+
+/**
+ * Add new, manually researched articles here. Keep `status: "draft"` and
+ * `noindex: true` until every required field and source has been reviewed.
+ */
+const researchedBlogDetails: Record<string, BlogDetail> = {};
+
+export const blogDetails: Record<string, BlogDetail> = {
+  ...placeholderBlogDetails,
+  ...researchedBlogDetails,
 };

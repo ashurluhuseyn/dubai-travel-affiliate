@@ -11,7 +11,7 @@ export const siteConfig = {
   name: "Caspaya",
   tagline: "Dubai Travel Guide",
   description:
-    "Discover Dubai beyond the ordinary with curated experiences, tours, hidden gems, luxury recommendations, and practical travel guides from Caspaya.",
+    "Independent Dubai travel guides, practical planning articles, destination ideas, and carefully researched recommendations from Caspaya.",
   contactEmail: "hello@caspaya.com",
   locale: "en_AE",
   keywords: [
@@ -74,6 +74,8 @@ type PageMetadataOptions = {
   /** Optional OG/Twitter image URL(s). Falls back to {@link siteConfig.defaultOgImage}. */
   images?: string[];
   openGraphType?: "website" | "article";
+  /** Set false for drafts and other pages that are not ready for search. */
+  index?: boolean;
 };
 
 /**
@@ -86,6 +88,7 @@ export function createPageMetadata({
   path,
   images,
   openGraphType = "website",
+  index = true,
 }: PageMetadataOptions): Metadata {
   const canonicalUrl = new URL(path, siteConfig.url).toString();
   const ogImages = (images ?? [siteConfig.defaultOgImage]).map((url) => ({
@@ -98,6 +101,17 @@ export function createPageMetadata({
     description,
     alternates: {
       canonical: canonicalUrl,
+    },
+    robots: {
+      index,
+      follow: true,
+      googleBot: {
+        index,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     openGraph: {
       type: openGraphType,
