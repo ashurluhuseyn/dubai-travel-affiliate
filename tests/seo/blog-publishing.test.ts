@@ -9,14 +9,18 @@ import {
 } from "../../src/data";
 
 describe("blog publishing guard", () => {
-  it("keeps every legacy placeholder out of search", () => {
+  it("keeps legacy placeholders out while allowing researched posts", () => {
     const placeholder = getBlogDetail("ultimate-dubai-travel-guide-2024");
+    const publishedPosts = getIndexableBlogPosts();
 
     assert.ok(placeholder);
     assert.equal(placeholder.status, "draft");
     assert.equal(placeholder.noindex, true);
     assert.equal(isBlogPostIndexable(placeholder), false);
-    assert.equal(getIndexableBlogPosts().length, 0);
+    assert.deepEqual(
+      publishedPosts.map((post) => post.slug),
+      ["dubai-in-48-hours"]
+    );
   });
 
   it("requires editorial fields before a post can be indexed", () => {
@@ -48,14 +52,19 @@ describe("blog publishing guard", () => {
 });
 
 describe("sitemap publishing policy", () => {
-  it("contains legal foundations but excludes placeholder content", async () => {
+  it("contains legal foundations and only the researched article", async () => {
     const entries = await sitemap();
     const urls = entries.map((entry) => entry.url);
 
     assert.ok(urls.includes("https://caspaya.com/privacy-policy"));
     assert.ok(urls.includes("https://caspaya.com/terms"));
     assert.ok(urls.includes("https://caspaya.com/affiliate-disclosure"));
-    assert.equal(urls.some((url) => url.includes("/blog/")), false);
+    assert.ok(urls.includes("https://caspaya.com/blog"));
+    assert.ok(urls.includes("https://caspaya.com/blog/dubai-in-48-hours"));
+    assert.equal(
+      urls.includes("https://caspaya.com/blog/ultimate-dubai-travel-guide-2024"),
+      false
+    );
     assert.equal(urls.some((url) => url.includes("/experiences/")), false);
     assert.equal(urls.some((url) => url.includes("/hidden-gems/")), false);
   });

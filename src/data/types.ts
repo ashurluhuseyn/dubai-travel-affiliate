@@ -330,6 +330,7 @@ export type BlogAuthor = {
   initials: string;
   bio?: string;
   url?: string;
+  entityType?: "Person" | "Organization";
 };
 
 export type BlogStatus = "draft" | "published";

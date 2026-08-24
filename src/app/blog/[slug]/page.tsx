@@ -57,7 +57,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             datePublished: article.publishedAt,
             dateModified: article.updatedAt,
             author: {
-              "@type": "Person",
+              "@type": article.author!.entityType ?? "Person",
               name: article.author!.name,
               ...(article.author!.url ? { url: article.author!.url } : {}),
             },
