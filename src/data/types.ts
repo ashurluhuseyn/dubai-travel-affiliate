@@ -342,11 +342,18 @@ export type BlogSubsection = {
   bullets?: string[];
 };
 
+export type BlogTable = {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+};
+
 export type BlogSection = {
   id: string;
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  table?: BlogTable;
   subsections?: BlogSubsection[];
 };
 

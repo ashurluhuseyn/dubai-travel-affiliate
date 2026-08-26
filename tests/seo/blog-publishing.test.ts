@@ -19,7 +19,27 @@ describe("blog publishing guard", () => {
     assert.equal(isBlogPostIndexable(placeholder), false);
     assert.deepEqual(
       publishedPosts.map((post) => post.slug),
-      ["dubai-first-time-guide", "dubai-in-48-hours"]
+      [
+        "best-time-to-visit-dubai",
+        "dubai-first-time-guide",
+        "dubai-in-48-hours",
+      ]
+    );
+  });
+
+  it("publishes a complete 12-month weather decision table", () => {
+    const weatherGuide = getBlogDetail("best-time-to-visit-dubai");
+    const monthlySection = weatherGuide?.sections.find(
+      (section) => section.id === "month-by-month"
+    );
+
+    assert.ok(weatherGuide);
+    assert.equal(isBlogPostIndexable(weatherGuide), true);
+    assert.equal(monthlySection?.table?.rows.length, 12);
+    assert.ok(
+      weatherGuide.sources.some(
+        (source) => source.publisher === "Dubai Statistics Center"
+      )
     );
   });
 
@@ -60,6 +80,7 @@ describe("sitemap publishing policy", () => {
     assert.ok(urls.includes("https://caspaya.com/terms"));
     assert.ok(urls.includes("https://caspaya.com/affiliate-disclosure"));
     assert.ok(urls.includes("https://caspaya.com/blog"));
+    assert.ok(urls.includes("https://caspaya.com/blog/best-time-to-visit-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-first-time-guide"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-in-48-hours"));
     assert.equal(

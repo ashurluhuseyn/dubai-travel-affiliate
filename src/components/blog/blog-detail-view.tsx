@@ -108,6 +108,54 @@ export function BlogDetailView({ article }: BlogDetailViewProps) {
                       ))}
                     </ul>
                   )}
+                  {section.table && (
+                    <div className="overflow-x-auto rounded-xl border border-border/60">
+                      <table className="w-full min-w-[42rem] border-collapse text-left text-sm">
+                        {section.table.caption && (
+                          <caption className="border-b border-border/60 bg-card px-4 py-3 text-left text-xs leading-relaxed text-muted-foreground">
+                            {section.table.caption}
+                          </caption>
+                        )}
+                        <thead className="bg-card">
+                          <tr>
+                            {section.table.headers.map((header) => (
+                              <th
+                                key={header}
+                                scope="col"
+                                className="border-b border-border/60 px-4 py-3 font-medium text-foreground"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row) => (
+                            <tr key={row.join("|")} className="border-b border-border/40 last:border-0">
+                              {row.map((cell, index) => (
+                                index === 0 ? (
+                                  <th
+                                    key={`${index}-${cell}`}
+                                    scope="row"
+                                    className="px-4 py-3 align-top font-medium text-foreground"
+                                  >
+                                    {cell}
+                                  </th>
+                                ) : (
+                                  <td
+                                    key={`${index}-${cell}`}
+                                    className="px-4 py-3 align-top text-luxury-white-muted"
+                                  >
+                                    {cell}
+                                  </td>
+                                )
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                   {section.subsections?.map((subsection) => (
                     <section key={subsection.id} aria-labelledby={subsection.id}>
                       <h3
