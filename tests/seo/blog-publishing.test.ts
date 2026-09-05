@@ -20,6 +20,7 @@ describe("blog publishing guard", () => {
     assert.deepEqual(
       publishedPosts.map((post) => post.slug),
       [
+        "3-days-in-dubai",
         "getting-around-dubai",
         "best-time-to-visit-dubai",
         "dubai-first-time-guide",
@@ -40,6 +41,25 @@ describe("blog publishing guard", () => {
     assert.ok(
       weatherGuide.sources.some(
         (source) => source.publisher === "Dubai Statistics Center"
+      )
+    );
+  });
+
+  it("publishes a distinct three-day itinerary with fallback planning", () => {
+    const itinerary = getBlogDetail("3-days-in-dubai");
+    const sectionIds = itinerary?.sections.map((section) => section.id) ?? [];
+
+    assert.ok(itinerary);
+    assert.equal(isBlogPostIndexable(itinerary), true);
+    assert.ok(sectionIds.includes("day-one-downtown"));
+    assert.ok(sectionIds.includes("day-two-old-dubai-jumeirah"));
+    assert.ok(sectionIds.includes("day-three-marina-desert"));
+    assert.ok(sectionIds.includes("summer-version"));
+    assert.ok(sectionIds.includes("delayed-arrival-plan"));
+    assert.ok(sectionIds.includes("what-to-skip"));
+    assert.ok(
+      itinerary.sources.some(
+        (source) => source.publisher === "Dubai Roads and Transport Authority"
       )
     );
   });
@@ -81,6 +101,7 @@ describe("sitemap publishing policy", () => {
     assert.ok(urls.includes("https://caspaya.com/terms"));
     assert.ok(urls.includes("https://caspaya.com/affiliate-disclosure"));
     assert.ok(urls.includes("https://caspaya.com/blog"));
+    assert.ok(urls.includes("https://caspaya.com/blog/3-days-in-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/getting-around-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/best-time-to-visit-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-first-time-guide"));

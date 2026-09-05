@@ -430,10 +430,11 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
     ],
     internalLinks: [
       { label: "Read the first-time Dubai planning guide", href: "/blog/dubai-first-time-guide" },
+      { label: "Follow the slower three-day Dubai itinerary", href: "/blog/3-days-in-dubai" },
       { label: "Compare Metro, nol, taxis and Tram", href: "/blog/getting-around-dubai" },
       { label: "Read how Caspaya researches its guides", href: "/about" },
     ],
-    relatedArticleSlugs: ["getting-around-dubai"],
+    relatedArticleSlugs: ["3-days-in-dubai", "getting-around-dubai"],
   },
   "dubai-first-time-guide": {
     id: "dubai-first-time-guide",
@@ -652,11 +653,12 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
     ],
     internalLinks: [
       { label: "Use the Dubai in 48 Hours itinerary", href: "/blog/dubai-in-48-hours" },
+      { label: "Build a realistic three-day Dubai itinerary", href: "/blog/3-days-in-dubai" },
       { label: "Choose the best time for your Dubai trip", href: "/blog/best-time-to-visit-dubai" },
       { label: "Learn how to get around Dubai", href: "/blog/getting-around-dubai" },
       { label: "See how Caspaya researches its guides", href: "/about" },
     ],
-    relatedArticleSlugs: ["dubai-in-48-hours", "getting-around-dubai"],
+    relatedArticleSlugs: ["3-days-in-dubai", "dubai-in-48-hours", "getting-around-dubai"],
   },
   "best-time-to-visit-dubai": {
     id: "best-time-to-visit-dubai",
@@ -1137,6 +1139,332 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
     relatedArticleSlugs: [
       "dubai-first-time-guide",
       "dubai-in-48-hours",
+      "best-time-to-visit-dubai",
+    ],
+  },
+  "3-days-in-dubai": {
+    id: "3-days-in-dubai",
+    slug: "3-days-in-dubai",
+    title: "3 Days in Dubai: A Realistic First-Time Itinerary",
+    seoTitle: "3 Days in Dubai: A Realistic First-Time Itinerary",
+    metaDescription:
+      "Plan three days in Dubai with a realistic Downtown, Old Dubai, coast and desert route, plus summer swaps and a delayed-arrival fallback.",
+    excerpt:
+      "A balanced three-day Dubai route with one main area at a time, realistic transfer buffers and alternatives for heat or a delayed arrival.",
+    image:
+      "https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=1200&q=85",
+    imageAlt: "Dubai skyline and waterfront during golden hour",
+    category: "Itineraries",
+    readTime: "13 min read",
+    date: "September 5, 2026",
+    publishedAt: "2026-09-05T12:00:00.000Z",
+    updatedAt: "2026-09-05T12:00:00.000Z",
+    href: "/blog/3-days-in-dubai",
+    status: "published",
+    noindex: false,
+    author: {
+      name: "Caspaya Editorial Team",
+      initials: "CE",
+      entityType: "Organization",
+      bio: "Caspaya built this itinerary from current Dubai RTA, Visit Dubai and official attraction information. It is an independent planning guide without affiliate links.",
+      url: "https://caspaya.com/about",
+    },
+    sections: [
+      {
+        id: "three-day-plan-at-a-glance",
+        heading: "The three-day plan at a glance",
+        paragraphs: [
+          "Three full days are enough for a first look at Dubai when each day has a clear geographic purpose. This itinerary gives Downtown its own arrival-friendly day, combines the Creek with a selective Jumeirah evening, then pairs a Marina morning with a desert experience. It avoids pretending that every famous attraction belongs in one short trip.",
+          "The route assumes three usable sightseeing days after flights, immigration and hotel transfers. If your first day begins after lunch, use the delayed-arrival version below instead of compressing the morning into the evening. Attraction hours, transport and desert pickup windows can change, so every timed booking should be checked directly before travel. This guide was reviewed on 5 September 2026.",
+        ],
+        table: {
+          caption: "A flexible framework rather than a minute-by-minute promise. Travel time depends on your hotel and live conditions.",
+          headers: ["Day", "Main area", "Fixed anchor", "Flexible part"],
+          rows: [
+            ["Day 1", "Downtown Dubai", "One timed Burj Khalifa slot, if wanted", "Dubai Mall, promenade and dinner"],
+            ["Day 2", "Old Dubai, then one Jumeirah stop", "Creek crossing before the hottest part of the day", "Souks, lunch, rest and beach or Madinat evening"],
+            ["Day 3", "Dubai Marina/JBR, then desert", "Confirmed desert pickup window", "Waterfront morning and an indoor or hotel break"],
+          ],
+        },
+      },
+      {
+        id: "before-you-book",
+        heading: "Before you book: protect the shape of the trip",
+        paragraphs: [
+          "Book only the experiences that control the day. For this route, that usually means a Burj Khalifa time slot and a desert experience with a confirmed pickup window. Everything else should stay adjustable until you know the weather, energy level and actual hotel location.",
+          "Use the official RTA planner to test each door-to-door journey. A hotel labelled Downtown, Marina or Jumeirah can still sit far from the station or entrance you expect. The best itinerary is the one that works from your real accommodation, not from the centre point of a neighbourhood on a map.",
+        ],
+        bullets: [
+          "Count full sightseeing days, not hotel nights.",
+          "Keep at least one unbooked meal and one unbooked half-hour buffer each day.",
+          "Check the cancellation and late-arrival policy before paying for a timed attraction.",
+          "Confirm whether a desert pickup serves your hotel or requires a meeting point.",
+        ],
+      },
+      {
+        id: "day-one-downtown",
+        heading: "Day one: an arrival-friendly Downtown day",
+        paragraphs: [
+          "Downtown is a useful first-day base because Burj Khalifa, Dubai Mall and the surrounding promenades sit within one connected district. You can shorten or expand the day without creating another cross-city transfer. Visit Dubai describes the neighbourhood around its iconic landmarks, shopping and promenades; the value for a short trip is their proximity to one another.",
+        ],
+        subsections: [
+          {
+            id: "day-one-morning",
+            heading: "Morning: arrive, settle in and avoid an immediate race",
+            paragraphs: [
+              "If this is a genuine full day, begin with an unhurried breakfast and reach Downtown in the late morning. If you have just landed, leave time for the airport, luggage and hotel check-in. Do not attach a non-refundable observation-deck ticket to an optimistic landing time.",
+              "Walk only as much of the district as the weather makes sensible. The Metro station name includes Burj Khalifa and Dubai Mall, but station-to-destination movement still takes time. In summer, an air-conditioned route or a short taxi can be more practical than proving the trip is walkable.",
+            ],
+          },
+          {
+            id: "day-one-afternoon",
+            heading: "Afternoon: choose one paid anchor",
+            paragraphs: [
+              "Dubai Mall can absorb several hours, but it should not become a checklist of every attraction inside it. Choose one activity only if it genuinely matters to you. Otherwise use the mall for lunch, cooling down and moving toward the Burj Khalifa entrance at a calm pace.",
+              "If you book Burj Khalifa, compare the official ticket options and arrival instructions rather than assuming sunset is automatically the best value. A daylight slot can offer clearer orientation; an evening slot changes the city view. Visibility, queues and pricing vary, so no time is universally best.",
+            ],
+          },
+          {
+            id: "day-one-evening",
+            heading: "Evening: stay in the same district",
+            paragraphs: [
+              "Finish with the Downtown promenade and dinner nearby. Do not add Dubai Marina simply because it looks close on a skyline photo. Saving the coast for day three protects the evening from traffic and lets the first day end whenever travel fatigue appears.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "day-two-old-dubai-jumeirah",
+        heading: "Day two: Old Dubai first, then one Jumeirah evening",
+        paragraphs: [
+          "Day two shifts from the modern skyline to the Creek. Al Fahidi, Al Seef, the abra crossing and the Deira souks form a coherent heritage block when visited in a deliberate order. Visit Dubai's historic-district map shows the walking and marine connections around Al Fahidi, Al Shindagha, Al Ras and the souks.",
+        ],
+        subsections: [
+          {
+            id: "day-two-morning",
+            heading: "Morning: Al Fahidi, Creek and the abra",
+            paragraphs: [
+              "Start on the Bur Dubai side while walking conditions are easier. Explore a focused section of Al Fahidi or Al Seef, then move toward the Creek and cross by abra to Deira. The crossing is part of the route rather than transport you need to optimise away.",
+              "On the Deira side, choose the Spice Souk, Gold Souk or a food stop according to your interest. You do not need to buy anything, and you do not need to visit every market. Ask before photographing people and dress appropriately for a historic commercial district.",
+            ],
+          },
+          {
+            id: "day-two-midday",
+            heading: "Midday: lunch and a real break",
+            paragraphs: [
+              "After the Creek, stop for lunch and rest rather than moving directly into another long outdoor walk. Old Dubai's food story includes Emirati dishes as well as communities and cuisines shaped by the trading district. Choose a place with a current menu and opening information instead of following an undated restaurant list.",
+              "In hotter weather, return to the hotel or select one indoor stop. A two-hour break is not wasted itinerary time if it makes the evening enjoyable.",
+            ],
+          },
+          {
+            id: "day-two-evening",
+            heading: "Evening: pick one Jumeirah experience",
+            paragraphs: [
+              "Choose one coastal setting rather than touring the entire shoreline. Kite Beach suits an open public-beach atmosphere, while Souk Madinat Jumeirah offers an evening walk and dining setting. Check access, transport and any venue-specific conditions before leaving; these are alternatives, not consecutive stops.",
+              "Skip Palm Jumeirah on this evening unless it is one of your top priorities. Adding the Palm after Old Dubai creates another major transfer and leaves too little time to understand either area.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "day-three-marina-desert",
+        heading: "Day three: Marina morning and desert afternoon",
+        paragraphs: [
+          "Dubai Marina and JBR provide a slower waterfront contrast before the trip moves beyond the dense city. Visit Dubai describes Marina as a mix of waterfront, attractions and dining; for this itinerary, the goal is not to collect them all but to enjoy one compact walking area before the fixed desert pickup.",
+        ],
+        subsections: [
+          {
+            id: "day-three-morning",
+            heading: "Morning: Marina or JBR at your own pace",
+            paragraphs: [
+              "Arrive after breakfast and choose either part of Marina Walk or The Walk at JBR. If swimming, changing and beach time matter, give the morning to JBR. If you prefer an urban waterfront walk, stay around the Marina and use the Tram only when it removes a long exposed section.",
+              "Do not add Bluewaters, Palm Jumeirah and a cruise to the same morning. A desert pickup can begin well before sunset, and operators may collect other guests. Treat the confirmed pickup window as the deadline for being back at the hotel or meeting point.",
+            ],
+          },
+          {
+            id: "day-three-midday",
+            heading: "Midday: reset before pickup",
+            paragraphs: [
+              "Have an early lunch, return with enough time to change and carry only what the operator recommends. Verify the package inclusions, pickup area, food arrangements, cancellation terms and health restrictions. Desert experiences vary widely; the word safari does not guarantee the same driving, camp or dinner format.",
+            ],
+          },
+          {
+            id: "day-three-afternoon",
+            heading: "Afternoon and evening: one properly checked desert experience",
+            paragraphs: [
+              "An afternoon or evening desert experience gives the third day a different landscape without requiring you to self-drive. Check whether dune driving is included and appropriate for every traveller. Pregnant travellers and people with relevant medical or mobility concerns should review the operator's restrictions and ask for a non-dune alternative when needed.",
+              "Do not schedule a fixed dinner or late attraction after the stated return time. Shared transfers, traffic and collection order can extend the day. Let the desert experience be the final anchor rather than the start of another evening itinerary.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "summer-version",
+        heading: "The summer version: keep the route, change the clock",
+        paragraphs: [
+          "From the hottest part of the year, this itinerary should become indoor-first rather than merely starting one hour earlier. Use the long indoor Downtown block on day one. On day two, visit the Creek early, shorten the outdoor market section and protect midday for rest or an indoor venue. On day three, keep the Marina walk brief and follow the operator's current desert timing and safety guidance.",
+          "A Metro journey can reduce time outdoors, but the station entrance and final walk still matter. Check the complete route and use a taxi when a nominally cheap journey creates an unreasonable exposed connection. Caspaya's month-by-month guide explains why June through September require a different daily rhythm rather than a normal itinerary with more water breaks.",
+        ],
+        table: {
+          caption: "Heat-smart swaps preserve the purpose of each day without forcing long outdoor exposure.",
+          headers: ["Original block", "Hot-weather adjustment"],
+          rows: [
+            ["Downtown walking", "Use shorter outdoor loops and keep midday inside Dubai Mall"],
+            ["Old Dubai morning", "Start early, choose fewer lanes and return indoors before the longest heat exposure"],
+            ["Jumeirah evening", "Go later and choose one venue with a clear air-conditioned fallback"],
+            ["Marina waterfront", "Reduce the walk or use Tram/taxi for the exposed connection"],
+            ["Desert experience", "Confirm seasonal pickup, health restrictions and what shade or cooling the package provides"],
+          ],
+        },
+      },
+      {
+        id: "delayed-arrival-plan",
+        heading: "If your first day starts late",
+        paragraphs: [
+          "A delayed arrival should remove activities, not push them into midnight. Keep Downtown as a short first evening: settle in, eat and walk only if energy and transport allow. Move a booked Burj Khalifa visit to a later day if the ticket terms permit.",
+          "On day two, keep Old Dubai in the morning and drop the Jumeirah evening if necessary. On day three, choose either Marina or a slow hotel morning before the desert pickup. This preserves the three distinct parts of the trip without turning the last day into a recovery from the first two.",
+        ],
+        bullets: [
+          "Protect paid bookings before optional walks.",
+          "Drop the furthest optional stop first.",
+          "Do not shorten airport return time to rescue sightseeing.",
+          "If only two full days remain, use Caspaya's dedicated 48-hour itinerary instead.",
+        ],
+      },
+      {
+        id: "what-to-skip",
+        heading: "What to skip on a three-day first visit",
+        paragraphs: [
+          "Skipping is part of a realistic itinerary. Dubai's attractions are spread across a large urban area, and several places described as single stops can take half a day once queues, meals and transfers are included.",
+        ],
+        bullets: [
+          "Skip Abu Dhabi as a day trip unless it is more important to you than one complete Dubai day.",
+          "Skip stacking multiple observation decks; choose the view and district you value most.",
+          "Skip a full theme-park day unless the park is a primary reason for the trip.",
+          "Skip driving around Palm Jumeirah only to collect a photograph; visit with a specific public destination in mind.",
+          "Skip a second mall unless it contains an activity you deliberately chose.",
+          "Skip restaurant lists that force cross-city travel for every meal; eat near the day's main area.",
+        ],
+      },
+      {
+        id: "final-checklist",
+        heading: "Final checklist for a calmer three days",
+        paragraphs: [
+          "Forty-eight hours before the trip, check the forecast, transport notices, attraction entry instructions and desert pickup. Save the addresses and booking contacts offline. Each morning, review only that day's route and remove anything that no longer fits the conditions.",
+          "This article contains no affiliate links. Caspaya does not currently earn a commission from the places or experience types mentioned here. Official sources are listed below so readers can verify changing information after the review date.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Are three days enough for Dubai?",
+        answer:
+          "Three full sightseeing days are enough for a balanced introduction to Downtown, Old Dubai, the coast and one desert experience. Three hotel nights may provide less usable time once flights and transfers are counted.",
+      },
+      {
+        question: "Where should a first-time visitor stay for three days?",
+        answer:
+          "Choose the area that reduces travel to your top priorities. Downtown is convenient for the first day in this route, while a Red Line or central location can simplify movement between districts. Check the exact hotel-to-station or taxi route rather than relying only on the neighbourhood name.",
+      },
+      {
+        question: "Do I need a car for this Dubai itinerary?",
+        answer:
+          "No. Metro, Tram and taxis can cover this route, while a desert operator commonly provides a confirmed pickup arrangement. A rental car adds parking and navigation decisions that are not necessary for this three-day plan.",
+      },
+      {
+        question: "How much should I book in advance?",
+        answer:
+          "Book the time-sensitive anchors, usually Burj Khalifa if you want it and a properly checked desert experience. Keep meals, walks and optional indoor stops flexible.",
+      },
+      {
+        question: "Can I add Abu Dhabi to three days in Dubai?",
+        answer:
+          "You can, but it removes most of one Dubai day. For a first trip, add Abu Dhabi only if it ranks above one of the Downtown, heritage, coast or desert blocks rather than trying to fit everything.",
+      },
+      {
+        question: "What changes if I visit Dubai in summer?",
+        answer:
+          "Move the longest outdoor sections early or late, protect midday for indoor spaces and rest, and check the exposed walk at both ends of every transport journey. Confirm seasonal desert timings and restrictions directly with the operator.",
+      },
+    ],
+    sources: [
+      {
+        title: "A First-Timer's Guide to Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/things-to-do/itineraries/a-first-timers-guide-to-dubai",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Downtown Dubai Neighbourhood Guide",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/explore-dubai/dubai-neighbourhoods/downtown-dubai",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Burj Khalifa",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/places-to-visit/burj-khalifa",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Dubai Mall",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/places-to-visit/dubai-mall",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Dubai Historic District Map",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/-/media/Images/pdf/2023/dubai-historic-district-map/dubai-historic-district-map-en.pdf",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Taste the Flavours of Old Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/things-to-do/eat-and-drink/old-dubai-flavours",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Dubai Marina Neighbourhood Guide",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/explore-dubai/dubai-neighbourhoods/dubai-marina",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Desert Safaris in Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/places-to-visit/desert-safari-dubai",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Metro and Tram Stations Map",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/metro-stations-map",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "S'hail Journey Planning App",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/home/smart-apps/app-details/shail/shail-app?lang=en",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Weather in Dubai",
+        publisher: "Visit Dubai",
+        url: "https://www.visitdubai.com/en/plan-your-trip/weather-in-dubai",
+        accessedAt: "2026-09-05",
+      },
+    ],
+    internalLinks: [
+      { label: "Start with the first-time Dubai planning guide", href: "/blog/dubai-first-time-guide" },
+      { label: "Compare this route with Dubai in 48 Hours", href: "/blog/dubai-in-48-hours" },
+      { label: "Learn how to get around Dubai", href: "/blog/getting-around-dubai" },
+      { label: "Choose the best month for your trip", href: "/blog/best-time-to-visit-dubai" },
+    ],
+    relatedArticleSlugs: [
+      "dubai-first-time-guide",
+      "dubai-in-48-hours",
+      "getting-around-dubai",
       "best-time-to-visit-dubai",
     ],
   },
