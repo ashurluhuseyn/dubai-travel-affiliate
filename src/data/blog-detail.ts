@@ -430,9 +430,10 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
     ],
     internalLinks: [
       { label: "Read the first-time Dubai planning guide", href: "/blog/dubai-first-time-guide" },
+      { label: "Compare Metro, nol, taxis and Tram", href: "/blog/getting-around-dubai" },
       { label: "Read how Caspaya researches its guides", href: "/about" },
     ],
-    relatedArticleSlugs: [],
+    relatedArticleSlugs: ["getting-around-dubai"],
   },
   "dubai-first-time-guide": {
     id: "dubai-first-time-guide",
@@ -652,9 +653,10 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
     internalLinks: [
       { label: "Use the Dubai in 48 Hours itinerary", href: "/blog/dubai-in-48-hours" },
       { label: "Choose the best time for your Dubai trip", href: "/blog/best-time-to-visit-dubai" },
+      { label: "Learn how to get around Dubai", href: "/blog/getting-around-dubai" },
       { label: "See how Caspaya researches its guides", href: "/about" },
     ],
-    relatedArticleSlugs: ["dubai-in-48-hours"],
+    relatedArticleSlugs: ["dubai-in-48-hours", "getting-around-dubai"],
   },
   "best-time-to-visit-dubai": {
     id: "best-time-to-visit-dubai",
@@ -899,6 +901,244 @@ const researchedBlogDetails: Record<string, BlogDetail> = {
       { label: "Plan a practical 48 hours in Dubai", href: "/blog/dubai-in-48-hours" },
     ],
     relatedArticleSlugs: ["dubai-first-time-guide", "dubai-in-48-hours"],
+  },
+  "getting-around-dubai": {
+    id: "getting-around-dubai",
+    slug: "getting-around-dubai",
+    title: "Getting Around Dubai: Metro, nol, Taxis and Tram",
+    seoTitle: "Getting Around Dubai: Metro, nol, Taxis & Tram",
+    metaDescription:
+      "Compare Dubai Metro, nol cards, taxis, Tram and buses with current fares, airport connections and practical advice on when each option works.",
+    excerpt:
+      "A practical comparison of Dubai Metro, nol cards, taxis, Tram and buses — including airport connections, current fares and the trips each mode handles best.",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
+    imageAlt: "Dubai skyline and road network viewed in daylight",
+    category: "Guides",
+    readTime: "11 min read",
+    date: "September 5, 2026",
+    publishedAt: "2026-09-05T00:00:00.000Z",
+    updatedAt: "2026-09-05T00:00:00.000Z",
+    href: "/blog/getting-around-dubai",
+    status: "published",
+    noindex: false,
+    author: {
+      name: "Caspaya Editorial Team",
+      initials: "CE",
+      entityType: "Organization",
+      bio: "Caspaya prepared this guide from current Dubai RTA and Dubai Airports information. Fares, routes and operating hours were last checked on 5 September 2026.",
+      url: "https://caspaya.com/about",
+    },
+    sections: [
+      {
+        id: "short-answer",
+        heading: "The short answer: most visitors need a mix",
+        paragraphs: [
+          "There is no single best way to get around Dubai. The Metro is usually the clearest option for long trips along the Red Line corridor and for reaching parts of Old Dubai on the Green Line. Taxis solve awkward final connections, late-night journeys and trips with luggage. The Tram is useful around Dubai Marina and Al Sufouh, while buses fill many gaps beyond the rail network.",
+          "A practical first-time plan is to use Metro for the long, predictable section of a journey and a taxi only where the walk or transfer becomes inefficient. This matters because a place described as being near a Metro station may still involve an exposed walk, a feeder bus or a second mode. In hotter months, the final kilometre can change the sensible choice.",
+          "The fares and operating hours below were checked against official sources on 5 September 2026. RTA can change services for holidays, events or operational reasons, so confirm a time-sensitive journey in the official S'hail app or on the RTA website shortly before travelling.",
+        ],
+      },
+      {
+        id: "mode-comparison",
+        heading: "Which transport mode works best?",
+        paragraphs: [
+          "Choose by the complete door-to-door journey, not only the price of the longest segment. The table below is a decision guide rather than a promise about journey time; traffic, waiting, walking and interchange distance all matter.",
+        ],
+        table: {
+          caption: "Practical mode comparison for visitors. Check live routes and service notices before departure.",
+          headers: ["Mode", "Best for", "Main limitation", "How you pay"],
+          rows: [
+            ["Metro", "Airport T1/T3, Downtown corridor, Mall of the Emirates, Marina-side connections and Old Dubai interchanges", "It does not provide door-to-door coverage, and the final walk may be substantial", "nol card or Red Ticket"],
+            ["Dubai Tram", "Dubai Marina, JBR and Al Sufouh corridor", "A local connector rather than a citywide network", "nol card or eligible ticket; tap before and after"],
+            ["Bus", "Neighbourhoods and final connections not directly served by rail", "Routes can be less intuitive for a short first visit", "nol card"],
+            ["RTA taxi", "Luggage, families, late arrivals and awkward cross-city or final connections", "Traffic, tolls and waiting can raise the final fare", "Metered fare; available payment methods can vary"],
+            ["Abra and marine transport", "Selected Creek and waterfront crossings where the route itself adds value", "Services, fares and schedules vary by route", "Depends on the specific service"],
+          ],
+        },
+      },
+      {
+        id: "nol-card-basics",
+        heading: "nol cards and Dubai's zone fares",
+        paragraphs: [
+          "nol is RTA's transport payment system. A nol card can be used on Dubai Metro, buses, Dubai Tram and several marine services. RTA says cards can be purchased at ticket offices, ticket vending machines, customer happiness centres, authorised sales agents or online. Visitors should not assume that tapping a bank card or paying cash will work at every public-transport gate.",
+          "Dubai is divided into seven public-transport zones. The fare is based on the zones crossed, not simply the number of stops. If you change between eligible modes within 30 minutes, RTA can treat the legs as one journey and calculate the combined zone fare. Always tap in and tap out correctly; RTA also requires at least AED 7.50 balance to check in with a nol card.",
+        ],
+        table: {
+          caption: "RTA fares checked 5 September 2026. AED figures are per journey and may change after review.",
+          headers: ["Zones crossed", "Silver card", "Gold card", "Red Ticket (regular)"],
+          rows: [
+            ["Within one zone", "AED 3", "AED 6", "AED 4"],
+            ["Two adjacent zones", "AED 5", "AED 10", "AED 6"],
+            ["More than two zones", "AED 7.50", "AED 15", "AED 8.50"],
+          ],
+        },
+        bullets: [
+          "Silver is the straightforward reusable option for many visitors making several journeys.",
+          "A Red Ticket can suit limited single journeys, but its fare is higher than Silver for the same zone count.",
+          "Gold class costs more and applies to designated Metro and Tram cabins; do not enter a Gold cabin with only a regular fare entitlement.",
+          "Each traveller needs a valid fare product; do not pass one card back and forth at the gates.",
+        ],
+      },
+      {
+        id: "metro-guide",
+        heading: "Dubai Metro: where it works and where it stops helping",
+        paragraphs: [
+          "Dubai Metro has Red and Green lines. The Red Line serves DXB Terminals 1 and 3 and continues through major corridors including Downtown, Mall of the Emirates and stations that connect toward Dubai Marina. The Green Line is particularly useful for parts of Deira, the Gold Souq, Al Ras, Al Ghubaiba and the Creek side of Old Dubai. Union and BurJuman are the official interchanges between the two lines.",
+          "For the Marina and JBR area, the Red Line connects with Dubai Tram at Sobha Realty and DMCC. Check the destination rather than assuming every waterfront hotel is beside the Metro: the Tram, a walk or a taxi may still be required. Palm Jumeirah also needs careful route planning because the RTA Tram stop and the separate Palm Monorail are not the same system.",
+          "Current published Metro station hours are Monday to Thursday 5am to midnight, Friday 5am to 1am the next day, Saturday 5am to midnight and Sunday 8am to midnight. These are network opening hours, not a guarantee that the final train serves every end-to-end trip at the closing minute. Leave a buffer and check live information for holidays and major events.",
+        ],
+        bullets: [
+          "Use the station name shown in the official planner; station sponsorship names can change.",
+          "Allow time inside large stations and for the walk from the platform to the final exit.",
+          "Keep luggage within current RTA rules and avoid blocking doors or aisles.",
+          "Use the designated women-and-children or Gold cabins only when eligible.",
+        ],
+      },
+      {
+        id: "tram-and-bus",
+        heading: "When the Tram or bus is the better connection",
+        paragraphs: [
+          "Dubai Tram serves 11 stations through JBR, Dubai Marina, Media City and Al Sufouh. It is most useful as a neighbourhood connector after the Metro or for moving between waterfront stops without repeating a long walk. RTA currently lists Tram station hours as 6am to 1am the next day from Monday to Saturday and 9am to 1am the next day on Sunday.",
+          "Tram stations use an open system, so the absence of a barrier does not remove the need to pay. RTA instructs passengers to tap before boarding and after leaving. Forgetting either tap can produce an incorrect charge or a fine.",
+          "Buses expand the network far beyond rail stations and can be the right answer when a destination sits on a direct route. They are less forgiving when a first-time visitor guesses the stop or direction. Use S'hail for the exact stop, route and live information, and keep enough time for the final walk.",
+        ],
+      },
+      {
+        id: "taxis",
+        heading: "When a taxi is worth the extra cost",
+        paragraphs: [
+          "Taxis are often the rational choice when several people share the fare, when you have luggage, when the temperature makes a long station walk impractical or when public transport creates multiple transfers. They can also protect a time-sensitive booking, but traffic can remove that advantage during busy periods.",
+          "RTA's current road-pickup starting fare is AED 5 from 6am to 10pm and AED 5.50 from 10pm to 6am. The standard airport taxi starts at AED 20, while an airport van starts at AED 25. App-booked and event-location starting fares can differ. The final meter also accounts for distance, waiting and applicable charges such as tolls, so the flag fall is not an estimate of the complete trip.",
+          "Use a licensed taxi or an authorised booking channel. Before a long journey, compare the live route with Metro plus a short taxi rather than assuming either option is always cheaper or faster.",
+        ],
+      },
+      {
+        id: "airport-to-city",
+        heading: "Arriving at DXB: Metro or taxi?",
+        paragraphs: [
+          "DXB Terminals 1 and 3 have direct Red Line stations. Ticket offices and vending machines at those terminals sell Metro fare products, which makes rail practical for a daytime arrival when your accommodation is near the route and your luggage is manageable. Terminal 2 is not served by the same direct airport Metro connection, so plan its ground transport separately.",
+          "Choose a taxi when you arrive outside Metro hours, have significant luggage, are travelling with young children or would otherwise face an awkward final transfer. Also check the actual terminal before planning: an airport name alone is not enough, and Dubai World Central has different public-transport connections.",
+        ],
+      },
+      {
+        id: "common-mistakes",
+        heading: "Seven mistakes that waste time",
+        paragraphs: [
+          "Most transport problems come from planning only the middle of a journey. A route is successful when the station entrance, transfer, final walk and return option all work together.",
+        ],
+        bullets: [
+          "Booking a hotel described as 'near the Metro' without checking the walking route and station exit.",
+          "Looking only at station opening hours instead of the final train needed for the full journey.",
+          "Forgetting to tap out or letting the nol balance fall below the required minimum.",
+          "Treating the Palm Monorail as if it were simply another RTA Metro line.",
+          "Using Metro for a route that requires two transfers and a long outdoor walk when a shared taxi is more sensible.",
+          "Assuming the airport Metro serves every DXB terminal in the same way.",
+          "Relying on an old screenshot instead of checking live service changes in S'hail or with RTA.",
+        ],
+      },
+      {
+        id: "simple-plan",
+        heading: "A simple transport plan for a first visit",
+        paragraphs: [
+          "Before the trip, mark your hotel and three priority places on the official RTA planner. Check the full route at the times you expect to travel, including the final walk. Buy the appropriate nol product after you know how many public-transport journeys you will actually make rather than choosing a pass from a generic recommendation.",
+          "During the trip, keep Metro as the backbone when it produces a direct route, use the Tram or bus for clear local connections and take a taxi when it removes an unreasonable transfer. Recheck any early-airport or late-night journey the day before. This mixed approach is usually more useful than trying to prove that one mode is best for every day.",
+          "Caspaya does not currently earn commission from any transport option mentioned in this guide. The source links below lead to official information so you can verify changes after the review date.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do tourists need a nol card in Dubai?",
+        answer:
+          "You need a valid nol fare product to use Dubai Metro, buses and Tram. A reusable Silver card often suits visitors making several journeys, while a Red Ticket may suit limited travel. Compare the current purchase cost and fares before choosing.",
+      },
+      {
+        question: "Can I use one nol card for two people?",
+        answer:
+          "Each passenger should use their own valid card or ticket for the journey. Do not try to pass one card between travellers at a gate or reader.",
+      },
+      {
+        question: "How much does Dubai Metro cost?",
+        answer:
+          "As checked on 5 September 2026, a regular Silver-card journey costs AED 3 within one zone, AED 5 across two adjacent zones and AED 7.50 across more than two zones. Recheck RTA because fares can change.",
+      },
+      {
+        question: "Does Dubai Metro run from the airport?",
+        answer:
+          "The Red Line directly serves DXB Terminals 1 and 3. Check your actual terminal and arrival time; Terminal 2 and Dubai World Central require different planning.",
+      },
+      {
+        question: "Is Metro or taxi better in Dubai?",
+        answer:
+          "Metro is useful for direct trips along its corridors; taxis are useful for luggage, late journeys and awkward final connections. Compare the complete route, walking exposure, group size and live traffic rather than choosing one mode for the whole trip.",
+      },
+      {
+        question: "What app should I use for Dubai public transport?",
+        answer:
+          "RTA's official S'hail app combines Metro, Tram, buses and taxis and provides journey planning and real-time traffic information. Use it to confirm live routes and service changes.",
+      },
+    ],
+    sources: [
+      {
+        title: "nol Fares",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares?lang=en",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "About nol Cards",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/About-Nol-Card",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Metro and Tram Stations Map",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/metro-stations-map",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Public Transport Timetable",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/public-transport/timetable",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Dubai Tram Service Details",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=337",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Taxi Fare in Dubai",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/home/promotion/taxi-fare",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "S'hail Journey Planning App",
+        publisher: "Dubai Roads and Transport Authority",
+        url: "https://www.rta.ae/wps/portal/rta/ae/home/smart-apps/app-details/shail/shail-app?lang=en",
+        accessedAt: "2026-09-05",
+      },
+      {
+        title: "Dubai Metro at DXB",
+        publisher: "Dubai Airports",
+        url: "https://dubaiairports.ae/transport/metro",
+        accessedAt: "2026-09-05",
+      },
+    ],
+    internalLinks: [
+      { label: "Start with the Dubai first-time visitor guide", href: "/blog/dubai-first-time-guide" },
+      { label: "Use the practical Dubai in 48 Hours itinerary", href: "/blog/dubai-in-48-hours" },
+      { label: "Choose the best time for your Dubai trip", href: "/blog/best-time-to-visit-dubai" },
+    ],
+    relatedArticleSlugs: [
+      "dubai-first-time-guide",
+      "dubai-in-48-hours",
+      "best-time-to-visit-dubai",
+    ],
   },
 };
 

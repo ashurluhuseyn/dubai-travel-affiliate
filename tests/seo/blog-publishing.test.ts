@@ -20,6 +20,7 @@ describe("blog publishing guard", () => {
     assert.deepEqual(
       publishedPosts.map((post) => post.slug),
       [
+        "getting-around-dubai",
         "best-time-to-visit-dubai",
         "dubai-first-time-guide",
         "dubai-in-48-hours",
@@ -80,6 +81,7 @@ describe("sitemap publishing policy", () => {
     assert.ok(urls.includes("https://caspaya.com/terms"));
     assert.ok(urls.includes("https://caspaya.com/affiliate-disclosure"));
     assert.ok(urls.includes("https://caspaya.com/blog"));
+    assert.ok(urls.includes("https://caspaya.com/blog/getting-around-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/best-time-to-visit-dubai"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-first-time-guide"));
     assert.ok(urls.includes("https://caspaya.com/blog/dubai-in-48-hours"));
